@@ -222,20 +222,56 @@
           </div>
         </div>
         <div id="synopsis">
-          <div id="synopsis-panel">
-
+          <div id="synopsis-box">
+              <div id="synopsis__content">
+                  <div id="synopsis__content__title">Avengers: Endgame</div>
+                  <div id="synopsis__content__rating">PG</div>
+                  <div id="synopsis__content__plot"> Plot description <br>
+                    <p>After the devastating events of Avengers: 
+                      Infinity War (2018), the universe is in ruins. 
+                      With the help of remaining allies, the Avengers 
+                      assemble once more in order to reverse Thanos' 
+                      actions and restore balance to the universe.</p>
+                    </div>
+              </div>
+              <div id="synopsis__trailer">
+                <iframe id="synopsis__trailer__video" width="580" height="400" src="https://www.youtube.com/embed/TcMBFSGVi1c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <div id="synopsis__booking-bar">
+                <div>
+                  Make a Booking:
+                </div>
+                <div>
+                  <a href="#" class="synopsis__booking-bar__button">Mon - N/A</a>
+                  <a href="#" class="synopsis__booking-bar__button">Tue - N/A</a>
+                  <a href="#" class="synopsis__booking-bar__button">Wed - 9:00 p.m</a>
+                  <a href="#" class="synopsis__booking-bar__button">Thu - 9:00 p.m</a>
+                  <a href="#" class="synopsis__booking-bar__button">Fri - 9:00 p.m</a>
+                  <a href="#" class="synopsis__booking-bar__button">Sat - 6:00 p.m</a>
+                  <a href="#" class="synopsis__booking-bar__button">Sun - 6:00 p.m</a>
+                </div>
+              </div>
           </div>
         </div>
       </div>
   </main>
 
   <footer>
-    <div>&copy;
+    <div>
+      Phone: +84 123456789 <br>
+      Contact Email: cinemax@gmail.com <br>
+      Address: 123 Ngo Gia Tu, Nha Trang City, Vietnam <br>
+      <a href="https://github.com/s3695516/wp.git" style="color: yellow" target="_blank">Git Hub Repo Link - Click Here</Cick> </a>
+    </div>
+    <hr style="border-color: #d0ffa3; margin: 20px 0px;">
+    <div>
+      &copy;
       <script>
         document.write(new Date().getFullYear());
-      </script> Le Quang Hien - s3695516 and group name here. Last modified
+      </script> 
+      Group 2: Le Quang Hien - s3695516 and Dang Ba Minh - s3685119. Last modified
       <?= date ("Y F d  H:i", filemtime($_SERVER['SCRIPT_FILENAME'])); ?>.</div>
-    <div>Disclaimer: This website is not a real website and is being developed as part of a School of Science Web
+    <div">Disclaimer: This website is not a real website and is being developed as part of a School of Science Web
       Programming course at RMIT University in Melbourne, Australia.</div>
     <div><button id='toggleWireframeCSS' onclick='toggleWireframe()'>Toggle Wireframe CSS</button></div>
   </footer>
