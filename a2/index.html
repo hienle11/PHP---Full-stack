@@ -1,41 +1,245 @@
 <!DOCTYPE html>
 <html lang='en'>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Assignment 2</title>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Assignment 2</title>
+
+  <!-- Keep wireframe.css for debugging, add your css to style.css -->
+  <link id='wireframecss' type="text/css" rel="stylesheet" href="../wireframe.css" disabled>
+  <link id='stylecss' type="text/css" rel="stylesheet" href="../style.css">
+
+  <script src='../wireframe.js'></script>
+
+  <!-- Add css file and links for google fonts -->
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500&display=swap" rel="stylesheet">  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <header>
+    <div>
+      <div>
+        <img id="header__logo" src="media/logo.png">
+      </div>
+      <div>
+        <h1 id="header__brand"> CINEMAX </h1>
+        <span id="header__slogan">- Hollywood in town - </span>
+      </div>
+    </div>
+    <hr id="header__underline">
+  </header>
+
+  <nav id="navbar">
+    <div id="navbar__container">
+      <ul id="navbar__list">
+        <li class="navbar__item"><a id="navbar__brand" href="#"><img id="navbar__logo" src="media/logo.png">CINEMAX</a>
+        </li>
+        <li class="navbar__item"><a class='active' href="#about-us-section">About Us</a></li>
+        <li class="navbar__item"><a href="#price">Prices</a></li>
+        <li class="navbar__item"><a href="#now-showing">Now Showing</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section id="about-us-section">
+      <div class="section-container section-container--about">
+        <div id="intro-info">
+          <h2>GRAND REOPENING</h2>
+            <h3>Extensive Improvements and Renovations</h3>
+        </div>
+            
+        <div id="seat-info">
+          <h2>New Seats</h2>
+            <hr class="h2-underline">
+            <div id="card-container">
+              <div class="card">
+                <div class="card__image">
+                  <img src="media/standard-seat.jpg">
+                </div>
+                <h3>Standard</h3>
+              </div>
     
-    <!-- Keep wireframe.css for debugging, add your css to style.css -->
-    <link id='wireframecss' type="text/css" rel="stylesheet" href="../wireframe.css" disabled> 
-    <link id='stylecss' type="text/css" rel="stylesheet" href="../style.css">
+              <div class="card">
+                <div>
+                  <img class="card__image" src="media/premium-seat.jpg">
+                </div>
+                <h3>First class</h3>
+              </div>
+            </div>
+        </div>
 
-    <script src='../wireframe.js'></script>
-  </head>
+        <div id="dolby-info">
+          <div>
+            <h2>NEW PROJECTION AND SOUND SYSTEMS</h2>
+              <h3>- 3D Dolby Vision projection -</h3>
+              <h3>- Dolby Atmos sound -</h3>
+              <a href="https://www.dolby.com/us/en/cinema " target="_blank">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="price">
+      <div class="section-container section-container--price">
+        <div>
+          <h2>Prices</h2>
+          <hr class="h2-underline">
+        </div>
+        <div id="table-container">
+          <table id="price-table">
+          <tr>
+            <th>Seat Type</th>
+            <th>Seat Code</th>
+            <th>Every Monday & Wednesday
+            <br> AND at 12pm on other weekdays
+            </th>
+            <th>All other times</th>
+          </tr>
+          <tr>
+            <td>Standard Adult</td>
+            <td>STA</td>
+            <td>$14.00</td>
+            <td>$19.80</td>
+          </tr>
+          <tr>
+            <td>Standard Concession</td>
+            <td>STP</td>
+            <td>$12.50</td>
+            <td>$17.50</td>
+          </tr>
+          <tr>
+            <td>Standard Child</td>
+            <td>STC</td>
+            <td>$11.50</td>
+            <td>$15.30</td>
+          </tr>
+          <tr>
+            <td>First Class Adult</td>
+            <td>FCA</td>
+            <td>$24.00</td>
+            <td>$30.00</td>
+          </tr>
+          <tr>
+            <td>First Class Concession</td>
+            <td>FCP</td>
+            <td>$22.50</td>
+            <td>$27.00</td>
+          </tr>
+          <tr>
+            <td>First Class Child</td>
+            <td>FCC</td>
+            <td>$21.00</td>
+            <td>$24.00</td>
+          </tr>
 
-  <body>
+        </table>
 
-    <header>
-      <div>Put company logo and name here</div>
-    </header>
+        </div>
+      </div>
+    </section>
+    <section id="now-showing"></section>
+      <div class="section-container section-container--now-showing">
+        <div>
+          <h2> Now Showing </h2>
+          <hr class="h2-underline">
+        </div>
+        <div id="panel-container">
+          <div class="panel">
+            <div class="panel__poster">
+              <img src="media/avegers.jpg">
+            </div>
+            <div class="panel__content">
+              <div class="panel__content__title">Avengers: Endgame</div>
+              <div class="panel__content__rating">PG</div>
+              <div class="panel__content__schedule">
+                Monday - N/A <br>
+                Tuesday - N/A <br>
+                Wednesday - 9pm <br>
+                Thursday - 9pm <br>
+                Friday - 9pm <br>
+                Saturday - 6pm <br>
+                Sunday - 6pm <br>
+              </div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel__poster">
+              <img src="media/wedding.jpg">
+            </div>
+            <div class="panel__content">
+              <div class="panel__content__title">Top End Wedding</div>
+              <div class="panel__content__rating">M</div>
+              <div class="panel__content__schedule">
+                Monday - 6pm <br>
+                Tuesday - 6pm <br>
+                Wednesday - N/A <br>
+                Thursday - N/A <br>
+                Friday - N/A <br>
+                Saturday - 6pm <br>
+                Sunday - 6pm <br>
+              </div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel__poster">
+              <img src="media/dumbo.jpg">
+            </div>
+            <div class="panel__content">
+              <div class="panel__content__title">Dumbo</div>
+              <div class="panel__content__rating">PG</div>
+              <div class="panel__content__schedule">
+                Monday - 12pm <br>
+                Tuesday - 12pm <br>
+                Wednesday - 6pm <br>
+                Thursday - 6pm <br>
+                Friday - 6pm <br>
+                Saturday - 12pm <br>
+                Sunday - 12pm <br>
+              </div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel__poster">
+              <img src="media/happy-prince.jpg">
+            </div>
+            <div class="panel__content">
+              <div class="panel__content__title">The Happy Prince</div>
+              <div class="panel__content__rating">R</div>
+              <div class="panel__content__schedule">
+                Monday - N/A <br>
+                Tuesday - N/A <br>
+                Wednesday - 12pm <br>
+                Thursday - 12pm <br>
+                Friday - 12pm <br>
+                Saturday - 9pm <br>
+                Sunday - 9pm <br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="synopsis">
+          <div id="synopsis-panel">
 
-    <nav>
-      <div>Put website navigation links here</div>
-    </nav>
+          </div>
+        </div>
+      </div>
+  </main>
 
-    <main>
-      <article id='Website Under Construction'>
-    <!-- Creative Commons image sourced from https://pixabay.com/en/maintenance-under-construction-2422173/ and used for educational purposes only -->
-        <img src='../../media/website-under-construction.png' alt='Website Under Construction' />
-      </article>
-    </main>
-
-    <footer>
-      <div>&copy;<script>
+  <footer>
+    <div>&copy;
+      <script>
         document.write(new Date().getFullYear());
-      </script> Put your name(s), student number(s) and group name here. Last modified <?= date ("Y F d  H:i", filemtime($_SERVER['SCRIPT_FILENAME'])); ?>.</div>
-      <div>Disclaimer: This website is not a real website and is being developed as part of a School of Science Web Programming course at RMIT University in Melbourne, Australia.</div>
-      <div><button id='toggleWireframeCSS' onclick='toggleWireframe()'>Toggle Wireframe CSS</button></div>
-    </footer>
+      </script> Le Quang Hien - s3695516 and group name here. Last modified
+      <?= date ("Y F d  H:i", filemtime($_SERVER['SCRIPT_FILENAME'])); ?>.</div>
+    <div>Disclaimer: This website is not a real website and is being developed as part of a School of Science Web
+      Programming course at RMIT University in Melbourne, Australia.</div>
+    <div><button id='toggleWireframeCSS' onclick='toggleWireframe()'>Toggle Wireframe CSS</button></div>
+  </footer>
 
-  </body>
+</body>
+
 </html>
