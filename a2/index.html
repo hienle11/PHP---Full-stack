@@ -13,19 +13,18 @@
   <script src='../wireframe.js'></script>
 
   <!-- Add css file and links for google fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet" />
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500&display=swap" rel="stylesheet">  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
-
   <header>
     <div>
       <div>
-        <img id="header__logo" src="media/logo.png">
+        <img id="header__logo" src="media/logo_transparent.png">
       </div>
-      <div>
+      <div id="header__brand-container">
         <h1 id="header__brand"> CINEMAX </h1>
         <span id="header__slogan">- Hollywood in town - </span>
       </div>
@@ -36,66 +35,70 @@
   <nav id="navbar">
     <div id="navbar__container">
       <ul id="navbar__list">
-        <li class="navbar__item"><a id="navbar__brand" href="#"><img id="navbar__logo" src="media/logo.png">CINEMAX</a>
-        </li>
-        <li class="navbar__item"><a class='active' href="#about-us-section">About Us</a></li>
-        <li class="navbar__item"><a href="#price">Prices</a></li>
-        <li class="navbar__item"><a href="#now-showing">Now Showing</a></li>
+        <li class="navbar__item"><a class="current_link" onClick="addCurrentLinkEffect(this)" href="#">Home</a></li>
+        <li class="navbar__item"><a onClick="addCurrentLinkEffect(this)" href="#about-us-section">About Us</a></li>
+        <li class="navbar__item"><a onClick="addCurrentLinkEffect(this)" href="#price">Prices</a></li>
+        <li class="navbar__item"><a onClick="addCurrentLinkEffect(this)" href="#now-showing">Now Showing</a></li>
       </ul>
     </div>
   </nav>
 
   <main>
-    <section id="about-us-section">
-      <div class="section-container section-container--about">
-        <div id="intro-info">
-          <h2>GRAND REOPENING</h2>
-            <h3>Extensive Improvements and Renovations</h3>
-        </div>
-            
-        <div id="seat-info">
-          <h2>New Seats</h2>
-            <hr class="h2-underline">
-            <div id="card-container">
-              <div class="card">
-                <div class="card__image">
-                  <img src="media/standard-seat.jpg">
-                </div>
-                <h3>Standard</h3>
-              </div>
-    
-              <div class="card">
-                <div>
-                  <img class="card__image" src="media/premium-seat.jpg">
-                </div>
-                <h3>First class</h3>
-              </div>
-            </div>
-        </div>
+    <!-- ABOUT-US SECTION -->
+    <section id="about-us-section" class="section-container section-container--about">
+      <div id="intro-info">
+        <h2 class="heading-primary heading-primary--main u-margin-top-medium">GRAND REOPENING</h2>
+        <h3 class="heading-primary heading-primary--sub">Extensive Improvements and Renovations</h3>
+      </div>
 
-        <div id="dolby-info">
+      <div class="u-margin-bottom-huge">
+        <h2 class="heading-secondary">New Seats</h2>
+        <hr class="h2-underline">
+        <div class="row">
+          <div class="col-1-of-2">
+            <div class="card">
+              <div class="card__image">
+                <img src="media/standard-seat.jpg">
+              </div>
+              <h3 class="heading-tertinary">Standard</h3>
+            </div>
+          </div>
           <div>
-            <h2>NEW PROJECTION AND SOUND SYSTEMS</h2>
-              <h3>- 3D Dolby Vision projection -</h3>
-              <h3>- Dolby Atmos sound -</h3>
-              <a href="https://www.dolby.com/us/en/cinema " target="_blank">Learn More</a>
+            <div class="card">
+              <div>
+                <img class="card__image" src="media/premium-seat.jpg">
+              </div>
+              <h3 class="heading-tertinary">First class</h3>
+            </div>
           </div>
         </div>
       </div>
-    </section>
-    <section id="price">
-      <div class="section-container section-container--price">
+
+      <h2 class="heading-secondary">New Technology</h2>
+      <hr class="h2-underline u-margin-bottom-large">
+      <div id="dolby-info">
         <div>
-          <h2>Prices</h2>
-          <hr class="h2-underline">
+          <h2 class="u-margin-bottom-medium">NEW PROJECTION AND SOUND SYSTEMS</h2>
+          <h3 class="u-margin-bottom-small">- 3D Dolby Vision projection -</h3>
+          <h3 class="u-margin-bottom-medium">- Dolby Atmos sound -</h3>
+          <a href="https://www.dolby.com/us/en/cinema " target="_blank" class="btn-text">Learn More</a>
         </div>
-        <div id="table-container">
-          <table id="price-table">
+      </div>
+    </section>
+
+    <!-- PRICE SECTION -->
+    <section id="price" class="section-container section-container--price">
+      <div class="u-margin-top-medium">
+        <h2 class="heading-secondary">Prices</h2>
+        <hr class="h2-underline">
+      </div>
+      <div id="table-container" class="u-margin-to-medium">
+        <table id="price-table">
           <tr>
             <th>Seat Type</th>
             <th>Seat Code</th>
             <th>Every Monday & Wednesday
-            <br> AND at 12pm on other weekdays
+              <br> AND at 12pm on other weekdays
             </th>
             <th>All other times</th>
           </tr>
@@ -135,147 +138,156 @@
             <td>$21.00</td>
             <td>$24.00</td>
           </tr>
-
         </table>
+      </div>
+    </section>
 
+    <!-- NOW-SHOWING SECTION -->
+    <section id="now-showing" class="section-container section-container--now-showing">
+      <div>
+        <h2 class="heading-secondary"> Now Showing </h2>
+        <hr class="h2-underline">
+      </div>
+
+      <div id="panel-container">
+        <div class="panel">
+          <div class="panel__poster">
+            <img src="media/avegers.jpg">
+          </div>
+          <div class="panel__content">
+            <div class="panel__content__title">Avengers: Endgame</div>
+            <div class="panel__content__rating">PG</div>
+            <div class="panel__content__schedule">
+              Monday - N/A <br>
+              Tuesday - N/A <br>
+              Wednesday - 9pm <br>
+              Thursday - 9pm <br>
+              Friday - 9pm <br>
+              Saturday - 6pm <br>
+              Sunday - 6pm <br>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel__poster">
+            <img src="media/wedding.jpg">
+          </div>
+          <div class="panel__content">
+            <div class="panel__content__title">Top End Wedding</div>
+            <div class="panel__content__rating">M</div>
+            <div class="panel__content__schedule">
+              Monday - 6pm <br>
+              Tuesday - 6pm <br>
+              Wednesday - N/A <br>
+              Thursday - N/A <br>
+              Friday - N/A <br>
+              Saturday - 6pm <br>
+              Sunday - 6pm <br>
+            </div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel__poster">
+            <img src="media/dumbo.jpg">
+          </div>
+          <div class="panel__content">
+            <div class="panel__content__title">Dumbo</div>
+            <div class="panel__content__rating">PG</div>
+            <div class="panel__content__schedule">
+              Monday - 12pm <br>
+              Tuesday - 12pm <br>
+              Wednesday - 6pm <br>
+              Thursday - 6pm <br>
+              Friday - 6pm <br>
+              Saturday - 12pm <br>
+              Sunday - 12pm <br>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel__poster">
+            <img src="media/happy-prince.jpg">
+          </div>
+          <div class="panel__content">
+            <div class="panel__content__title">The Happy Prince</div>
+            <div class="panel__content__rating">R</div>
+            <div class="panel__content__schedule">
+              Monday - N/A <br>
+              Tuesday - N/A <br>
+              Wednesday - 12pm <br>
+              Thursday - 12pm <br>
+              Friday - 12pm <br>
+              Saturday - 9pm <br>
+              Sunday - 9pm <br>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="synopsis">
+        <div id="synopsis-box">
+          <div id="synopsis__content">
+            <div id="synopsis__content__title">Avengers: Endgame</div>
+            <div id="synopsis__content__rating">PG</div>
+
+            <div id="synopsis__content__plot">
+              <h2>Plot description:</h2>
+              <p>After the devastating events of Avengers:
+                Infinity War (2018), the universe is in ruins.
+                With the help of remaining allies, the Avengers
+                assemble once more in order to reverse Thanos'
+                actions and restore balance to the universe.</p>
+            </div>
+          </div>
+          <div id="synopsis__trailer">
+            <iframe id="synopsis__trailer__video" width="580" height="400"
+              src="https://www.youtube.com/embed/TcMBFSGVi1c" frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div id="synopsis__booking-bar">
+            <div>
+              Make A Booking:
+            </div>
+            <div>
+              <a href="#" class="synopsis__booking-bar__button">Mon - N/A</a>
+              <a href="#" class="synopsis__booking-bar__button">Tue - N/A</a>
+              <a href="#" class="synopsis__booking-bar__button">Wed - 9:00 p.m</a>
+              <a href="#" class="synopsis__booking-bar__button">Thu - 9:00 p.m</a>
+              <a href="#" class="synopsis__booking-bar__button">Fri - 9:00 p.m</a>
+              <a href="#" class="synopsis__booking-bar__button">Sat - 6:00 p.m</a>
+              <a href="#" class="synopsis__booking-bar__button">Sun - 6:00 p.m</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
-    <section id="now-showing"></section>
-      <div class="section-container section-container--now-showing">
-        <div>
-          <h2> Now Showing </h2>
-          <hr class="h2-underline">
-        </div>
-        <div id="panel-container">
-          <div class="panel">
-            <div class="panel__poster">
-              <img src="media/avegers.jpg">
-            </div>
-            <div class="panel__content">
-              <div class="panel__content__title">Avengers: Endgame</div>
-              <div class="panel__content__rating">PG</div>
-              <div class="panel__content__schedule">
-                Monday - N/A <br>
-                Tuesday - N/A <br>
-                Wednesday - 9pm <br>
-                Thursday - 9pm <br>
-                Friday - 9pm <br>
-                Saturday - 6pm <br>
-                Sunday - 6pm <br>
-              </div>
-            </div>
-          </div>
-          <div class="panel">
-            <div class="panel__poster">
-              <img src="media/wedding.jpg">
-            </div>
-            <div class="panel__content">
-              <div class="panel__content__title">Top End Wedding</div>
-              <div class="panel__content__rating">M</div>
-              <div class="panel__content__schedule">
-                Monday - 6pm <br>
-                Tuesday - 6pm <br>
-                Wednesday - N/A <br>
-                Thursday - N/A <br>
-                Friday - N/A <br>
-                Saturday - 6pm <br>
-                Sunday - 6pm <br>
-              </div>
-            </div>
-          </div>
-          <div class="panel">
-            <div class="panel__poster">
-              <img src="media/dumbo.jpg">
-            </div>
-            <div class="panel__content">
-              <div class="panel__content__title">Dumbo</div>
-              <div class="panel__content__rating">PG</div>
-              <div class="panel__content__schedule">
-                Monday - 12pm <br>
-                Tuesday - 12pm <br>
-                Wednesday - 6pm <br>
-                Thursday - 6pm <br>
-                Friday - 6pm <br>
-                Saturday - 12pm <br>
-                Sunday - 12pm <br>
-              </div>
-            </div>
-          </div>
-          <div class="panel">
-            <div class="panel__poster">
-              <img src="media/happy-prince.jpg">
-            </div>
-            <div class="panel__content">
-              <div class="panel__content__title">The Happy Prince</div>
-              <div class="panel__content__rating">R</div>
-              <div class="panel__content__schedule">
-                Monday - N/A <br>
-                Tuesday - N/A <br>
-                Wednesday - 12pm <br>
-                Thursday - 12pm <br>
-                Friday - 12pm <br>
-                Saturday - 9pm <br>
-                Sunday - 9pm <br>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="synopsis">
-          <div id="synopsis-box">
-              <div id="synopsis__content">
-                  <div id="synopsis__content__title">Avengers: Endgame</div>
-                  <div id="synopsis__content__rating">PG</div>
-                  <div id="synopsis__content__plot"> Plot description <br>
-                    <p>After the devastating events of Avengers: 
-                      Infinity War (2018), the universe is in ruins. 
-                      With the help of remaining allies, the Avengers 
-                      assemble once more in order to reverse Thanos' 
-                      actions and restore balance to the universe.</p>
-                    </div>
-              </div>
-              <div id="synopsis__trailer">
-                <iframe id="synopsis__trailer__video" width="580" height="400" src="https://www.youtube.com/embed/TcMBFSGVi1c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-              </div>
-              <div id="synopsis__booking-bar">
-                <div>
-                  Make a Booking:
-                </div>
-                <div>
-                  <a href="#" class="synopsis__booking-bar__button">Mon - N/A</a>
-                  <a href="#" class="synopsis__booking-bar__button">Tue - N/A</a>
-                  <a href="#" class="synopsis__booking-bar__button">Wed - 9:00 p.m</a>
-                  <a href="#" class="synopsis__booking-bar__button">Thu - 9:00 p.m</a>
-                  <a href="#" class="synopsis__booking-bar__button">Fri - 9:00 p.m</a>
-                  <a href="#" class="synopsis__booking-bar__button">Sat - 6:00 p.m</a>
-                  <a href="#" class="synopsis__booking-bar__button">Sun - 6:00 p.m</a>
-                </div>
-              </div>
-          </div>
-        </div>
-      </div>
   </main>
 
   <footer>
     <div>
       Phone: +84 123456789 <br>
       Contact Email: cinemax@gmail.com <br>
-      Address: 123 Ngo Gia Tu, Nha Trang City, Vietnam <br>
-      <a href="https://github.com/s3695516/wp.git" style="color: yellow" target="_blank">Git Hub Repo Link - Click Here</Cick> </a>
+      Address: 130 Tran Nguyen Han, Nha Trang, Khanh Hoa, Vietnam <br>
+      <a href="https://github.com/s3695516/wp.git" style="color: yellow" target="_blank">Git Hub Repo Link - Click Here
+        </Cick> </a>
     </div>
     <hr style="border-color: #d0ffa3; margin: 20px 0px;">
     <div>
       &copy;
       <script>
         document.write(new Date().getFullYear());
-      </script> 
+      </script>
       Group 2: Le Quang Hien - s3695516 and Dang Ba Minh - s3685119. Last modified
-      <?= date ("Y F d  H:i", filemtime($_SERVER['SCRIPT_FILENAME'])); ?>.</div>
-    <div">Disclaimer: This website is not a real website and is being developed as part of a School of Science Web
-      Programming course at RMIT University in Melbourne, Australia.</div>
+      <?= date ("Y F d  H:i", filemtime($_SERVER['SCRIPT_FILENAME'])); ?>.
+    </div>
+    <div>Disclaimer: This website is not a real website and is being developed as part of a School of Science Web
+      Programming course at RMIT University in Melbourne, Australia.
+    </div>
     <div><button id='toggleWireframeCSS' onclick='toggleWireframe()'>Toggle Wireframe CSS</button></div>
   </footer>
 
-</body>
+  <script src="index.js" />
+  </body>
 
 </html>
