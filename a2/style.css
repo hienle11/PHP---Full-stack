@@ -208,8 +208,6 @@ body {
   width: calc(3 * ((100% - 3 * 6rem) / 4) + 2 * 6rem);
 }
 
-
-
 a {
   text-decoration: none;
 }
@@ -232,13 +230,13 @@ header > div {
 #header__brand {
   font-size: 5.6rem;
   font-weight: 500;
-  letter-spacing: .4rem;
+  letter-spacing: 0.4rem;
 }
 
 #header__slogan {
   display: block;
   text-transform: uppercase;
-  letter-spacing: .2rem;
+  letter-spacing: 0.2rem;
   font-size: 1.5rem;
   text-align: center;
 }
@@ -265,7 +263,7 @@ header > div {
 
 #navbar__list {
   height: 100%;
-  letter-spacing: .2rem;
+  letter-spacing: 0.2rem;
   display: flex;
   list-style: none;
   align-items: center;
@@ -297,7 +295,7 @@ header > div {
 }
 
 .current_link {
-  color:  var(--color-primary) !important;
+  color: var(--color-primary) !important;
   padding-top: 0;
   font-size: 2rem;
   text-shadow: 0 0 1rem var(--color-primary);
@@ -417,8 +415,8 @@ header > div {
 
 #dolby-info > div {
   padding-top: 1.5rem;
-  border-top: .1rem solid #8cda3f;
-  border-bottom: .1rem solid #8cda3f;
+  border-top: 0.1rem solid #8cda3f;
+  border-bottom: 0.1rem solid #8cda3f;
   opacity: 0;
   z-index: 0;
   text-align: center;
@@ -430,7 +428,7 @@ header > div {
 }
 
 #dolby-info > div > h2 {
-  letter-spacing: .5rem;
+  letter-spacing: 0.5rem;
   font-size: 5rem;
   font-weight: 400;
   color: var(--color-white-light);
@@ -448,7 +446,7 @@ header > div {
 }
 
 #dolby-info > div > a {
-  letter-spacing: .2rem;
+  letter-spacing: 0.2rem;
   font-weight: 700;
 }
 
@@ -458,7 +456,7 @@ header > div {
   text-decoration: none;
   padding: 1rem 2rem;
   color: var(--color-primary-light);
-  border-bottom: .1rem solid var(--color-primary);
+  border-bottom: 0.1rem solid var(--color-primary);
   transition: all 0.2s;
 }
 
@@ -481,19 +479,19 @@ header > div {
   min-width: 130rem;
   font-size: 2.4rem;
   border-collapse: collapse;
-  border: .2rem solid #8cda3f;
-  box-shadow: 0 0 5rem .5rem;
+  border: 0.2rem solid #8cda3f;
+  box-shadow: 0 0 5rem 0.5rem;
   color: var(--color-primary);
 }
 
 tr,
 th,
 td {
-  letter-spacing: .2rem;
+  letter-spacing: 0.2rem;
   font-weight: 500;
   padding: 2rem;
-  border: .1rem solid #8cda3f;
-  box-shadow: 0 0 .5rem 0;
+  border: 0.1rem solid #8cda3f;
+  box-shadow: 0 0 0.5rem 0;
   color: var(--color-primary);
 }
 
@@ -513,17 +511,17 @@ td:nth-child(1) {
 }
 
 .panel {
-  border: .1rem solid #8cda3f;
+  border: 0.1rem solid #8cda3f;
   display: flex;
   padding: 2rem;
   font-size: 3rem;
   color: var(--color-primary);
-  box-shadow: 0 0 1rem .5rem, 0 0 3rem 2rem var(--color-dark);
+  box-shadow: 0 0 1rem 0.5rem, 0 0 3rem 2rem var(--color-dark);
 }
 
 .panel__poster {
   height: 100%;
-  border: .1rem solid #8cda3f;
+  border: 0.1rem solid #8cda3f;
 }
 
 .panel__poster > img {
@@ -548,7 +546,7 @@ td:nth-child(1) {
   position: relative;
   top: -7.5rem;
   left: 21rem;
-  border: .2rem solid #8cda3f;
+  border: 0.2rem solid #8cda3f;
   border-radius: 50%;
   padding: 1rem;
   width: 7rem;
@@ -560,11 +558,11 @@ td:nth-child(1) {
 }
 
 #synopsis {
-
   height: 75rem;
   display: flex;
   justify-content: center;
   padding: 5rem;
+  width: 100%;
 }
 
 #synopsis-box {
@@ -576,8 +574,8 @@ td:nth-child(1) {
   grid-template-rows: 45rem 15rem;
   row-gap: 1rem;
   width: 125rem;
-  border: .1rem solid #8cda3f;
-  box-shadow: 0 0 1rem .5rem, 0 0 .3rem .2rem var(--color-primary);
+  border: 0.1rem solid #8cda3f;
+  box-shadow: 0 0 1rem 0.5rem, 0 0 0.3rem 0.2rem var(--color-primary);
 }
 
 #synopsis__content {
@@ -591,14 +589,14 @@ td:nth-child(1) {
 #synopsis__content__title {
   color: var(--color-primary-light);
   text-transform: uppercase;
-  letter-spacing: .1rem;
+  letter-spacing: 0.1rem;
   font-weight: 500;
 }
 
 #synopsis__content__rating {
   text-align: center;
   text-align: center;
-  border: .2rem solid var(--color-primary-dark);
+  border: 0.2rem solid var(--color-primary-dark);
   border-radius: 50%;
   padding: 1rem;
   width: 9rem;
@@ -633,18 +631,23 @@ td:nth-child(1) {
   grid-template-columns: 33rem 88rem;
 }
 
+#synopsis__booking-bar > h2 {
+  color: var(--color-primary);
+  font-size: 4rem;
+}
+
 .synopsis__booking-bar__button {
   margin-right: 1rem;
   color: var(--color-primary);
   font-size: 2rem;
-  letter-spacing: .2rem;
+  letter-spacing: 0.2rem;
   border-radius: 2rem;
-  border: .2rem solid var(--color-primary-dark);
-  padding: .8rem;
+  border: 0.2rem solid var(--color-primary-dark);
+  padding: 0.8rem;
   width: 20rem;
   text-align: center;
   display: inline-block;
-  box-shadow: 0 0 .5rem .5rem;
+  box-shadow: 0 0 0.5rem 0.5rem;
   transition: all 0.2s;
 }
 
@@ -658,8 +661,6 @@ footer {
   text-align: center;
   padding: 2rem 0;
 }
-
-
 
 @media (max-width: 1376px) {
   html {
@@ -692,16 +693,17 @@ footer {
   }
   .synopsis__booking-bar__button {
     font-size: 1.5rem;
-    padding: .3rem;
+    padding: 0.3rem;
     width: 15rem;
   }
 }
-
 
 @media (max-width: 1200px) {
   html {
     font-size: 45%;
   }
+
+
   .section-container--about {
     grid-template-rows: 23.5rem 100rem auto;
   }
@@ -723,7 +725,7 @@ footer {
   }
 
   #panel-container {
-    grid-template-columns: 60rem;
+    grid-template-columns: 63rem;
     grid-template-rows: 45rem 45rem 45rem 45rem;
   }
 
@@ -742,7 +744,7 @@ footer {
     grid-row-start: 2;
   }
 
-   #synopsis__trailer__video {
+  #synopsis__trailer__video {
     width: 380px;
     height: 250px;
   }
@@ -753,50 +755,12 @@ footer {
   }
   .synopsis__booking-bar__button {
     font-size: 1.8rem;
-    padding: .5rem;
+    padding: 0.5rem;
     width: 18rem;
   }
 }
 
-
-/* @media (max-width: 900px) {
-
-  html {
-    font-size: 35%;
-  }
-
-  body {
-    padding: 0;
-  }
-
-  tr,
-  th,
-  td {
-    padding: 1rem;
-  }
-
-  .row:not(:last-child) {
-    margin-bottom: 6rem;
-  }
-
-  .row {
-    max-width: 50rem;
-  }
-
-  .row [class^="col"]:not(:last-child) {
-    margin-right: 0;
-    margin-bottom: 6rem;
-  }
-
-  .row [class^="col"] {
-    width: 100% !important;
-  }
-} */
-
-
-
 @media (max-width: 768px) {
-  
   body {
     padding: 0;
   }
@@ -819,20 +783,37 @@ footer {
 }
 
 @media (max-width: 600px) {
+  .booking-button__container {
+    padding-left: 1rem;
+  }
+
+  #synopsis__booking-bar > h2 {
+    color: var(--color-primary);
+    font-size: 3rem;
+    width: 100%;
+    padding-left: 1rem;
+  }
+
+  #synopsis__content__plot > h2 {
+    color: var(--color-primary);
+    font-size: 3rem;
+    width: 100%;
+  }
+
   .section-container--about {
     grid-template-rows: 11rem 59rem 25rem;
   }
 
   #header__logo {
     height: 10rem;
-    padding-right: .5rem;
+    padding-right: 0.5rem;
   }
   #header__brand {
     padding-left: 1.7rem;
     font-size: 3.2rem;
   }
   #header__slogan {
-    letter-spacing: .1rem;
+    letter-spacing: 0.1rem;
     font-size: 1.8rem;
   }
 
@@ -841,13 +822,13 @@ footer {
   }
 
   .navbar__item {
-    letter-spacing: .1rem;
+    letter-spacing: 0.1rem;
     font-size: 1.6rem;
     padding-right: 1.5rem;
   }
 
   .h2-underline {
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
   }
 
   .card__image {
@@ -859,7 +840,7 @@ footer {
   }
 
   #dolby-info > div > a {
-    margin-top: .5rem;
+    margin-top: 0.5rem;
     font-size: 2rem;
   }
 
@@ -913,7 +894,7 @@ footer {
   }
 
   #synopsis {
-    height: 870px;
+    height: 800px;
   }
 
   #synopsis-box {
@@ -968,9 +949,31 @@ footer {
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
-  
   html {
     font-size: 25%;
   }
-  
+
+  #about-us-section {
+    min-height: 70vh;
+  }
+
+  #price {
+    min-height: 70vh;
+  }
+
+  #synopsis {
+    height: 750px;
+  }
+
+  #now-showing {
+    min-height: 70vh;
+  }
+
+  #synopsis__booking-bar > h2 {
+    padding-left: 2.7rem;
+  }
+
+  .booking-button__container {
+    padding-left: 2.7rem;
+  }
 }
