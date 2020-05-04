@@ -88,7 +88,7 @@
     </section>
 
     <!-- PRICE SECTION -->
-    <section id="price-section" class="section-container section-container--price">
+    <section id="price" class="section-container section-container--price">
       <div class="u-margin-top-medium">
         <h2 class="heading-secondary">Prices</h2>
         <hr class="h2-underline">
@@ -118,7 +118,7 @@
           <tr>
             <td>Standard Child</td>
             <td>STC</td>
-            <td>$11.50</td>
+            <td>$11.00</td>
             <td>$15.30</td>
           </tr>
           <tr>
@@ -144,15 +144,14 @@
     </section>
 
     <!-- NOW-SHOWING SECTION -->
-    <section id="now-showing-section" class="section-container section-container--now-showing">
+    <section id="now-showing" class="section-container section-container--now-showing">
       <div>
         <h2 class="heading-secondary"> Now Showing </h2>
         <hr class="h2-underline">
       </div>
 
       <div id="panel-container">
-
-        <div class="panel" id="moviePanelACT" onclick="updateSynopsis(this);">
+        <div class="panel" onClick="panelOnClickHandler(this, 0)">
           <div class="panel__poster">
             <img src="media/avegers.jpg">
           </div>
@@ -160,20 +159,18 @@
             <div class="panel__content__title">Avengers: Endgame</div>
             <div class="panel__content__rating">PG</div>
             <div class="panel__content__schedule">
-              <ul>
-                <li>Monday - N/A</li>
-                <li>Tuesday - N/A</li>
-                <li>Wednesday - 9pm</li>
-                <li>Thursday - 9pm</li>
-                <li>Friday - 9pm</li>
-                <li>Saturday - 6pm</li>
-                <li>Sunday - 6pm</li>
-              </ul>
+              Monday - N/A <br>
+              Tuesday - N/A <br>
+              Wednesday - 9pm <br>
+              Thursday - 9pm <br>
+              Friday - 9pm <br>
+              Saturday - 6pm <br>
+              Sunday - 6pm <br>
             </div>
           </div>
         </div>
 
-        <div class="panel"  id="moviePanelRMC" onclick="updateSynopsis(this);">
+        <div class="panel" onClick="panelOnClickHandler(this, 1)">
           <div class="panel__poster">
             <img src="media/wedding.jpg">
           </div>
@@ -181,19 +178,17 @@
             <div class="panel__content__title">Top End Wedding</div>
             <div class="panel__content__rating">M</div>
             <div class="panel__content__schedule">
-              <ul>
-                <li>Monday - 6pm</li>
-                <li>Tuesday - 6pm</li>
-                <li>Wednesday - N/A</li>
-                <li>Thursday - N/A</li>
-                <li>Friday - N/A</li>
-                <li>Saturday - 3pm</li>
-                <li>Sunday - 3pm</li>
-              </ul>
+              Monday - 6pm <br>
+              Tuesday - 6pm <br>
+              Wednesday - N/A <br>
+              Thursday - N/A <br>
+              Friday - N/A <br>
+              Saturday - 3pm <br>
+              Sunday - 3pm <br>
             </div>
           </div>
         </div>
-        <div class="panel" id="moviePanelANM" onclick="updateSynopsis(this);">
+        <div class="panel" onClick="panelOnClickHandler(this, 2)">
           <div class="panel__poster">
             <img src="media/dumbo.jpg">
           </div>
@@ -201,21 +196,18 @@
             <div class="panel__content__title">Dumbo</div>
             <div class="panel__content__rating">PG</div>
             <div class="panel__content__schedule">
-               <ul>
-                <li>Monday - 12pm</li>
-                <li>Tuesday - 12pm</li>
-                <li>Wednesday - 6pm</li>
-                <li>Thursday - 6pm</li>
-                <li>Friday - 6pm</li>
-                <li>Saturday - 12pm</li>
-                <li>Sunday - 12pm</li>
-              </ul>
-
+              Monday - 12pm <br>
+              Tuesday - 12pm <br>
+              Wednesday - 6pm <br>
+              Thursday - 6pm <br>
+              Friday - 6pm <br>
+              Saturday - 12pm <br>
+              Sunday - 12pm <br>
             </div>
           </div>
         </div>
 
-        <div class="panel" id="moviePanelAHF" onclick="updateSynopsis(this);">
+        <div class="panel" onClick="panelOnClickHandler(this, 3)">
           <div class="panel__poster">
             <img src="media/happy-prince.jpg">
           </div>
@@ -223,34 +215,24 @@
             <div class="panel__content__title">The Happy Prince</div>
             <div class="panel__content__rating">R</div>
             <div class="panel__content__schedule">
-
-              <ul>
-                <li>Monday - N/A</li>
-                <li>Tuesday - N/A</li>
-                <li>Wednesday - 12pm</li>
-                <li>Thursday - 12pm</li>
-                <li>Friday - 12pm</li>
-                <li>Saturday - 9pm</li>
-                <li>Sunday - 9pm</li>
-              </ul>
-             
+              Monday - N/A <br>
+              Tuesday - N/A <br>
+              Wednesday - 12pm <br>
+              Thursday - 12pm <br>
+              Friday - 12pm <br>
+              Saturday - 9pm <br>
+              Sunday - 9pm <br>
             </div>
           </div>
         </div>
       </div>
-      <div id="synopsis">
+      <div id="synopsis" class="invisible">
         <div id="synopsis-box">
           <div id="synopsis__content">
-            <div id="synopsis__content__title">Avengers: Endgame</div>
-            <div id="synopsis__content__rating">PG</div>
+            <div id="synopsis__content__title"></div>
+            <div id="synopsis__content__rating"></div>
 
             <div id="synopsis__content__plot">
-              <h2>Plot description:</h2>
-              <p>After the devastating events of Avengers:
-                Infinity War (2018), the universe is in ruins.
-                With the help of remaining allies, the Avengers
-                assemble once more in order to reverse Thanos'
-                actions and restore balance to the universe.</p>
             </div>
           </div>
           <div id="synopsis__trailer">
@@ -262,14 +244,14 @@
             <h2>
               Make A Booking:
             </h2>
-            <div class="booking-button__container">
-              <a href="#" class="synopsis__booking-bar__button">Mon - N/A</a>
-              <a href="#" class="synopsis__booking-bar__button">Tue - N/A</a>
-              <a href="#" class="synopsis__booking-bar__button">Wed - 9:00 p.m</a>
-              <a href="#" class="synopsis__booking-bar__button">Thu - 9:00 p.m</a>
-              <a href="#" class="synopsis__booking-bar__button">Fri - 9:00 p.m</a>
-              <a href="#" class="synopsis__booking-bar__button">Sat - 6:00 p.m</a>
-              <a href="#" class="synopsis__booking-bar__button">Sun - 6:00 p.m</a>
+            <div id="booking-button__container">
+              <a href="#booking-form" class="synopsis__booking-bar__button" onClick="updateBookingForm(this)"></a>
+              <a href="#booking-form" class="synopsis__booking-bar__button" onClick="updateBookingForm(this)"></a>
+              <a href="#booking-form" class="synopsis__booking-bar__button" onClick="updateBookingForm(this)"></a>
+              <a href="#booking-form" class="synopsis__booking-bar__button" onClick="updateBookingForm(this)"></a>
+              <a href="#booking-form" class="synopsis__booking-bar__button" onClick="updateBookingForm(this)"></a>
+              <a href="#booking-form" class="synopsis__booking-bar__button" onClick="updateBookingForm(this)"></a>
+              <a href="#booking-form" class="synopsis__booking-bar__button" onClick="updateBookingForm(this)"></a>
             </div>
           </div>
         </div>
