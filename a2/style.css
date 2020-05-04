@@ -322,11 +322,11 @@ header > div {
   min-height: 100vh;
 }
 
-#price {
+#price-section {
   min-height: 100vh;
 }
 
-#now-showing {
+#now-showing-section {
   min-height: 100vh;
 }
 
@@ -957,7 +957,7 @@ footer {
     min-height: 70vh;
   }
 
-  #price {
+  #price-section {
     min-height: 70vh;
   }
 
@@ -965,7 +965,7 @@ footer {
     height: 750px;
   }
 
-  #now-showing {
+  #now-showing-section {
     min-height: 70vh;
   }
 

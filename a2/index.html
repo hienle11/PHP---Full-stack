@@ -10,12 +10,13 @@
   <link id='wireframecss' type="text/css" rel="stylesheet" href="../wireframe.css" disabled>
   <link id='stylecss' type="text/css" rel="stylesheet" href="../style.css">
 
-  <script src='../wireframe.js'></script>
+  
 
   <!-- Add css file and links for google fonts -->
   <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet" />
   <link rel="stylesheet" href="style.css">
-
+  <script src="index.js"></script>
+  <script src='../wireframe.js'></script>
 </head>
 
 <body>
@@ -35,10 +36,10 @@
   <nav id="navbar">
     <div id="navbar__container">
       <ul id="navbar__list">
-        <li class="navbar__item"><a class="current_link" onClick="addCurrentLinkEffect(this)" href="#">Home</a></li>
-        <li class="navbar__item"><a onClick="addCurrentLinkEffect(this)" href="#about-us-section">About Us</a></li>
-        <li class="navbar__item"><a onClick="addCurrentLinkEffect(this)" href="#price">Prices</a></li>
-        <li class="navbar__item"><a onClick="addCurrentLinkEffect(this)" href="#now-showing">Now Showing</a></li>
+        <li class="navbar__item"><a id="home_link" class="current_link" onclick="addCurrentLinkEffect(this);" href="#">Home</a></li>
+        <li class="navbar__item"><a id="about-us_link" onclick="addCurrentLinkEffect(this);" href="#about-us-section">About Us</a></li>
+        <li class="navbar__item"><a id="price_link" onclick="addCurrentLinkEffect(this);" href="#price-section">Prices</a></li>
+        <li class="navbar__item"><a id="now-showing_link" onclick="addCurrentLinkEffect(this);" href="#now-showing-section">Now Showing</a></li>
       </ul>
     </div>
   </nav>
@@ -87,7 +88,7 @@
     </section>
 
     <!-- PRICE SECTION -->
-    <section id="price" class="section-container section-container--price">
+    <section id="price-section" class="section-container section-container--price">
       <div class="u-margin-top-medium">
         <h2 class="heading-secondary">Prices</h2>
         <hr class="h2-underline">
@@ -143,7 +144,7 @@
     </section>
 
     <!-- NOW-SHOWING SECTION -->
-    <section id="now-showing" class="section-container section-container--now-showing">
+    <section id="now-showing-section" class="section-container section-container--now-showing">
       <div>
         <h2 class="heading-secondary"> Now Showing </h2>
         <hr class="h2-underline">
@@ -287,7 +288,7 @@
     <div><button id='toggleWireframeCSS' onclick='toggleWireframe()'>Toggle Wireframe CSS</button></div>
   </footer>
 
-  <script src="index.js" />
+  
   </body>
 
 </html>
