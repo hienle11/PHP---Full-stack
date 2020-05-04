@@ -511,6 +511,7 @@ td:nth-child(1) {
 }
 
 .panel {
+  cursor: pointer;
   border: 0.1rem solid #8cda3f;
   display: flex;
   padding: 2rem;
