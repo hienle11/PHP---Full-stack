@@ -257,6 +257,112 @@
         </div>
       </div>
 
+      <div id="booking-form-container" class="invisible">
+        <form id="booking-form" method="POST" target="_blank"
+          action="https://titan.csit.rmit.edu.au/~e54061/wp/lunardo-formtest.php">
+          <div class="input-box input-box--left">
+            <input type=hidden id="movie-id" name="movie[id]" value="ACT">
+            <input type=hidden id="movie-day" name="movie[day]" value="MON">
+            <input type=hidden id="movie-hour" name="movie[hour]" value="T12">
+            <div id="movie-title">
+              </div>
+            <fieldset class="seats-selection-box">
+              <legend class="seat-type">Standard</legend>
+              <label for="seats[STA]">Adults:</label>
+              <select id="seats-STA" name="seats[STA]" onChange="updateTotalAmount(this)">
+                <option value="">please select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select><br>
+
+              <label for="seats[STP]">Concession:</label>
+              <select id="seats-STP" name="seats[STP]" onChange="updateTotalAmount(this)">
+                <option value="">please select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select><br>
+              <label for="seats[STC]">Children:</label>
+              <select id="seats-STC" name="seats[STC]" onChange="updateTotalAmount(this)">
+                <option value="">please select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select><br>
+            </fieldset>
+            <fieldset class="seats-selection-box">
+              <legend class="seat-type">First class</legend>
+              <label for="seats[FCA]">Adults:</label>
+              <select id="seats-FCA" name="seats[FCA]" onChange="updateTotalAmount(this)">
+                <option value="">please select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select><br>
+
+              <label for="seats[FCP]">Concession:</label>
+              <select id="seats-FCP" name="seats[FCP]" onChange="updateTotalAmount(this)">
+                <option value="">please select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select><br>
+              <label for="seats[FCC]">Children:</label>
+              <select id="seats-FCC" name="seats[FCC]" onChange="updateTotalAmount(this)">
+                <option value="">please select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select><br>
+            </fieldset>
+            <div id="total-amount-box">
+              Total $ <span id="total-amount">0</span>
+            </div>
+          </div>
+        </div>
       
     </section>
   </main>

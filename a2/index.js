@@ -110,8 +110,8 @@ window.onscroll = () => {
 panelOnClickHandler = (e, movieIndex) => {
   addActivePanelEffect(e);
   updateSynopsis(movieIndex);
-  
   scrollToSynopsisArea();
+  updateBookingMovieId(movieIndex);
 };
 
 addActivePanelEffect = e => {
@@ -147,6 +147,6 @@ updateSynopsis = movieIndex => {
 scrollToSynopsisArea = () => {
   // scroll into synopsis area
   let synopsis = document.getElementById("synopsis");
-  synopsis.classList.remove("invisible"); // remove invisible when the page first loaded
+  synopsis.classList.remove("invisible"); 
   synopsis.scrollIntoView();
 };
