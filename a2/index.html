@@ -88,7 +88,7 @@
     </section>
 
     <!-- PRICE SECTION -->
-    <section id="price" class="section-container section-container--price">
+    <section id="price-section" class="section-container section-container--price">
       <div class="u-margin-top-medium">
         <h2 class="heading-secondary">Prices</h2>
         <hr class="h2-underline">
@@ -144,7 +144,7 @@
     </section>
 
     <!-- NOW-SHOWING SECTION -->
-    <section id="now-showing" class="section-container section-container--now-showing">
+    <section id="now-showing-section" class="section-container section-container--now-showing">
       <div>
         <h2 class="heading-secondary"> Now Showing </h2>
         <hr class="h2-underline">
@@ -362,6 +362,31 @@
               Total $ <span id="total-amount">0</span>
             </div>
           </div>
+          <div class="input-box input-box--right">
+            <div id="customer-info-box">
+              <label for="cust[name]">Name</label>
+              <input type="text" id="cust-name" name="cust[name]" pattern="^[a-zA-Z\-.' ]{1,100}$" required="required"
+                title="Names can only contains alphabet letters and punctuations (includes - . ')!"> <br>
+
+              <label for="cust[email]">Email</label>
+              <input type="email" id="cust-email" name="cust[email]" required="required"> <br>
+
+              <label for="cust[mobile]">Mobile</label>
+              <input type="tel" id="cust-mobile" name="cust[mobile]" pattern="^(\(0\)|0|\+61)( ?\d){9}$"
+                required="required"
+                title="Accept australian mobile phones only. e.g (0x) xxxx xxxx, 0x xxxx xxxx, +61x xxxx xxxx!"> <br>
+
+              <label for="cust[card]">Credit Card</label>
+              <input type="text" id="cust-card" name="cust[card]" pattern="^( ?\d){14,19}$" required="required"
+                title="A valid credit card contains from 14 to 19 digits only!"> <br>
+
+              <label for="cust[expiry]">Expiry</label>
+              <input type="month" id="cust-expiry" name="cust[expiry]" required="required" \
+                onClick="updateCurrentTime()"> <br>
+            </div>
+            <div>
+              <input type="submit" id="order" name="order" value="Order" onClick="checkTotalAmount()"> <br>
+            </div>
         </div>
       
     </section>

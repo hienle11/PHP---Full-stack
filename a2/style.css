@@ -708,7 +708,7 @@ td:nth-child(1) {
   border-radius: 1rem;
   padding: 2.5rem;
   margin-bottom: 3rem;
-  border: 0.1rem solid var(--color-primary-dark);
+  border: 0.2rem solid var(--color-primary-dark);
   letter-spacing: 0.4rem;
   font-size: 2.6rem;
   text-align: right;
