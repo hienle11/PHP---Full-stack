@@ -1,1 +1,3 @@
 Date	Name	Email	Mobile	MovieID	Day	Hour	"STA Qty"	"STP Qty"	"STC Qty"	"FCA Qty"	"FCP Qty"	"FCC Qty"	Total
+19/05/2020	hien	hien@h.com	"+61 123 454 556"	ACT	WED	T21	3	0	0	0	0	0
+21/05/2020	hien	hien@h.com	"+61 123 454 556"	ACT	FRI	T21	4	0	0	0	0	0
