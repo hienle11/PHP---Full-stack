@@ -1,6 +1,6 @@
 <style>
     body {
-        background-color: #EAEDED;
+        background-color: #EAEDED !important;
     }
 
     .container-fluid {
