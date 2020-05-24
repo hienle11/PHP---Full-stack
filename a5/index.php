@@ -4,8 +4,7 @@ include "./includes/footer.inc.php";
 include "./includes/tools.php";
 require "./styles/index.css.php"; //include CSS Style Sheet
 session_start();
-$userName = $_SESSION['user_name'];
-top_module("Amazorn", true, $userName);
+top_module("Amazorn", true);
 
 ?>
 

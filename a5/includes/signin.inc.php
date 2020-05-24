@@ -55,6 +55,27 @@ if (isset($_POST['submit'])) {
                     $_SESSION['user_email'] = $userEmail;
                     $_SESSION['user_name'] = $row['user_name'];
 
+                    // Check authorization (is admin or not)
+                    # Create template
+                    $sql = "SELECT * FROM Admins WHERE user_id = ?";
+                    # Create prepared statement
+                    $stmt = mysqli_stmt_init($conn);
+
+                    if (mysqli_stmt_prepare($stmt, $sql)) {
+                        // Bind the statement
+                        mysqli_stmt_bind_param($stmt, "i", $row['user_id']);
+
+                        // Execute the prepared statement
+                        mysqli_stmt_execute($stmt);
+
+                        // Get result from the query
+                        $result = mysqli_stmt_get_result($stmt);
+
+                        $row = mysqli_fetch_assoc($result);
+
+                        $_SESSION['is_admin'] = $row['user_id'];
+                    }
+
                     header("Location: ../index.php?signin=success");
                     exit;
                 } else {

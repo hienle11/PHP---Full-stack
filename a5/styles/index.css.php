@@ -1,4 +1,8 @@
 <style>
+    body {
+        background-color: #EAEDED;
+    }
+
     .container-fluid {
         padding-left: 0 !important;
         padding-right: 0 !important;
@@ -22,6 +26,7 @@
     }
 
     .amazorn-deal {
+        padding: 2rem;
         background-color: #fff;
         margin-top: 10rem;
         width: 100%;
