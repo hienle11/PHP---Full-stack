@@ -43,8 +43,6 @@ $userEmail = $_GET['email'];
                         }
                         ?>
                     </span>
-
-
                 </div>
                 <button type="submit" class="btn form__btn--primary btn-block" name="submit">Sign-in</button>
             </form>

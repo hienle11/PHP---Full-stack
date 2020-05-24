@@ -19,9 +19,9 @@ function top_module($pageTitle, $isNav, $userName = null)
 OUTPUT;
 
     $nav = <<<"OUTPUT"
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand ml-4 mr-5" href="#">Amazorn</a>
+<body style="background-color: #EAEDED;">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #111 !important;">
+        <a class="navbar-brand ml-4 mr-5" href="index.php">Amazorn</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -56,8 +56,8 @@ OUTPUT;
                 $userName
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <a class="dropdown-item" href="profile.php">Profile</a>
-                <a class="dropdown-item" href="includes/signout.php">Sign out</a>
+                <a class="dropdown-item" href="setting.php">Account Settings</a>
+                <a class="dropdown-item" href="includes/signout.inc.php">Sign Out</a>
             </div>
         
         
@@ -67,15 +67,20 @@ OUTPUT;
     }
 
     $rest = <<<"OUTPUT"
-                   
                 </li>
-
                 <li class="nav-item ml-5">
                     <a class="nav-link" href="#">Cart</a>
                 </li>
             </ul>
         </div>
     </nav>
+
+    <div class="sub-nav">
+        <div class="nav-left">
+        </div>
+        <div class="nav-right">
+        </div>
+    </div>
 OUTPUT;
 
     echo $isNav ? ($html . $nav . $signin . $rest) : $html;

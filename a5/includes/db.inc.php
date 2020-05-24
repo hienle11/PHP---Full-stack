@@ -2,7 +2,7 @@
 # Set the general information of the database used for this project
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 $host = 'localhost';
-$db = 'e-commerce';
+$db = 'assignment5';
 $user = 'root';
 $password = 'root';
 $port = 8888;

@@ -1,4 +1,5 @@
 <?php
+
 // Check if the user click the submit button
 if (isset($_POST['submit'])) {
     # Import the database script to use the database connection object
@@ -81,6 +82,10 @@ if (isset($_POST['submit'])) {
                     mysqli_stmt_bind_param($stmt, "sss", $userName, $userEmail, $hashed_password);
                     // Execute the prepared statement
                     mysqli_stmt_execute($stmt);
+                    session_start();
+                    // Store the user information to the current session
+                    $_SESSION['user_email'] = $userEmail;
+                    $_SESSION['user_name'] = $userName;
                     header("Location: ../index.php?signup=success");
                     exit;
                 }
