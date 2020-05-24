@@ -77,8 +77,8 @@ const addCurrentLinkEffect = link => {
 window.onscroll = () => {
   const navbar = document.getElementById("navbar");
   const aboutSection = document.getElementById("about-us-section");
-  const priceSection = document.getElementById("price");
-  const nowShowingSection = document.getElementById("now-showing");
+  const priceSection = document.getElementById("price-section");
+  const nowShowingSection = document.getElementById("now-showing-section");
   if (
     window.scrollY + navbar.offsetHeight >= aboutSection.offsetTop &&
     window.scrollY + navbar.offsetHeight < priceSection.offsetTop
@@ -150,3 +150,101 @@ scrollToSynopsisArea = () => {
   synopsis.classList.remove("invisible");
   synopsis.scrollIntoView();
 };
+
+updateBookingMovieId = movieIndex => {
+  // update value of movie id in booking-form
+  movieId = document.getElementById("movie-id")
+  switch (movieIndex) {
+      case 0: movieId.value = "ACT"; break;
+      case 1: movieId.value = "AHF"; break;
+      case 2: movieId.value = "ANM"; break;
+      case 3: movieId.value = "RMC"; break;
+  }
+}
+
+updateBookingForm = e => {
+  document.getElementById("booking-form").reset();
+  document.getElementById("total-amount").innerHTML = "0.00"
+
+  var bookingFormContainer = document.getElementById("booking-form-container");
+  if (e.innerHTML.search("N/A") >= 0) {
+      bookingFormContainer.classList.add("invisible");    // add invisibility when there is no schedule on that day
+      return false;
+  } else {
+      bookingFormContainer.classList.remove("invisible");  // remove invisibility when the page first loaded
+  }
+ 
+  // update movie title on booking form
+  movieTitle = document.getElementById("movie-title");
+  movieTitle.innerHTML = document.getElementById("synopsis__content__title").innerHTML;
+
+  // update movie-day value
+  movieDay = document.getElementById("movie-day");
+  movieDay.value = e.innerHTML.substring(0, 3).toUpperCase();
+
+  // update movie-hour value
+  movieHour = document.getElementById("movie-hour");
+  if (e.innerHTML.search("12:00 p.m") >= 0) {
+      movieHour.value = "T12";
+  } else if (e.innerHTML.search("3:00 p.m") >= 0) {
+      movieHour.value = "T15";
+  } else if (e.innerHTML.search("6:00 p.m") >= 0) {
+      movieHour.value = "T18";
+  } else if (e.innerHTML.search("9:00 p.m") >= 0) {
+      movieHour.value = "T21";
+  }
+}
+
+isDiscounted = () => {
+  // get movie day and movie hour to check for discount price
+  movieDay = document.getElementById("movie-day");
+  movieHour = document.getElementById("movie-hour");
+  if (movieDay.value.search("WED") >= 0) {
+      return true;
+  } else if (movieHour.value.search("T12") >= 0) {
+      if (movieDay.value.search("SAT") < 0 && movieDay.value.search("SUN") < 0) {
+          return true;
+      } 
+  }
+  return false ;
+}
+
+updateTotalAmount = e => {
+  var totalAmount = 0;
+  var numberOfSeats = [];
+  // get the current number of seats, adding "0" helps avoiding blank value being converted to NaN value
+  numberOfSeats["STA"] = parseInt("0" + document.getElementById("seats-STA").value);
+  numberOfSeats["STP"] = parseInt("0" + document.getElementById("seats-STP").value);
+  numberOfSeats["STC"] = parseInt("0" + document.getElementById("seats-STC").value);
+  numberOfSeats["FCA"] = parseInt("0" + document.getElementById("seats-FCA").value);
+  numberOfSeats["FCP"] = parseInt("0" + document.getElementById("seats-FCP").value);
+  numberOfSeats["FCC"] = parseInt("0" + document.getElementById("seats-FCC").value);
+
+  if (isDiscounted()) {
+      totalAmount = numberOfSeats["STA"] * 14.00 + numberOfSeats["STP"] * 12.50 + numberOfSeats["STC"] * 11.00
+                  + numberOfSeats["FCA"] * 24.00 + numberOfSeats["FCP"] * 22.50 + numberOfSeats["FCC"] * 21.00; 
+  } else {
+      totalAmount = numberOfSeats["STA"] * 19.80 + numberOfSeats["STP"] * 17.50 + numberOfSeats["STC"] * 15.30
+                  + numberOfSeats["FCA"] * 30.00 + numberOfSeats["FCP"] * 27.00 + numberOfSeats["FCC"] * 24.00; 
+  }
+
+  document.getElementById("total-amount").innerHTML = totalAmount.toFixed(2);
+}
+
+updateCurrentTime = () => {
+  var today = new Date();
+  var month = today.getMonth() + 1;
+  var year = today.getFullYear();
+  if (month < 10) {
+      document.getElementById("cust-expiry").min = year + "-0" + month;
+  } else {
+      document.getElementById("cust-expiry").min = year + "-" + month;
+  }
+}
+
+checkTotalAmount = () => {
+  if (parseInt(document.getElementById("total-amount").innerHTML) == 0) {
+      alert("You have not selected a seat! Please try again!");
+      return false;
+  } 
+}

@@ -108,6 +108,10 @@ window.onscroll = () => {
 };
 
 panelOnClickHandler = (e, movieIndex) => {
+  sessionStorage.setItem("selectedPanel", movieIndex);
+  if (sessionStorage['selectedButton'] != null) {
+    bookingButtons[sessionStorage['selectedButton']].onclick();
+  }
   addActivePanelEffect(e);
   updateSynopsis(movieIndex);
   scrollToSynopsisArea();
@@ -124,6 +128,7 @@ addActivePanelEffect = e => {
 };
 
 updateSynopsis = movieIndex => {
+
   // get elements of synopsis area
   const title = document.getElementById("synopsis__content__title");
   const rating = document.getElementById("synopsis__content__rating");
@@ -163,6 +168,14 @@ updateBookingMovieId = movieIndex => {
 }
 
 updateBookingForm = e => {
+  buttonList =  Array.prototype.slice.call( document.getElementById('booking-button__container').children );
+  sessionStorage.setItem("selectedButton",  buttonList.indexOf(e));
+
+  var activeBookingButton = document.getElementsByClassName("synopsis__booking-bar__button active")
+  if (activeBookingButton.length > 0) {
+      activeBookingButton[0].classList.remove("active");
+  }
+
   document.getElementById("booking-form").reset();
   document.getElementById("total-amount").innerHTML = "0.00"
 
@@ -193,6 +206,8 @@ updateBookingForm = e => {
   } else if (e.innerHTML.search("9:00 p.m") >= 0) {
       movieHour.value = "T21";
   }
+
+  e.classList.add("active");
 }
 
 isDiscounted = () => {
@@ -242,9 +257,28 @@ updateCurrentTime = () => {
   }
 }
 
-checkTotalAmount = () => {
-  if (parseInt(document.getElementById("total-amount").innerHTML) == 0) {
-      alert("You have not selected a seat! Please try again!");
-      return false;
-  } 
+onSubmit = () => {
+  sessionStorage.setItem("isFormSubmitted", "true");
 }
+
+// Keep the chosen info such as movie and booking remained if the post method failed
+window.onload = () => {
+  panels = document.getElementsByClassName("panel");
+  bookingButtons = document.getElementsByClassName("synopsis__booking-bar__button");
+
+  console.log("start");
+  if (sessionStorage['selectedPanel'] != null) {
+    panels[sessionStorage['selectedPanel']].onclick();
+  }
+
+  if (sessionStorage['selectedButton'] != null) {
+    bookingButtons[sessionStorage['selectedButton']].onclick();
+  }
+
+  console.log("finish");
+  if (sessionStorage['isFormSubmitted'] == 'true') {
+    document.getElementById('booking-form').scrollIntoView();
+  }
+}
+
+

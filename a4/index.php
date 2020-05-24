@@ -4,19 +4,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Assignment 2</title>
+  <title>Assignment 4</title>
 
   <!-- Keep wireframe.css for debugging, add your css to style.css -->
   <link id='wireframecss' type="text/css" rel="stylesheet" href="../wireframe.css" disabled>
   <link id='stylecss' type="text/css" rel="stylesheet" href="../style.css">
 
-  
+
 
   <!-- Add css file and links for google fonts -->
   <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet" />
   <link rel="stylesheet" href="style.css">
-  <script src="index.js"></script>
+  <script src="scripts/index.js"></script>
   <script src='../wireframe.js'></script>
+
+  <?php
+  include("tools.php");
+  list($cust, $nameErr, $emailErr, $mobileErr, $cardErr, $expiryErr, $seatErr, $movieErr) = validateData();
+  ?>
+
 </head>
 
 <body>
@@ -236,9 +242,7 @@
             </div>
           </div>
           <div id="synopsis__trailer">
-            <iframe id="synopsis__trailer__video" width="580" height="400"
-              src="https://www.youtube.com/embed/TcMBFSGVi1c" frameborder="0"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe id="synopsis__trailer__video" width="580" height="400" src="https://www.youtube.com/embed/TcMBFSGVi1c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
           <div id="synopsis__booking-bar">
             <h2>
@@ -258,14 +262,13 @@
       </div>
 
       <div id="booking-form-container" class="invisible">
-        <form id="booking-form" method="POST" target="_blank"
-          action="https://titan.csit.rmit.edu.au/~e54061/wp/lunardo-formtest.php">
+        <form id="booking-form" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
           <div class="input-box input-box--left">
             <input type=hidden id="movie-id" name="movie[id]" value="ACT">
             <input type=hidden id="movie-day" name="movie[day]" value="MON">
             <input type=hidden id="movie-hour" name="movie[hour]" value="T12">
             <div id="movie-title">
-              </div>
+            </div>
             <fieldset class="seats-selection-box">
               <legend class="seat-type">Standard</legend>
               <label for="seats[STA]">Adults:</label>
@@ -359,36 +362,42 @@
               </select><br>
             </fieldset>
             <div id="total-amount-box">
-              Total $ <span id="total-amount">0</span>
+              Total $ <span id="total-amount">0</span> <br>
+              <span class="err_message"><?php echo $seatErr; ?></span>
+              <span class="err_message"><?php echo $movieErr; ?></span>
+
             </div>
           </div>
           <div class="input-box input-box--right">
             <div id="customer-info-box">
               <label for="cust[name]">Name</label>
-              <input type="text" id="cust-name" name="cust[name]" pattern="^[a-zA-Z\-.' ]{1,100}$" required="required"
-                title="Names can only contains alphabet letters and punctuations (includes - . ')!"> <br>
+              <input type="text" id="cust-name" name="cust[name]" value="<?php echo $cust["name"] ?>"> <br>
+              <span class="err_message"><?php echo $nameErr; ?></span> <br>
 
               <label for="cust[email]">Email</label>
-              <input type="email" id="cust-email" name="cust[email]" required="required"> <br>
+              <input type="email" id="cust-email" name="cust[email]" value="<?php echo $cust["email"] ?>"> <br>
+              <span class="err_message"><?php echo $emailErr; ?></span> <br>
 
               <label for="cust[mobile]">Mobile</label>
-              <input type="tel" id="cust-mobile" name="cust[mobile]" pattern="^(\(0\)|0|\+61)( ?\d){9}$"
-                required="required"
-                title="Accept australian mobile phones only. e.g (0x) xxxx xxxx, 0x xxxx xxxx, +61x xxxx xxxx!"> <br>
+              <input type="tel" id="cust-mobile" name="cust[mobile]" value="<?php echo $cust["mobile"] ?>"> <br>
+              <span class="err_message"><?php echo $mobileErr; ?></span> <br>
 
               <label for="cust[card]">Credit Card</label>
-              <input type="text" id="cust-card" name="cust[card]" pattern="^( ?\d){14,19}$" required="required"
-                title="A valid credit card contains from 14 to 19 digits only!"> <br>
+              <input type="text" id="cust-card" name="cust[card]" value="<?php echo $cust["card"] ?>"> <br>
+              <span class="err_message"><?php echo $cardErr; ?></span> <br>
 
-              <label for="cust[expiry]">Expiry</label>
-              <input type="month" id="cust-expiry" name="cust[expiry]" required="required" \
-                onClick="updateCurrentTime()"> <br>
+              <div style="padding-left: 8rem ">
+                <label for="cust[expiry]">Expiry</label>
+                <input type="month" id="cust-expiry" name="cust[expiry]" value="<?php echo $cust["expiry"] ?>" onClick="updateCurrentTime()"> <br>
+                <span class="err_message"><?php echo $expiryErr; ?></span> <br>
+              </div>
+
             </div>
             <div>
-              <input type="submit" id="order" name="order" value="Order" onClick="checkTotalAmount()"> <br>
+              <input type="submit" id="order" name="order" value="Order" onclick="onSubmit()"> <br>
             </div>
-        </div>
-      
+          </div>
+        </form>
     </section>
   </main>
 
@@ -407,7 +416,7 @@
         document.write(new Date().getFullYear());
       </script>
       Group 2: Le Quang Hien - s3695516 and Dang Ba Minh - s3685119. Last modified
-      <?= date ("Y F d  H:i", filemtime($_SERVER['SCRIPT_FILENAME'])); ?>.
+      <?= date("Y F d  H:i", filemtime($_SERVER['SCRIPT_FILENAME'])); ?>.
     </div>
     <div>Disclaimer: This website is not a real website and is being developed as part of a School of Science Web
       Programming course at RMIT University in Melbourne, Australia.
@@ -415,7 +424,22 @@
     <div><button id='toggleWireframeCSS' onclick='toggleWireframe()'>Toggle Wireframe CSS</button></div>
   </footer>
 
-  
-  </body>
+
+  <div style="font-size: 18px">
+    <-- Debug Module -->
+      <br>
+      <?php
+      echo "GET: ";
+      preShow($_GET);
+      echo "POST: ";
+      preShow($_POST);
+      echo "SESSION: ";
+      preShow($_SESSION);
+      echo "PAGE CODE: ";
+      printMyCode()
+      ?>
+  </div>
+
+</body>
 
 </html>
