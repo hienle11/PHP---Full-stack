@@ -98,3 +98,4 @@ OUTPUT;
 
     echo $isNav ? ($html . $nav . $signin . $rest) : $html;
 }
+?>

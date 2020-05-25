@@ -1,7 +1,7 @@
 <?php
 include "./includes/header.inc.php";
 include "./includes/footer.inc.php";
-include "./includes/tools.php";
+include "./includes/tools.php"; // for debug only
 require "./styles/index.css.php"; //include CSS Style Sheet
 session_start();
 top_module("Amazorn", true);
