@@ -5,7 +5,7 @@ $host = 'localhost';
 $db = 'assignment5';
 $user = 'root';
 $password = 'root';
-$port = 8888;
+$port = 8889;
 
 # Create a database connection object
 $conn = mysqli_connect($host, $user, $password, $db, $port);
@@ -13,4 +13,4 @@ $conn = mysqli_connect($host, $user, $password, $db, $port);
 # If connection failed print error
 if (!$conn) {
     die("Connection failed: ".mysqli_connect_error());
-} 
+}

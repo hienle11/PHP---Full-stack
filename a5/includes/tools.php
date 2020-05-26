@@ -1,5 +1,4 @@
 <?php
-session_start();
 // helper function to print dât and shape-structure of data
 function preShow($arr, $returnAsString = false)
 {

@@ -214,3 +214,4 @@ Date	Name	Email	Mobile	MovieID	Day	Hour	"STA Qty"	"STP Qty"	"STC Qty"	"FCA Qty"	
 24/05/2020	"Minh Dang"	d.baminh@gmail.com	0935884854	ANM	MON	T12	6	0	0	0	0	0	84
 24/05/2020	"Minh Dang"	d.baminh@gmail.com	0935884854	ANM	TUE	T12	3	0	0	3	0	0	114
 24/05/2020	Michel	d.baminh@gmail.com	0935884854	ANM	TUE	T12	2	0	0	2	0	0	76
+26/05/2020	h	hien@h.com	"+61 123 454 556"	ACT	FRI	T21	0	4	0	0	0	0	70

@@ -1,6 +1,7 @@
 <?php
 include "./includes/header.inc.php";
 include "./includes/footer.inc.php";
+include "./includes/db.inc.php";
 include "./includes/tools.php"; // for debug only
 require "./styles/index.css.php"; //include CSS Style Sheet
 require "./styles/signin.css.php"; //include CSS Style Sheet
@@ -10,13 +11,13 @@ top_module("Amazorn", true);
 ?>
 
 <div class="container-fluid">
-   ` <h1>SEARCH <span>"Ball"</span></h1>`
+    <h1>SEARCH <span>"Ball"</span></h1>
     <div class="d-flex justify-content-between">
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn form__btn--primary" type="submit">Search</button>
         </form>
-        <button type="button" class="btn btn-danger" style="min-width: 10rem;">Delete</button>
+        <button type="button" class="btn btn-success" style="min-width: 10rem;">Create</button>
     </div>
 
     <table class="table table-bordered" style="background-color: #fff; margin-top: 2rem;">
@@ -31,6 +32,7 @@ top_module("Amazorn", true);
             </tr>
         </thead>
         <tbody>
+            <form method="GET", action="product">
             <tr>
                 <th scope="row"><input type="checkbox" aria-label="Checkbox for following text input"></th>
                 <td>Mark</td>
@@ -38,12 +40,14 @@ top_module("Amazorn", true);
                 <td>@mdo</td>
                 <td>
                     <ul class="list-button d-flex">
-                        <li class="btn-custom"><button type="button" class="btn btn-primary">Read</button></li>
+                        <li class="btn-custom"><button type="submit" class="btn btn-primary">Read</button></li>
                         <li class="btn-custom"><button type="button" class="btn btn-warning">Edit</button></li>
                         <li class="btn-custom"><button type="button" class="btn btn-danger">Delete</button></li>
                     </ul>
                 </td>
             </tr>
+            </form>
+            
             <tr>
                 <th scope="row"><input type="checkbox" aria-label="Checkbox for following text input"></th>
                 <td>Jacob</td>
@@ -78,7 +82,19 @@ top_module("Amazorn", true);
     </div>
 
 </div>
+<?php
 
+$query = "SELECT * FROM users;";
+$result = mysqli_query($conn, $query);
+
+$resultCheck = mysqli_num_rows($result);
+if ($resultCheck > 0) {
+    if ($row = mysqli_fetch_assoc($result)) {
+        echo $row['user_id'];
+        echo $row['user_name'];
+    }
+}
+?>
 
 <footer>
     <div>
