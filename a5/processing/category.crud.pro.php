@@ -12,7 +12,7 @@
         $searchKey = (isset($_GET['searchKey']) ? $_GET['searchKey'] : ""); // get searchKey if exists
         $_SESSION = service_populateData($table, $pageNumber, $pageSize, $searchKey);
 
-    } else if ($_POST['action'] = 'Delete') { // if it is delete action
+    } else if ($_POST['action'] == 'Delete') { // if it is delete action
         service_deleteById($table, $_POST['id']); // delete the record by id
         $_SESSION = service_populateData($table, $pageNumber, $pageSize, $_SESSION['searchKey']); // update data after deleting
     
@@ -22,7 +22,12 @@
         unset($_POST['action']);
         $error = validate_categoryName($_POST['category_name']); // validate the category name
         if ($error == "") {               // if the form is valid, proceed
-            $action == 'Create' ? service_create($table, $_POST) : service_update($table, $_POST);
+            if ($action == 'Create') {
+                service_create($table, $_POST);
+            } else {
+                service_update($table, $_POST);
+                $_SESSION['c'. $_SESSION['index']] = $_POST; // update the new record to corresponding index chosen
+            }
         } else {                        // if the form is not valid output error;
             echo $error;
             $action == 'Create' ? header("Location: ../$table/create?result=fail") : header("Location: ../$table/update?result=fail");
