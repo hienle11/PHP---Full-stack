@@ -1,11 +1,11 @@
 <?php
 
-    function repository_save($table) {
+    function repository_save($table, $record) {
         require "db.inc.php";
         $queryColumns = ""; // variables to store the String containing fields/columns' names
         $queryValues = "";  // variables to store the String containing corresponding values
         // get all the fields and corressponding values of those fields
-        foreach ($_POST as $column => $value) {
+        foreach ($record as $column => $value) {
             $queryColumns .= $column . ",";
             $queryValues .= "'" . $value . "',";
         }
@@ -68,6 +68,28 @@
             }
         }
         return $results;
+    }
+
+    function repository_update($table, $record) {
+        require "db.inc.php";
+        $idColumn = ""; // variables to store field/columns names
+        $idValue = "";  // variables to store corresponding values
+        $index = 0;
+        // get all the fields and corressponding values of those fields
+        $subQuery = "";
+        foreach ($record as $column => $value) {
+            if ($index == 0) {
+                $idColumn = $column;
+                $idValue = $value;
+            } else {
+                $subQuery .= $column . " = '". $value . "',"; 
+            }
+            $index++;
+        }
+        $query = "UPDATE " . $table . " SET " . substr($subQuery, 0, -1) 
+        . " WHERE " . $idColumn . " = " . $idValue;
+        echo "query = " . $query . " <br>";
+        mysqli_query($conn, $query);
     }
 
     function repository_deleteById($table, $idColumn, $id) {

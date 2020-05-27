@@ -54,8 +54,7 @@ top_module("Amazorn", true);
                             <td>{$_SESSION['c'.$i]['category_name']}</td>
                             <td>
                                 <ul class="list-button d-flex">
-                                    <li class="btn-custom"><button type="submit" class="btn btn-primary">Read</button></li>
-                                    <li class="btn-custom"><button type="button" class="btn btn-warning">Edit</button></li>
+                                    <li class="btn-custom"><button onclick="location.href='categories/update?index=$i'" type="button" class="btn btn-warning">Edit</button></li>
                                     <li class="btn-custom"><button name='action' value='Delete' type="submit" class="btn btn-danger">Delete</button></li>
                                 </ul>
                             </td>

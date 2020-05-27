@@ -22,12 +22,22 @@
     }
 
     // this function is to create a new record
-    function service_create($table) {
+    function service_create($table, $record) {
         try {
-            repository_save("$table");
+            repository_save($table, $record);
             header("Location: ../$table/create?result=success");
         }catch (mysqli_sql_exception $exception) {
             header("Location: ../$table/create?result=fail");
+        }
+    }
+
+    // this function is to update a new record 
+    function service_update($table, $record) {
+        try {
+            repository_update($table, $record);
+            header("Location: ../$table/update?result=success");
+        }catch (mysqli_sql_exception $exception) {
+            header("Location: ../$table/update?result=fail");
         }
     }
 

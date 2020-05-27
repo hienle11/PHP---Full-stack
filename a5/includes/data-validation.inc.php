@@ -6,16 +6,7 @@
         return $data;
     }
 
-    function isPostRequest() {
-        if ($_SERVER["REQUEST_METHOD"] == "POST"){
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    function validate_categoryName() {
-        $categoryName = $_POST['category_name'];
+    function validate_categoryName($categoryName) {
         $err = "";
         if (empty($categoryName)) {
 			$err = '* Name is required';
