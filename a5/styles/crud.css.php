@@ -20,5 +20,9 @@
         float: left;
         padding: 8px 16px;
         text-decoration: none;
+        font-weight: 200;
+    }
+    .pagination a.active {
+        font-weight: 600;
     }
 </style>

@@ -5,7 +5,7 @@ include "./includes/paging.inc.php";
 include "./includes/tools.php"; // for debug only
 require "./styles/index.css.php"; //include CSS Style Sheet
 require "./styles/signin.css.php"; //include CSS Style Sheet
-require "./styles/search.css.php"; //include CSS Style Sheet
+require "./styles/crud.css.php"; //include CSS Style Sheet
 session_start();
 top_module("Amazorn", true);
 ?>
@@ -15,9 +15,10 @@ top_module("Amazorn", true);
 <div class="container-fluid">
     <h1>CATEGORY</h1>
     <?php
-        print_r($_GET);
+        $pageNumber = (isset($_GET['page']) ? (int)$_GET['page'] : 1);
+        $pageSize = (isset($_GET['size']) ? (int)$_GET['size'] : 7);
         if (!isset($_GET['result'])) {
-            header("Location: ../system/categories/process");
+            header("Location: ../system/categories/process?page={$pageNumber}&size={$pageSize}");
         } else if ($_GET['result'] == 'success'){
             echo "<h5>Found: ".$_SESSION['numberOfResults'] . " records</h5>";
         } else {
@@ -25,8 +26,8 @@ top_module("Amazorn", true);
         }
     ?>
     <div class="d-flex justify-content-between">
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <form method='GET' action='categories/process' class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" name='searchKey' value='<?php echo $_SESSION['searchKey']?>' placeholder="Search" aria-label="Search">
             <button class="btn form__btn--primary" type="submit">Search</button>
         </form>
         <button onclick="location.href='categories/create'" type="button" class="btn btn-success" style="min-width: 10rem;">Create</button>
@@ -42,10 +43,12 @@ top_module("Amazorn", true);
         </thead>
         <tbody>
             <?php
-                for($i = 0; $i < 5; $i++) {
+                for($i = 0; $i < $pageSize; $i++) {
                     if (isset($_SESSION['c'.$i])) {
                         echo <<<OUTPUT
-                        <form method="GET", action="product">
+                        <form method="POST", action="categories/process">
+                        <input type=hidden name="searchKey" value={$_SESSION['searchKey']}>
+                        <input type=hidden name="id" value={$_SESSION['c'.$i]['category_id']}>
                         <tr>
                             <td>{$_SESSION['c'.$i]['category_id']}</td>
                             <td>{$_SESSION['c'.$i]['category_name']}</td>
@@ -53,7 +56,7 @@ top_module("Amazorn", true);
                                 <ul class="list-button d-flex">
                                     <li class="btn-custom"><button type="submit" class="btn btn-primary">Read</button></li>
                                     <li class="btn-custom"><button type="button" class="btn btn-warning">Edit</button></li>
-                                    <li class="btn-custom"><button type="button" class="btn btn-danger">Delete</button></li>
+                                    <li class="btn-custom"><button name='action' value='Delete' type="submit" class="btn btn-danger">Delete</button></li>
                                 </ul>
                             </td>
                         </tr>
@@ -67,13 +70,13 @@ top_module("Amazorn", true);
         </tbody>
     </table>
     <div class="d-flex justify-content-end">
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Type page number" aria-label="Search">
+        <form class="form-inline my-2 my-lg-0" method='POST' action='categories/process'>
+            <input class="form-control mr-sm-2" type="search" name='page' placeholder="Type page number" aria-label="Search">
             <button class="btn form__btn--primary" type="submit">Go</button>
         </form>
     </div>
     <?php 
-        paging_module();
+        paging_module($pageNumber, $pageSize, $_SESSION['numberOfResults'], 'categories/process');
     ?>
 
 </div>

@@ -1,30 +1,30 @@
 <?php
-    include "../includes/crud-operations.inc.php";
+    include "../includes/service.inc.php";
     include "../includes/data-validation.inc.php";
     session_start();
 
-    if(!isset($_POST['action'])) {
-        $_SESSION = findByPage("categories", 0, 5);
-        foreach ($_SESSION as $id => $value) {
-            $_SESSION['c'. $id] = $value;
-        }
-        header("Location: ../categories?result=success");
-    } else if ($_POST['action'] == 'Create') {                                  // if action is "create", create a new category
+    $pageNumber = (isset($_GET['page']) ? (int)$_GET['page'] : 1); // if param "page" is not set, set it to 1
+    $pageSize = (isset($_GET['size']) ? (int)$_GET['size'] : 7); // if param "size" is not set, set it to 7
+    $table = 'categories';
 
+    if(!isset($_POST['action'])) {      // if there is no post action;
+        $pageNumber = (isset($_POST['page']) ? (int)$_POST['page']: $pageNumber); // get page from navigation "go" button if exists
+        $searchKey = (isset($_GET['searchKey']) ? $_GET['searchKey'] : ""); // get searchKey if exists
+        $_SESSION = service_populateData($table, $pageNumber, $pageSize, $searchKey);
+
+    } else if ($_POST['action'] == 'Create') { // it is create action
         $error = validate_categoryName(); // validate the category name
         unset($_POST['action']);
         if ($error == "") {               // if the form is valid, proceed
-            try {
-                create("categories");
-                header("Location: ../categories/create?result=success");
-            }catch (mysqli_sql_exception $exception) {
-                header("Location: ../categories/create?result=fail");
-            }
+            service_create($table);
         } else {                        // if the form is not valid output error;
             echo $error;
         }
+        
+    } else if ($_POST['action'] = 'Delete') { // if it is delete action
+        service_deleteById($table, $_POST['id']); // delete the record by id
+        $_SESSION = service_populateData($table, $pageNumber, $pageSize, $_SESSION['searchKey']); // update data after deleting
     }
-?>
-<form method='GET' action="test">
-    <button type="submit" class="btn btn-success" style="min-width: 10rem;">Create</button>
-</form>
+
+
+ ?>
