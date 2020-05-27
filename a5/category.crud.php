@@ -1,6 +1,7 @@
 <?php
 include "./includes/header.inc.php";
 include "./includes/footer.inc.php";
+include "./includes/paging.inc.php";
 include "./includes/tools.php"; // for debug only
 require "./styles/index.css.php"; //include CSS Style Sheet
 require "./styles/signin.css.php"; //include CSS Style Sheet
@@ -14,6 +15,7 @@ top_module("Amazorn", true);
 <div class="container-fluid">
     <h1>CATEGORY</h1>
     <?php
+        print_r($_GET);
         if (!isset($_GET['result'])) {
             header("Location: ../system/categories/process");
         } else if ($_GET['result'] == 'success'){
@@ -39,74 +41,29 @@ top_module("Amazorn", true);
             </tr>
         </thead>
         <tbody>
-            <form method="GET", action="product">
-            <tr>
-                <td><?php echo $_SESSION['c0']['category_id']; ?></td>
-                <td><?php echo $_SESSION['c0']['category_name']; ?></td>
-                <td>
-                    <ul class="list-button d-flex">
-                        <li class="btn-custom"><button type="submit" class="btn btn-primary">Read</button></li>
-                        <li class="btn-custom"><button type="button" class="btn btn-warning">Edit</button></li>
-                        <li class="btn-custom"><button type="button" class="btn btn-danger">Delete</button></li>
-                    </ul>
-                </td>
-            </tr>
-            </form>
-            
-            <form method="GET", action="product">
-            <tr>
-                <td><?php echo $_SESSION['c1']['category_id']; ?></td>
-                <td><?php echo $_SESSION['c1']['category_name']; ?></td>
-                <td>
-                    <ul class="list-button d-flex">
-                        <li class="btn-custom"><button type="submit" class="btn btn-primary">Read</button></li>
-                        <li class="btn-custom"><button type="button" class="btn btn-warning">Edit</button></li>
-                        <li class="btn-custom"><button type="button" class="btn btn-danger">Delete</button></li>
-                    </ul>
-                </td>
-            </tr>
-            </form>
-
-            <form method="GET", action="product">
-            <tr>
-                <td><?php echo $_SESSION['c2']['category_id']; ?></td>
-                <td><?php echo $_SESSION['c2']['category_name']; ?></td>
-                <td>
-                    <ul class="list-button d-flex">
-                        <li class="btn-custom"><button type="submit" class="btn btn-primary">Read</button></li>
-                        <li class="btn-custom"><button type="button" class="btn btn-warning">Edit</button></li>
-                        <li class="btn-custom"><button type="button" class="btn btn-danger">Delete</button></li>
-                    </ul>
-                </td>
-            </tr>
-            </form>
-
-            <form method="GET", action="product">
-            <tr>
-                <td><?php echo $_SESSION['c3']['category_id']; ?></td>
-                <td><?php echo $_SESSION['c3']['category_name']; ?></td>
-                <td>
-                    <ul class="list-button d-flex">
-                        <li class="btn-custom"><button type="submit" class="btn btn-primary">Read</button></li>
-                        <li class="btn-custom"><button type="button" class="btn btn-warning">Edit</button></li>
-                        <li class="btn-custom"><button type="button" class="btn btn-danger">Delete</button></li>
-                    </ul>
-                </td>
-            </tr>
-            </form>
-            <form method="GET", action="product">
-            <tr>
-                <td><?php echo $_SESSION['c4']['category_id']; ?></td>
-                <td><?php echo $_SESSION['c4']['category_name']; ?></td>
-                <td>
-                    <ul class="list-button d-flex">
-                        <li class="btn-custom"><button type="submit" class="btn btn-primary">Read</button></li>
-                        <li class="btn-custom"><button type="button" class="btn btn-warning">Edit</button></li>
-                        <li class="btn-custom"><button type="button" class="btn btn-danger">Delete</button></li>
-                    </ul>
-                </td>
-            </tr>
-            </form>
+            <?php
+                for($i = 0; $i < 5; $i++) {
+                    if (isset($_SESSION['c'.$i])) {
+                        echo <<<OUTPUT
+                        <form method="GET", action="product">
+                        <tr>
+                            <td>{$_SESSION['c'.$i]['category_id']}</td>
+                            <td>{$_SESSION['c'.$i]['category_name']}</td>
+                            <td>
+                                <ul class="list-button d-flex">
+                                    <li class="btn-custom"><button type="submit" class="btn btn-primary">Read</button></li>
+                                    <li class="btn-custom"><button type="button" class="btn btn-warning">Edit</button></li>
+                                    <li class="btn-custom"><button type="button" class="btn btn-danger">Delete</button></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        </form>
+                        OUTPUT;
+                    } else {
+                    break;
+                    }
+                }
+            ?>
         </tbody>
     </table>
     <div class="d-flex justify-content-end">
@@ -115,14 +72,9 @@ top_module("Amazorn", true);
             <button class="btn form__btn--primary" type="submit">Go</button>
         </form>
     </div>
-
-    <div class="pagination">
-        <a href="#">&laquo;</a>
-        <a href="#">1</a>";
-        
-        
-        <a href="#">&raquo;</a>
-    </div>
+    <?php 
+        paging_module();
+    ?>
 
 </div>
 
