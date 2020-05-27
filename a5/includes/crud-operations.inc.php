@@ -18,11 +18,15 @@
 
     function findByPage($table, $offset, $limit) {
         require "db.inc.php";
-        $query = "SELECT * FROM categories LIMIT $offset, $limit;";
+        $query = "SELECT * FROM " . $table .  " LIMIT $offset, $limit;";
         $result = mysqli_query($conn, $query);
 
+        $countQuery = "SELECT * FROM " . $table .  ";";
+        $countResult = mysqli_num_rows(mysqli_query($conn, $countQuery));
         $results = array();
+        $results['numberOfResults'] = $countResult;
         if (mysqli_num_rows($result) > 0) {
+
             while ($row = mysqli_fetch_assoc($result)) {
                 array_push($results, $row);
             }

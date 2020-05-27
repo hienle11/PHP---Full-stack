@@ -35,7 +35,7 @@ top_module("Amazorn", true);
                     <td>
                         <ul class="list-button d-flex">
                             <li class="btn-custom"><button type="submit" name="action" value="Create" class="btn btn-primary">Save</button></li>
-                            <li onclick="location.href='../category'" class="btn-custom"><button type="button" class="btn btn-danger text-nowrap">Back  </button></li>
+                            <li onclick="location.href='../categories'" class="btn-custom"><button type="button" class="btn btn-danger text-nowrap">Back  </button></li>
                         </ul>
                     </td>
 

@@ -13,13 +13,13 @@ top_module("Amazorn", true);
 
 <div class="container-fluid">
     <h1>CATEGORY</h1>
-    <h2>SEARCH <span>"Ball"</span></h2>
     <?php
         if (!isset($_GET['result'])) {
-            print_r ($_SESSION);
-            //header("Location: ../system/categories/process");
+            header("Location: ../system/categories/process");
         } else if ($_GET['result'] == 'success'){
-            echo "success";
+            echo "<h5>Found: ".$_SESSION['numberOfResults'] . " records</h5>";
+        } else {
+            echo "None records have been found";
         }
     ?>
     <div class="d-flex justify-content-between">
@@ -41,8 +41,8 @@ top_module("Amazorn", true);
         <tbody>
             <form method="GET", action="product">
             <tr>
-                <td><?php echo $_SESSION[0]['category_name']; ?></td>
-                <td>Mark</td>
+                <td><?php echo $_SESSION['c0']['category_id']; ?></td>
+                <td><?php echo $_SESSION['c0']['category_name']; ?></td>
                 <td>
                     <ul class="list-button d-flex">
                         <li class="btn-custom"><button type="submit" class="btn btn-primary">Read</button></li>
@@ -55,8 +55,8 @@ top_module("Amazorn", true);
             
             <form method="GET", action="product">
             <tr>
-                <td>1</td>
-                <td>Mark</td>
+                <td><?php echo $_SESSION['c1']['category_id']; ?></td>
+                <td><?php echo $_SESSION['c1']['category_name']; ?></td>
                 <td>
                     <ul class="list-button d-flex">
                         <li class="btn-custom"><button type="submit" class="btn btn-primary">Read</button></li>
@@ -69,8 +69,8 @@ top_module("Amazorn", true);
 
             <form method="GET", action="product">
             <tr>
-                <td>1</td>
-                <td>Mark</td>
+                <td><?php echo $_SESSION['c2']['category_id']; ?></td>
+                <td><?php echo $_SESSION['c2']['category_name']; ?></td>
                 <td>
                     <ul class="list-button d-flex">
                         <li class="btn-custom"><button type="submit" class="btn btn-primary">Read</button></li>
@@ -83,8 +83,8 @@ top_module("Amazorn", true);
 
             <form method="GET", action="product">
             <tr>
-                <td>1</td>
-                <td>Mark</td>
+                <td><?php echo $_SESSION['c3']['category_id']; ?></td>
+                <td><?php echo $_SESSION['c3']['category_name']; ?></td>
                 <td>
                     <ul class="list-button d-flex">
                         <li class="btn-custom"><button type="submit" class="btn btn-primary">Read</button></li>
@@ -96,8 +96,8 @@ top_module("Amazorn", true);
             </form>
             <form method="GET", action="product">
             <tr>
-                <td>1</td>
-                <td>Mark</td>
+                <td><?php echo $_SESSION['c4']['category_id']; ?></td>
+                <td><?php echo $_SESSION['c4']['category_name']; ?></td>
                 <td>
                     <ul class="list-button d-flex">
                         <li class="btn-custom"><button type="submit" class="btn btn-primary">Read</button></li>
@@ -118,12 +118,9 @@ top_module("Amazorn", true);
 
     <div class="pagination">
         <a href="#">&laquo;</a>
-        <a href="#">1</a>
-        <a href="#">2</a>
-        <a href="#">3</a>
-        <a href="#">4</a>
-        <a href="#">5</a>
-        <a href="#">6</a>
+        <a href="#">1</a>";
+        
+        
         <a href="#">&raquo;</a>
     </div>
 
