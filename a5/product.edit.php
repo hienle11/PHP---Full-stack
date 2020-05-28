@@ -40,7 +40,7 @@ top_module("Amazorn", true);
 
         ?>
         <table class="table table-bordered" style="background-color: #fff; margin-top: 2rem;">
-            <form method="POST", action="../products/process">
+            <form method="POST" action="../products/process" enctype="multipart/form-data">
             <tbody>
                 <?php 
                     if ($_SESSION['update']) {   // if it is update action, add id field 
@@ -81,6 +81,14 @@ top_module("Amazorn", true);
                     <th scope="row">Category Id</th>                                                  
                     <td><input type="text" name="category_id" class="form-control" placeholder="Category Id"
                     value = "<?php echo ($_SESSION['update'] || isset($_SESSION['id'])? $_SESSION['category_id']: "");?>"></td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Image</th>                                                  
+                    <td >
+                        <div style="min-height: 250px"><img src='images/macbook3.png' alt='Responsive image'></div>
+                        <input type="file" name="image" class="form-control"> 
+                    </td>
                 </tr>
 
                 <tr>

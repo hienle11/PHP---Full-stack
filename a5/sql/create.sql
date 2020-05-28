@@ -28,6 +28,7 @@ CREATE TABLE Products (
     price REAL NOT NULL,
     quantity INTEGER NOT NULL,
     descript TEXT NOT NULL,
+    image_uri VARCHAR(300) NOT NULL,
     category_id INTEGER NOT NULL,
     CONSTRAINT CHK_Products_Price CHECK (price >= 0),
     CONSTRAINT CHK_Products_Quantity CHECK (quantity >= 0),
@@ -49,4 +50,3 @@ CREATE TABLE CartsProducts (
     CONSTRAINT FK_CartsProducts_Products FOREIGN KEY (product_id) REFERENCES Products(product_id)
 );
 
--- SELECT * FROM categories WHERE CONCAT(category_id, category_name) LIKE '%hien%'
