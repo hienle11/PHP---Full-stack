@@ -1,5 +1,5 @@
 <?php
-    include "../includes/repository.inc.php";
+    include_once "repository.inc.php";
 
     // this function is to get all records needed from database
     function service_populateData($table, $pageNumber, $pageSize, $searchKey) {
@@ -58,7 +58,7 @@
         } catch (mysqli_sql_exception $exception){
             throw new RuntimeException();
         }
-
         return $result;
     }
+
 ?>

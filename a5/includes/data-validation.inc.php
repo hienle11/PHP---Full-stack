@@ -32,4 +32,17 @@
         return $err;
     }
 
+    function validate_userName($productName) {
+        $err = "";
+        if (empty($productName)) {
+			$err = '* Name is required';
+		} else {
+			$name = test_input($productName);
+			if (!preg_match("/^[a-zA-z0-9 ]*$/", $name)) {
+                $err = "* Name contains only letters and whitespaces";
+            }
+        }
+        return $err;
+    }
+
 ?>

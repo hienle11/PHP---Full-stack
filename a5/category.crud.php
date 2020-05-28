@@ -33,6 +33,12 @@ top_module("Amazorn", true);
         <button onclick="location.href='categories/create'" type="button" class="btn btn-success" style="min-width: 10rem;">Create</button>
     </div>
 
+    <?php 
+        if (isset($_GET['delete'])) {
+            echo ($_GET['delete'] == 'success') ? 'Record is deleted successfully!' : 'Fail to delete the selected record! <br> This category might be used by some products';
+        }
+    ?>
+
     <table class="table table-bordered" style="background-color: #fff; margin-top: 2rem;">
         <thead>
             <tr>

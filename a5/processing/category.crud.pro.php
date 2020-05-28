@@ -47,9 +47,10 @@
         try {
             service_deleteById($table, $_POST['id']); // delete the record by id
             $_SESSION = service_populateData($table, $pageNumber, $pageSize, $_SESSION['searchKey']); // update data after deleting
-            header("Location: ../${table}?result=success&page=$pageNumber");
+            header("Location: ../${table}?result=success&delete=success&page=$pageNumber");
         }catch (RuntimeException $exception) {
-            header("Location: ../${table}?result=fail&page=$pageNumber");
+            $_SESSION = service_populateData($table, $pageNumber, $pageSize, $_SESSION['searchKey']); // populate the page again in case delete process is failed
+            header("Location: ../${table}?result=success&delete=fail&page=$pageNumber");
         }
     }
 

@@ -17,7 +17,11 @@ RewriteRule ^system/categories/create$ category.edit.php [NC,L]
 RewriteRule ^system/categories/update$ category.edit.php [NC,L]
 RewriteRule ^system/categories/process$ processing/category.crud.pro.php [NC,L]
 
-RewriteRule ^system/categories/test$ processing/test.php [NC,L]
+# rewrite urls for categories crud operations
+RewriteRule ^system/users$ user.crud.php [NC,L]
+RewriteRule ^system/users/create$ user.edit.php [NC,L]
+RewriteRule ^system/users/update$ user.edit.php [NC,L]
+RewriteRule ^system/users/process$ processing/user.crud.pro.php [NC,L]
 
 php_flag display_errors 1
 
