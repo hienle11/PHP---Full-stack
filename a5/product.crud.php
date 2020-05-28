@@ -1,100 +1,91 @@
 <?php
 include "./includes/header.inc.php";
 include "./includes/footer.inc.php";
-include "./includes/db.inc.php";
+include "./includes/paging.inc.php";
 include "./includes/tools.php"; // for debug only
 require "./styles/index.css.php"; //include CSS Style Sheet
 require "./styles/signin.css.php"; //include CSS Style Sheet
-require "./styles/search.css.php"; //include CSS Style Sheet
+require "./styles/crud.css.php"; //include CSS Style Sheet
 session_start();
 top_module("Amazorn", true);
 ?>
 
+
+
 <div class="container-fluid">
-    <h1>SEARCH <span>"Ball"</span></h1>
+    <h1>PRODUCT</h1>
+    <?php
+        $pageNumber = (isset($_GET['page']) ? (int)$_GET['page'] : 1);
+        $pageSize = (isset($_GET['size']) ? (int)$_GET['size'] : 7);
+        if (!isset($_GET['result'])) {
+            header("Location: ../system/products/process?page={$pageNumber}&size={$pageSize}");
+        } else if ($_GET['result'] == 'success'){
+            echo "<h5>Found: ".$_SESSION['numberOfResults'] . " records</h5>";
+        } else {
+            echo "None records have been found";
+        }
+    ?>
     <div class="d-flex justify-content-between">
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <form method='GET' action='products/process' class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" name='searchKey' value='<?php echo $_SESSION['searchKey']?>' placeholder="Search" aria-label="Search">
             <button class="btn form__btn--primary" type="submit">Search</button>
         </form>
-        <button type="button" class="btn btn-success" style="min-width: 10rem;">Create</button>
+        <button onclick="location.href='products/create'" type="button" class="btn btn-success" style="min-width: 10rem;">Create</button>
     </div>
 
     <table class="table table-bordered" style="background-color: #fff; margin-top: 2rem;">
         <thead>
             <tr>
-                <th scope="col" style="width: 5px;"><input type="checkbox" aria-label="Checkbox for following text input"></th>
+                <th scope="col">Id</th>
                 <th scope="col">Name</th>
                 <th scope="col">Description</th>
                 <th scope="col">Price</th>
-                <th scope="col">Action</th>
-                <!-- <th scope="col">Category</th> -->
+                <th scope="col">Quantity</th>
+                <th scope="col">Category Id</th>
             </tr>
         </thead>
         <tbody>
-            <form method="GET", action="product">
-            <tr>
-                <th scope="row"><input type="checkbox" aria-label="Checkbox for following text input"></th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>
-                    <ul class="list-button d-flex">
-                        <li class="btn-custom"><button type="submit" class="btn btn-primary">Read</button></li>
-                        <li class="btn-custom"><button type="button" class="btn btn-warning">Edit</button></li>
-                        <li class="btn-custom"><button type="button" class="btn btn-danger">Delete</button></li>
-                    </ul>
-                </td>
-            </tr>
-            </form>
-            
-            <tr>
-                <th scope="row"><input type="checkbox" aria-label="Checkbox for following text input"></th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                <td>
-                    <ul class="list-button d-flex">
-                        <li class="btn-custom"><button type="button" class="btn btn-primary">Read</button></li>
-                        <li class="btn-custom"><button type="button" class="btn btn-warning">Edit</button></li>
-                        <li class="btn-custom"><button type="button" class="btn btn-danger">Delete</button></li>
-                    </ul>
-                </td>
-            </tr>
+            <?php
+                for($i = 0; $i < $pageSize; $i++) {
+                    if (isset($_SESSION['c'.$i])) {
+                        echo <<<OUTPUT
+                        <form method="POST", action="products/process">
+                        <input type=hidden name="searchKey" value={$_SESSION['searchKey']}>
+                        <input type=hidden name="id" value={$_SESSION['c'.$i]['product_id']}>
+                        <tr>
+                            <td>{$_SESSION['c'.$i]['product_id']}</td>
+                            <td>{$_SESSION['c'.$i]['product_name']}</td>
+                            <td>{$_SESSION['c'.$i]['descript']}</td>
+                            <td>{$_SESSION['c'.$i]['price']}</td>
+                            <td>{$_SESSION['c'.$i]['quantity']}</td>
+                            <td>{$_SESSION['c'.$i]['category_id']}</td>
+                            <td>
+                                <ul class="list-button d-flex">
+                                    <li class="btn-custom"><button onclick="location.href='products/update?id={$_SESSION['c'.$i]['product_id']}'" type="button" class="btn btn-warning">Edit</button></li>
+                                    <li class="btn-custom"><button name='action' value='Delete' type="submit" class="btn btn-danger">Delete</button></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        </form>
+                        OUTPUT;
+                    } else {
+                    break;
+                    }
+                }
+            ?>
         </tbody>
     </table>
     <div class="d-flex justify-content-end">
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Type page number" aria-label="Search">
+        <form class="form-inline my-2 my-lg-0" method='POST' action='products/process'>
+            <input class="form-control mr-sm-2" type="search" name='page' placeholder="Type page number" aria-label="Search">
             <button class="btn form__btn--primary" type="submit">Go</button>
         </form>
     </div>
-
-    <div class="pagination">
-        <a href="#">&laquo;</a>
-        <a href="#">1</a>
-        <a href="#">2</a>
-        <a href="#">3</a>
-        <a href="#">4</a>
-        <a href="#">5</a>
-        <a href="#">6</a>
-        <a href="#">&raquo;</a>
-    </div>
+    <?php 
+        paging_module($pageNumber, $pageSize, $_SESSION['numberOfResults'], 'products/process');
+    ?>
 
 </div>
-<?php
-
-$query = "SELECT * FROM users;";
-$result = mysqli_query($conn, $query);
-
-$resultCheck = mysqli_num_rows($result);
-if ($resultCheck > 0) {
-    if ($row = mysqli_fetch_assoc($result)) {
-        echo $row['user_id'];
-        echo $row['user_name'];
-    }
-}
-?>
 
 <footer>
     <div>

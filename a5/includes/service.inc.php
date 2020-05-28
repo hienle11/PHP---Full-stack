@@ -13,9 +13,8 @@
             foreach ($results as $id => $value) { // making variables names valid by adding a letter in front
                 $results['c'. $id] = $value;
             }
-            header("Location: ../$table?page={$pageNumber}&size={$pageSize}&result=success");
         } catch (mysqli_sql_exception $exception){
-            header("Location: ../$table?page={$pageNumber['page']}&size={$pageSize}&result=fail");
+            throw new RuntimeException();
         }
         $results['searchKey'] = $searchKey;
         return $results;
@@ -25,9 +24,8 @@
     function service_create($table, $record) {
         try {
             repository_save($table, $record);
-            header("Location: ../$table/create?result=success");
         }catch (mysqli_sql_exception $exception) {
-            header("Location: ../$table/create?result=fail");
+            throw new RuntimeException();
         }
     }
 
@@ -35,9 +33,8 @@
     function service_update($table, $record) {
         try {
             repository_update($table, $record);
-            header("Location: ../$table/update?result=success");
         }catch (mysqli_sql_exception $exception) {
-            header("Location: ../$table/update?result=fail");
+            throw new RuntimeException();
         }
     }
 
@@ -45,9 +42,23 @@
     function service_deleteById($table, $id) {
         try {
             // delete by id of the record
-            repository_deleteById($table, 'category_id', $id);
+            repository_deleteById($table, $id);
         } catch (mysqli_sql_exception $exception){
-            header("Location: ../${table}/create?result=fail");
+            throw new RuntimeException();
         }
+    }
+
+    // this function is to find a record by id
+    function service_findById($table, $id) {
+        $result = array();
+
+        try {
+            // delete by id of the record
+            $result = repository_findById($table, $id);
+        } catch (mysqli_sql_exception $exception){
+            throw new RuntimeException();
+        }
+
+        return $result;
     }
 ?>

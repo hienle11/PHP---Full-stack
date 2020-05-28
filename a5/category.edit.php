@@ -26,7 +26,7 @@ top_module("Amazorn", true);
                 } else if ($_GET['result'] == 'fail') {
                     echo "Process has failed! <br> It could be due to following reasons: <br>";
                     echo " *Category name must be unique <br>";
-                    echo " *Category can only contain alphabetical letters, white spaces and digits ";
+                    echo " *Category name can only contain alphabetical letters, white spaces and digits ";
                 }
             }
         ?>

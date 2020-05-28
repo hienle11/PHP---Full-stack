@@ -27,7 +27,6 @@ CREATE TABLE Products (
     product_name VARCHAR(300) NOT NULL,
     price REAL NOT NULL,
     quantity INTEGER NOT NULL,
-    image_uri VARCHAR(300) NOT NULL,
     descript TEXT NOT NULL,
     category_id INTEGER NOT NULL,
     CONSTRAINT CHK_Products_Price CHECK (price >= 0),

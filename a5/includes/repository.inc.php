@@ -12,8 +12,20 @@
 
         // substr() is used to delete character "," at the end of those two strings;
         $query = "INSERT INTO " . $table . "(" . substr($queryColumns, 0, -1) . ") VALUES (" . substr($queryValues, 0, -1) . ");";
-        echo "query = " . $query . "=end <br>";
         mysqli_query($conn, $query);
+    }
+
+    function repository_findById($table, $id) {
+        require "db.inc.php";
+        $query = "DESCRIBE " . $table; 
+        $result = mysqli_query($conn, $query);
+        $idColumn = mysqli_fetch_assoc($result);
+       
+        //query to delete
+        $query = "SELECT * FROM " . $table .  " WHERE ". $idColumn['Field']. " = " . (int)$id;
+        $result = mysqli_query($conn, $query);
+
+        return mysqli_num_rows($result) > 0 ? mysqli_fetch_assoc($result) : null;
     }
 
     function repository_findByPage($table, $offset, $limit) {
@@ -88,15 +100,18 @@
         }
         $query = "UPDATE " . $table . " SET " . substr($subQuery, 0, -1) 
         . " WHERE " . $idColumn . " = " . $idValue;
-        echo "query = " . $query . " <br>";
         mysqli_query($conn, $query);
     }
 
-    function repository_deleteById($table, $idColumn, $id) {
+    function repository_deleteById($table, $id) {
         require "db.inc.php";
-
-        // query to get the table fields/columns names
-        $query = "DELETE FROM " . $table .  " WHERE ". $idColumn. " = " . (int)$id;
+        $query = "DESCRIBE " . $table; 
+        $result = mysqli_query($conn, $query);
+        $idColumn = mysqli_fetch_assoc($result);
+       
+        //query to delete
+        $query = "DELETE FROM " . $table .  " WHERE ". $idColumn['Field']. " = " . (int)$id;
         mysqli_query($conn, $query);
     }
+
 ?>
