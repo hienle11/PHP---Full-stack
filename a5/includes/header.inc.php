@@ -22,7 +22,7 @@ OUTPUT;
     $nav = <<<"OUTPUT"
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #111 !important;">
-        <a class="navbar-brand ml-4 mr-5" href="index.php">Amazorn</a>
+        <a class="navbar-brand ml-4 mr-5" href="index">Amazorn</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -57,7 +57,7 @@ OUTPUT;
                 {$_SESSION['user_name']}
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <a class="dropdown-item" href="setting.php">Account Settings</a>
+                <a class="dropdown-item" href="system">Account Settings</a>
                 <a class="dropdown-item" href="includes/signout.inc.php">Edit Website</a>
                 <a class="dropdown-item" href="includes/signout.inc.php">Sign Out</a>
             </div>
@@ -71,18 +71,18 @@ OUTPUT;
                 {$_SESSION['user_name']}
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <a class="dropdown-item" href="setting.php">Account Settings</a>
+                <a class="dropdown-item" href="system">Account Settings</a>
                 <a class="dropdown-item" href="includes/signout.inc.php">Sign Out</a>
             </div>
         OUTPUT;
     } else {
-        $signin = "<a class='nav-link' href='signin.php'>Sign in<span class='sr-only'>(current)</span></a>";
+        $signin = "<a class='nav-link' href='sign-in'>Sign in<span class='sr-only'>(current)</span></a>";
     }
 
     $rest = <<<"OUTPUT"
                 </li>
                 <li class="nav-item ml-5">
-                    <a class="nav-link" href="cart.php">Cart</a>
+                    <a class="nav-link" href="cart">Cart</a>
                 </li>
             </ul>
         </div>

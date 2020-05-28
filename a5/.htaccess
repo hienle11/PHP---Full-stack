@@ -11,10 +11,10 @@ RewriteRule ^system/products/update$ product.edit.php [NC,L]
 RewriteRule ^system/products/process$ processing/product.crud.pro.php [NC,L]
 
 # rewrite urls for categories crud operations
-#RewriteRule ^system/categories$ category.crud.php [NC,L]
-#RewriteRule ^system/categories/create$ category.edit.php [NC,L]
-#RewriteRule ^system/categories/update$ category.edit.php [NC,L]
-#RewriteRule ^system/categories/process$ processing/category.crud.pro.php [NC,L]
+RewriteRule ^system/categories$ category.crud.php [NC,L]
+RewriteRule ^system/categories/create$ category.edit.php [NC,L]
+RewriteRule ^system/categories/update$ category.edit.php [NC,L]
+RewriteRule ^system/categories/process$ processing/category.crud.pro.php [NC,L]
 
 # rewrite urls for categories crud operations
 RewriteRule ^system/users$ user.crud.php [NC,L]

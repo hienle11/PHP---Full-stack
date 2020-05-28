@@ -59,7 +59,7 @@ $userEmail = $_GET['email'];
         <button type="submit" class="btn form__btn--primary btn-block" name="submit">Create your Amazorn account</button>
         </form>
         <hr>
-        <p>Already have an account? <span><a href="signin.php">Sign-In</a></span></p>
+        <p>Already have an account? <span><a href="sign-in">Sign-In</a></span></p>
         </div>
     </section>
 </main>

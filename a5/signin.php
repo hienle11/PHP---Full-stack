@@ -50,7 +50,7 @@ $userEmail = $_GET['email'];
         <div class="divider">
             <h6>New to Amazorn?</h6>
         </div>
-        <button type="submit" class="btn btn-sm form__btn--secondary btn-block"><a href="signup.php">Create your Amazorn account?</a></button>
+        <button type="submit" class="btn btn-sm form__btn--secondary btn-block"><a href="sign-up">Create your Amazorn account?</a></button>
     </section>
 </main>
 

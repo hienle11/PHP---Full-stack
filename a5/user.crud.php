@@ -37,7 +37,7 @@ top_module("Amazorn", true);
     
     <?php 
         if (isset($_GET['delete'])) {
-            echo ($_GET['delete'] == 'success') ? 'Record is deleted successfully!' : 'Fail to delete the selected record!';
+            echo ($_GET['delete'] == 'success') ? 'Record is deleted successfully!' : 'Fail to delete the selected record! <br> *An admin cannot be deleted';
         }
     ?>
 
