@@ -57,14 +57,30 @@
     function createOrUpdateProduct($table) {
         $action = $_POST['action'];
         unset($_POST['action']);
-
+        $currentImageURI = $_SESSION['image_uri'];
         $_SESSION = $_POST;
         $_SESSION['id'] = isset($_POST['product_id']) ? $_POST['product_id'] : -1;
-        
+        $_SESSION['update'] = ($action == 'Update') ? true: false;
+
         $error = validate_productName($_POST['product_name']); // validate the category name
         if ($error == "") {               // if the form is valid, proceed
             try {
-                $_SESSION['update'] = ($action == 'Update') ? true: false;
+                $_POST['image_uri'] = uploadImage(); // get the image uri
+                if ($_POST['image_uri'] == 0) {      // if there is no image uploaded
+                    $_POST['image_uri'] = $currentImageURI; // used the current image on update action
+                } else if ($_POST['image_uri'] < 0){        // if the uploaded image is not valid
+                    $_SESSION['image_uri'] = $currentImageURI; // used the current image on update action
+                    $_SESSION['id'] = -1;
+                    header("Location: ../$table/$action?process=fail"); // redirect with fail message
+                    exit();
+                }
+                if ($_POST['image_uri'] == "") {
+                    unset($_POST['image_uri']);     // if the user is not provide image on update, unset image_uri to make it null 
+                    $_SESSION['default.png'];       // display default URL 
+                }  else {
+                    $_SESSION['image_uri'] = $_POST['image_uri']; // display updated URL
+                }
+
                 ($action == 'Create') ? service_create($table, $_POST) : service_update($table, $_POST);
                 header("Location: ../$table/$action?process=success");
             } catch(RuntimeException $exception) {
@@ -72,8 +88,45 @@
                 header("Location: ../$table/$action?process=fail");
             }          
         } else {    // if the form is not valid output error;
-            echo $error;
+            $_SESSION['id'] = -1;
             header("Location: ../$table/$action?process=fail");
+        }
+    }
+
+    
+    function uploadImage() {
+
+        if(isset($_FILES['image'])) {
+
+            $file = $_FILES['image']; // get the image uploaded
+            $fileExt = explode('.', $file['name']); // get the file extension
+            $fileExt = strtolower(end($fileExt));  // convert it to lowercase
+            $allowed = array('jpg', 'jpeg', 'png'); // list contains valid file extensions
+            if ($fileExt != null) {
+                if (in_array($fileExt, $allowed)) {
+                    if ($file['error'] === 0 ) {
+                        if ($file['size'] < 1000000) {
+                            $file['id'] = uniqid('', true) . "." . $fileExt;
+                            $savedFile = '../images/' . $file['id'];
+                            move_uploaded_file($file['tmp_name'], $savedFile);
+                            return $file['id'];    
+                        } else {
+                            return -4;
+                        }
+                    } else {
+                        return -3;
+                    }
+                
+                } else {
+                    return -2;
+                }
+
+            } else {
+                return 0;
+            }
+            
+        } else {
+            return -1;
         }
     }
  ?>

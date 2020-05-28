@@ -75,11 +75,11 @@
 
         $_SESSION = $_POST;
         $_SESSION['id'] = isset($_POST['user_id']) ? $_POST['user_id'] : -1;
-        
+        $_SESSION['update'] = ($action == 'Update') ? true: false;
+
         $error = validate_userName($_POST['user_name']); // validate the user name
         if ($error == "") {               // if the form is valid, proceed
             try {
-                $_SESSION['update'] = ($action == 'Update') ? true: false;
                 ($action == 'Create') ? service_create($table, $_POST) : service_update($table, $_POST);
                 header("Location: ../$table/$action?process=success");
             } catch(RuntimeException $exception) {
@@ -87,7 +87,7 @@
                 header("Location: ../$table/$action?process=fail");
             }          
         } else {    // if the form is not valid output error;
-            echo $error;
+            $_SESSION['id'] = -1;
             header("Location: ../$table/$action?process=fail");
         }
     }

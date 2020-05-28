@@ -86,8 +86,9 @@ top_module("Amazorn", true);
                 <tr>
                     <th scope="row">Image</th>                                                  
                     <td >
-                        <div style="min-height: 250px"><img src='images/macbook3.png' alt='Responsive image'></div>
-                        <input type="file" name="image" class="form-control"> 
+                        <div style="min-height: 252px; max-width: 252px; border: 1px solid black"><img style="height: 250px" alt='Responsive image'
+                        src='../../images/<?php echo (($_SESSION['update'] || isset($_SESSION['id']) && isset($_SESSION['image_uri']))? $_SESSION['image_uri']: "default.png");?>' ></div>
+                        <input style="border: none"type="file" name="image" value='../../images/<?php echo (($_SESSION['update'] || isset($_SESSION['id']) && isset($_SESSION['image_uri']))? $_SESSION['image_uri']: "default.png");?>' class="form-control"> 
                     </td>
                 </tr>
 
@@ -115,6 +116,7 @@ top_module("Amazorn", true);
             </tbody>
             </form>
         </table>
+        
     </div>
 </main>
 
