@@ -3,7 +3,7 @@ include "./includes/header.inc.php";
 include "./includes/footer.inc.php";
 include "./includes/tools.php"; // for debug only
 require "./styles/index.css.php"; //include CSS Style Sheet
-require "./styles/create_product.css.php"; //include CSS Style Sheet
+require "./styles/edit.css.php"; //include CSS Style Sheet
 session_start();
 top_module("Amazorn", true);
 ?>
@@ -18,7 +18,7 @@ top_module("Amazorn", true);
             if (isset($_GET['id'])) { // if index is provided, it is an update action
                 header("Location: ../products/process?id={$_GET['id']}&return=result"); // get the record user want to update 
             
-            } else if (isset($_SESSION['id']) &&  ($_SESSION['id'] != -1)  && $_SESSION['update']) {
+            } else if (isset($_SESSION['id']) &&  ($_SESSION['id'] != -1)  && $_SESSION['update']) { // retrieve the record with the updated information
                 header("Location: ../products/process?id={$_SESSION['id']}&return=process"); // get the record user after updated
             
             } else if (isset($_GET['result']) &&  isset($_SESSION['id'])) { // display error message if needed
@@ -27,7 +27,7 @@ top_module("Amazorn", true);
                 }
             }   
 
-            // display messages
+            // display messages after record is created or updated
             if (isset($_GET['process'])) {
                 if ($_GET['process'] == 'success') {
                     echo ($_SESSION['update'] ? "Product is updated successfully" :"New product is created successfully");
@@ -37,6 +37,7 @@ top_module("Amazorn", true);
                     echo " *Product name can only contain alphabetical letters, white spaces and digits ";
                 }
             }
+
         ?>
         <table class="table table-bordered" style="background-color: #fff; margin-top: 2rem;">
             <form method="POST", action="../products/process">

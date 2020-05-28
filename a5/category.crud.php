@@ -38,7 +38,6 @@ top_module("Amazorn", true);
             <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Name</th>
-                <!-- <th scope="col">Category</th> -->
             </tr>
         </thead>
         <tbody>
@@ -46,7 +45,7 @@ top_module("Amazorn", true);
                 for($i = 0; $i < $pageSize; $i++) {
                     if (isset($_SESSION['c'.$i])) {
                         echo <<<OUTPUT
-                        <form method="POST", action="categories/process">
+                        <form method="POST", action="categories/process?page=$pageNumber">
                         <input type=hidden name="searchKey" value={$_SESSION['searchKey']}>
                         <input type=hidden name="id" value={$_SESSION['c'.$i]['category_id']}>
                         <tr>
@@ -54,7 +53,7 @@ top_module("Amazorn", true);
                             <td>{$_SESSION['c'.$i]['category_name']}</td>
                             <td>
                                 <ul class="list-button d-flex">
-                                    <li class="btn-custom"><button onclick="location.href='categories/update?index=$i'" type="button" class="btn btn-warning">Edit</button></li>
+                                    <li class="btn-custom"><button onclick="location.href='categories/update?id={$_SESSION['c'.$i]['category_id']}'" type="button" class="btn btn-warning">Edit</button></li>
                                     <li class="btn-custom"><button name='action' value='Delete' type="submit" class="btn btn-danger">Delete</button></li>
                                 </ul>
                             </td>
@@ -68,12 +67,15 @@ top_module("Amazorn", true);
             ?>
         </tbody>
     </table>
-    <div class="d-flex justify-content-end">
+
+    <div class="d-flex justify-content-between">
         <form class="form-inline my-2 my-lg-0" method='POST' action='categories/process'>
             <input class="form-control mr-sm-2" type="search" name='page' placeholder="Type page number" aria-label="Search">
             <button class="btn form__btn--primary" type="submit">Go</button>
         </form>
+        <button onclick="location.href='../system'" class="btn btn-danger ml-1" type="submit">Back</button>
     </div>
+  
     <?php 
         paging_module($pageNumber, $pageSize, $_SESSION['numberOfResults'], 'categories/process');
     ?>

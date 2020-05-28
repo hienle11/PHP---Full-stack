@@ -3,42 +3,51 @@ include "./includes/header.inc.php";
 include "./includes/footer.inc.php";
 include "./includes/tools.php"; // for debug only
 require "./styles/index.css.php"; //include CSS Style Sheet
-require "./styles/create_product.css.php"; //include CSS Style Sheet
+require "./styles/edit.css.php"; //include CSS Style Sheet
 session_start();
 top_module("Amazorn", true);
 ?>
 <main>
     <div class="container-fluid">
         <?php
-            if (isset($_GET['index'])) { // if index is provided, it is an update action
-                $_SESSION['index'] = $_GET['index'];
-            } else { // if index is not provided, check if index of session exists, to remember the stage when updating
-                $_SESSION['index'] = isset($_SESSION['index']) ? $_SESSION['index'] : -1;
-            }
+            $_SESSION['update'] = isset($_SESSION['update']) ? $_SESSION['update'] : false;
 
-            // display title "UPDATE CTEGORY" if it is update action, otherwise display "CREATE CATEGORY"
-            echo ($_SESSION['index'] >= 0 ?"<h1>UPDATE CATEGORY</h1>" : "<h1>CREATE CATEGORY</h1>");
+            // display title "UPDATE CATEGORY" if it is update action, otherwise display "CREATE CATEGORY"
+            echo ($_SESSION['update'] ?"<h1>UPDATE CATEGORY</h1>" : "<h1>CREATE CATEGORY</h1>");
+
+            if (isset($_GET['id'])) { // if index is provided, it is an update action
+                header("Location: ../categories/process?id={$_GET['id']}&return=result"); // get the record user want to update 
             
-            // display messages 
-            if (isset($_GET['result'])) {
-                if ($_GET['result'] == 'success') {
-                    echo (isset($_SESSION['index']) ? "Category is updated successfully" :"New category is created successfully");
-                } else if ($_GET['result'] == 'fail') {
+            } else if (isset($_SESSION['id']) &&  ($_SESSION['id'] != -1)  && $_SESSION['update']) { // retrieve the record with the updated information
+                header("Location: ../categories/process?id={$_SESSION['id']}&return=process"); // get the record user after updated
+            
+            } else if (isset($_GET['result']) &&  isset($_SESSION['id'])) { // display error message if needed
+                if ($_GET['result'] == 'fail') {
+                    echo "ERROR!<br>";
+                }
+            }   
+
+            // display messages after record is created or updated
+            if (isset($_GET['process'])) {
+                if ($_GET['process'] == 'success') {
+                    echo ($_SESSION['update'] ? "Category is updated successfully" :"New category is created successfully");
+                } else if ($_GET['process'] == 'fail') {
                     echo "Process has failed! <br> It could be due to following reasons: <br>";
                     echo " *Category name must be unique <br>";
                     echo " *Category name can only contain alphabetical letters, white spaces and digits ";
                 }
             }
+
         ?>
         <table class="table table-bordered" style="background-color: #fff; margin-top: 2rem;">
             <form method="POST", action="../categories/process">
             <tbody>
                 <?php 
-                    if ($_SESSION['index'] >= 0) {   // if it is update action, add id field 
+                    if ($_SESSION['update']) {   // if it is update action, add id field 
                         echo <<<ID_ROW
                             <tr>
                                 <th scope="row">Id</th>
-                                <td><input type="text" name="category_id" class="form-control" value={$_SESSION['c'. $_SESSION['index']]['category_id']} readonly="readonly"></td>
+                                <td><input type="text" name="category_id" class="form-control" value={$_SESSION['category_id']} readonly="readonly"></td>
                             </tr>
                         ID_ROW;
                     }
@@ -47,16 +56,16 @@ top_module("Amazorn", true);
                 <tr>
                     <th scope="row">Name</th>                                                  
                     <td><input type="text" name="category_name" class="form-control" placeholder="Category Name"
-                    value = "<?php echo ($_SESSION['index'] >= 0? $_SESSION['c'. $_SESSION['index']]['category_name']: "");?>"></td>
+                    value = "<?php echo ($_SESSION['update'] || isset($_SESSION['id'])? $_SESSION['category_name']: "");?>"></td>
                 </tr>
-            
+
                 <tr>
                     <th scope="row"></th>
 
                     <td>
                         <ul class="list-button d-flex">
                             <?php 
-                                if ($_SESSION['index'] >= 0) {   // if it is update action display update button
+                                if ($_SESSION['update']) {   // if it is update action display update button
                                     echo <<<UPDATE_BUTTON
                                         <li class="btn-custom"><button type="submit" name="action" value="Update" class="btn btn-warning">Update</button></li>
                                     UPDATE_BUTTON;

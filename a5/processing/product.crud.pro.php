@@ -26,9 +26,9 @@
             $_SESSION = service_findById($table, $_GET['id']);
             $_SESSION['update'] = true;
           
-            header("Location: ../${table}/update?result=success");
+            header("Location: ../${table}/update?{$_GET['return']}=success");
         } catch (RuntimeException $exception) {
-            header("Location: ../${table}/update?result=fail");
+            header("Location: ../${table}/update?{$_GET['return']}=fail");
         }
     }
 
@@ -47,9 +47,9 @@
         try {
             service_deleteById($table, $_POST['id']); // delete the record by id
             $_SESSION = service_populateData($table, $pageNumber, $pageSize, $_SESSION['searchKey']); // update data after deleting
-            header("Location: ../${table}?result=success");
+            header("Location: ../${table}?result=success&page=$pageNumber");
         }catch (RuntimeException $exception) {
-            header("Location: ../${table}?result=fail");
+            header("Location: ../${table}?result=fail&page=$pageNumber");
         }
     }
 
@@ -59,7 +59,7 @@
 
         $_SESSION = $_POST;
         $_SESSION['id'] = isset($_POST['product_id']) ? $_POST['product_id'] : -1;
-
+        
         $error = validate_productName($_POST['product_name']); // validate the category name
         if ($error == "") {               // if the form is valid, proceed
             try {
@@ -67,11 +67,12 @@
                 ($action == 'Create') ? service_create($table, $_POST) : service_update($table, $_POST);
                 header("Location: ../$table/$action?process=success");
             } catch(RuntimeException $exception) {
+                $_SESSION['id'] = -1;
                 header("Location: ../$table/$action?process=fail");
             }          
         } else {    // if the form is not valid output error;
             echo $error;
-            header("Location: ../$table/$action?result=fail");
+            header("Location: ../$table/$action?process=fail");
         }
     }
  ?>

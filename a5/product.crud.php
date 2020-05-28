@@ -49,7 +49,7 @@ top_module("Amazorn", true);
                 for($i = 0; $i < $pageSize; $i++) {
                     if (isset($_SESSION['c'.$i])) {
                         echo <<<OUTPUT
-                        <form method="POST", action="products/process">
+                        <form method="POST", action="products/process?page=$pageNumber">
                         <input type=hidden name="searchKey" value={$_SESSION['searchKey']}>
                         <input type=hidden name="id" value={$_SESSION['c'.$i]['product_id']}>
                         <tr>
@@ -75,11 +75,12 @@ top_module("Amazorn", true);
             ?>
         </tbody>
     </table>
-    <div class="d-flex justify-content-end">
+    <div class="d-flex justify-content-between">
         <form class="form-inline my-2 my-lg-0" method='POST' action='products/process'>
             <input class="form-control mr-sm-2" type="search" name='page' placeholder="Type page number" aria-label="Search">
             <button class="btn form__btn--primary" type="submit">Go</button>
         </form>
+        <button onclick="location.href='../system'" class="btn btn-danger ml-1" type="submit">Back</button>
     </div>
     <?php 
         paging_module($pageNumber, $pageSize, $_SESSION['numberOfResults'], 'products/process');

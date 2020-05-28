@@ -2,6 +2,9 @@ RewriteEngine On
 
 RewriteRule ^system/product$ product.crud.php [NC,L]
 
+RewriteRule ^system$ setting.php [NC,L]
+
+
 # rewrite urls for products crud operations
 RewriteRule ^system/products$ product.crud.php [NC,L]
 RewriteRule ^system/products/create$ product.edit.php [NC,L]
