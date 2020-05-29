@@ -23,10 +23,9 @@ function end_module($is_footer = False)
         <div>Disclaimer: This website is not a real website and is being developed as part of a School of Science Web
             Programming course at RMIT University in Melbourne, Australia.
         </div>
-
-    </footer>
-    
+    </footer>  
     OUTPUT;
+    
     $html = <<<"OUTPUT"
    
             <!-- Optional JavaScript -->
