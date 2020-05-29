@@ -21,6 +21,7 @@
         padding: 3rem 4rem;
         border: 1px solid Lavender;
         border-left: none;
+        
     }
 
     .col-custom:first-child {

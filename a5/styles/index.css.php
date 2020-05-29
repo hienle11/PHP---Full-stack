@@ -3,18 +3,17 @@
         background-color: #EAEDED !important;
     }
 
+    .sub-nav {
+        background-color: #232f3e;
+        height: 2.4375rem;
+    }
+
     .container-fluid {
         padding-left: 0 !important;
         padding-right: 0 !important;
         max-width: 1500px;
         position: relative;
     }
-
-    .sub-nav {
-        background-color: #232f3e;
-        height: 2.4375rem;
-    }
-
 
     .row-category {
         margin-left: 0 !important;
@@ -25,20 +24,38 @@
         top: 15rem;
     }
 
-    .amazorn-deal {
+    .best-seller-section {
         padding: 2rem;
-        background-color: #fff;
         margin-top: 10rem;
         width: 100%;
         text-align: center;
 
     }
 
-    .row-sale {
+    .row-custom {
         margin-left: 0 !important;
         margin-right: 0 !important;
-        margin-top: 2rem;
+        background-color: #fff;
+
     }
+
+
+    .col-custom {
+
+        padding: 3rem 4rem;
+        height: 40rem;
+    }
+
+    .card-custom {
+        border: none !important;
+        width: 60%;
+    }
+
+    .card-img-top {
+        cursor: pointer;
+    }
+
+
 
     footer {
         margin-top: 10rem;

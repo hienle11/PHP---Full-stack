@@ -22,7 +22,7 @@ OUTPUT;
     $nav = <<<"OUTPUT"
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #111 !important;">
-        <a class="navbar-brand ml-4 mr-5" href="../index.php">Amazorn</a>
+        <a class="navbar-brand ml-4 mr-5" href="./index.php">Amazorn</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

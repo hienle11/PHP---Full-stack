@@ -45,7 +45,6 @@ top_module("Amazorn Sign-in", True);
             </div>
         </div>
 
-
 </main>
 
 <?php

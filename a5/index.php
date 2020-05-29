@@ -35,7 +35,7 @@ top_module("Amazorn", true);
         <div class="row row-category">
             <div class="col-sm d-flex justify-content-center px-lg-2">
                 <div class="card" style="width: 22rem; padding: 1rem">
-                    <h5 class="card-title">iPhones & iPads</h5>
+                    <h5 class="card-title">Macbook Pro</h5>
                     <img src="images/category.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -45,7 +45,7 @@ top_module("Amazorn", true);
             </div>
             <div class="col-sm d-flex justify-content-center px-lg-2">
                 <div class="card" style="width: 22rem; padding: 1rem">
-                    <h5 class="card-title">Macs</h5>
+                    <h5 class="card-title">Macbook Air</h5>
                     <img src="images/category.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -55,7 +55,7 @@ top_module("Amazorn", true);
             </div>
             <div class="col-sm d-flex justify-content-center px-lg-2">
                 <div class="card" style="width: 22rem; padding: 1rem">
-                    <h5 class="card-title">Macbooks</h5>
+                    <h5 class="card-title">iMac</h5>
                     <img src="images/category.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -75,93 +75,56 @@ top_module("Amazorn", true);
                 </div>
             </div>
         </div>
-        <div class="amazorn-deal">
-            <h1>Amazorn Deal</h1>
-            <div class="row row-sale" `>
-                <div class="col d-flex justify-content-center">
-                    <div class="card" style="width: 18rem;">
-                        <img src="images/macbook.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+
+
+        <section class="best-seller-section">
+            <h1>Best Seller</h1>
+            <div class="container">
+                <div class="row row-custom">
+                    <div class="col d-flex justify-content-center col-custom">
+                        <div class="card card-custom">
+                            <img src="images/Thumbnails/Thumnail-iPhone.jpg" class="card-img-top" alt="...">
+                            <h5 class="card-title">iPhone 11</h5>
+                            <div class="card-body">
+                                <p class="card-text">iPhone 11, iPhone 11 Pro and Pro Max.
+                                    They are available for your experience at Amazorn</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col d-flex justify-content-center col-custom">
+                        <div class="card card-custom">
+                            <img src="images/Thumbnails/Thumnail-iPad.jpg" class="card-img-top" alt="...">
+                            <h5 class="card-title">iPad Pro</h5>
+                            <div class="card-body">
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col d-flex justify-content-center">
-                    <div class="card" style="width: 18rem;">
-                        <img src="images/macbook.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <div class="row row-custom">
+                    <div class="col d-flex justify-content-center col-custom">
+                        <div class="card card-custom">
+                            <img src="images/Thumbnails/Thumnail-AppleWatch.jpg" class="card-img-top" alt="...">
+                            <h5 class="card-title">Apple Watch</h5>
+                            <div class="card-body">
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col d-flex justify-content-center">
-                    <div class="card" style="width: 18rem;">
-                        <img src="images/macbook.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col d-flex justify-content-center">
-                    <div class="card" style="width: 18rem;">
-                        <img src="images/macbook.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col d-flex justify-content-center">
-                    <div class="card" style="width: 18rem;">
-                        <img src="images/macbook.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row row-sale" `>
-                <div class="col d-flex justify-content-center">
-                    <div class="card" style="width: 18rem;">
-                        <img src="images/macbook.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col d-flex justify-content-center">
-                    <div class="card" style="width: 18rem;">
-                        <img src="images/macbook.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col d-flex justify-content-center">
-                    <div class="card" style="width: 18rem;">
-                        <img src="images/macbook.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col d-flex justify-content-center">
-                    <div class="card" style="width: 18rem;">
-                        <img src="images/macbook.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col d-flex justify-content-center">
-                    <div class="card" style="width: 18rem;">
-                        <img src="images/macbook.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <div class="col d-flex justify-content-center col-custom">
+                        <div class="card card-custom">
+                            <img src="images/Thumbnails/Thumnail-Airpods2.jpg" class="card-img-top" alt="...">
+                            <h5 class="card-title">AirPods 2</h5>
+                            <div class="card-body">
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+
+        </section>
 
     </div>
 </main>

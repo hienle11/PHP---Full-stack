@@ -7,8 +7,6 @@
         list-style-type: none;
     }
 
-    .item {}
-
     .row-custom {
         width: 100%;
         margin-left: 0 !important;
