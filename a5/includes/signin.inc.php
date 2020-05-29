@@ -54,7 +54,7 @@ if (isset($_POST['submit'])) {
                     // Store the user information to the current session
                     $_SESSION['user_email'] = $userEmail;
                     $_SESSION['user_name'] = $row['user_name'];
-
+                    $_SESSION['user_id'] = $row['user_id'];
                     // Check authorization (is admin or not)
                     # Create template
                     $sql = "SELECT * FROM Admins WHERE user_id = ?";
@@ -72,7 +72,7 @@ if (isset($_POST['submit'])) {
                         $result = mysqli_stmt_get_result($stmt);
 
                         $row = mysqli_fetch_assoc($result);
-
+                        
                         $_SESSION['is_admin'] = $row['user_id'];
                     }
 

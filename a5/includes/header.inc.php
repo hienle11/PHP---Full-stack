@@ -50,7 +50,7 @@ OUTPUT;
             <ul class="navbar-nav flex-grow-1">
                 <li class="nav-item ml-5">
 OUTPUT;
-    if ($_SESSION['user_name'] && $_SESSION['is_admin']) {
+    if (isset($_SESSION['user_name']) && isset($_SESSION['is_admin'])) {
         $signin = <<<"OUTPUT"
         <div class="dropdown">
             <a class="nav-link" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -64,7 +64,7 @@ OUTPUT;
         
         
         OUTPUT;
-    } elseif ($_SESSION['user_name']) {
+    } elseif (isset($_SESSION['user_name'])) {
         $signin = <<<"OUTPUT"
         <div class="dropdown">
             <a class="nav-link" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -82,7 +82,8 @@ OUTPUT;
     $rest = <<<"OUTPUT"
                 </li>
                 <li class="nav-item ml-5">
-                    <a class="nav-link" href="cart">Cart</a>
+                    <a class="nav-link" href="cart.php">Cart</a>
+
                 </li>
             </ul>
         </div>

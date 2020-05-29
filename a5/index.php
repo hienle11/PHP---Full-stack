@@ -3,7 +3,7 @@ include "./includes/header.inc.php";
 include "./includes/footer.inc.php";
 include "./includes/tools.php"; // for debug only
 require "./styles/index.css.php"; //include CSS Style Sheet
-session_start();
+
 top_module("Amazorn", true);
 
 ?>
@@ -22,14 +22,14 @@ top_module("Amazorn", true);
                     <img src="images/Hero_Currency_EN_2X._CB466692686_.jpg" class="d-block w-100" alt="...">
                 </div>
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev" style="top: -30rem !important">
+            <!-- <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev" style="top: -30rem !important">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
             </a>
             <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next" style="top: -30rem !important">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
-            </a>
+            </a> -->
         </div>
 
         <div class="row row-category">

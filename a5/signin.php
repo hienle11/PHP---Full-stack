@@ -5,9 +5,17 @@ require "./styles/signin.css.php"; //include CSS Style Sheet
 
 top_module("Amazorn Sign-in", false);
 
+$error ="";
+$userEmail = "";
+if (isset($_GET['error'])) {
+    $error = $_GET['error'];
+}
 
-$error = $_GET['error'];
-$userEmail = $_GET['email'];
+if (isset($_GET['email'])) {
+    $userEmail = $_GET['email'];
+}
+
+
 ?>
 
 <main>
