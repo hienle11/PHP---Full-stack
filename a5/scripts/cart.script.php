@@ -4,7 +4,7 @@
     let addedProducts = JSON.parse(localStorage.getItem('products'));
     let cost = 0;
     let dynamicList = ``;
-    if (productList && totalCost) {
+    if (productList && totalCost && addedProducts !== null) {
         // console.log(addedProducts); DEBUG
         for (i = 0; i < addedProducts.length; i++) {
             let product = addedProducts[i];
@@ -25,6 +25,8 @@
         }
         productList.innerHTML = dynamicList;
         totalCost.innerHTML = cost;
+    } else {
+        productList.innerHTML = 'Your Amazorn cart is empty';
     }
 
     // Add EventListener To Delete Buttons
@@ -53,10 +55,41 @@
         window.location.href = "signin.php";
     }
 
+    // Submit form
     function sendForm() {
+        let loader = document.getElementById("checkoutLoader");
         let form = document.getElementById("checkoutForm");
         if (form) {
-            form.submit();
+            form.style = "display:none;";
+            setTimeout(() => {
+                console.log("Hello");
+                form.submit();
+            }, 1000);
+
+            if (loader) {
+                loader.style = "margin: 0 auto;";
+            }
+        }
+
+
+    }
+
+    // Update constraint for choosing expired date
+    function updateCurrentTime() {
+        let today = new Date();
+        let month = today.getMonth() + 1;
+        let year = today.getFullYear();
+        if (month < 10) {
+            document.getElementById("expDate").min = year + "-0" + month;
+        } else {
+            document.getElementById("expDate").min = year + "-" + month;
+        }
+    }
+
+    let checkoutBtn = document.getElementById("checkoutBtn");
+    if (checkoutBtn) {
+        if (addedProducts === null) {
+            checkoutBtn.innerHTML = '';
         }
     }
 </script>

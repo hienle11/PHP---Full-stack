@@ -2,9 +2,28 @@
 include "./includes/header.inc.php";
 include "./includes/footer.inc.php";
 include "./includes/tools.php";
+require "./includes/data-validation.inc.php"; // include validation functions
 require "./styles/index.css.php"; //include CSS Style Sheet
 require "./styles/cart.css.php"; //include CSS Style Sheet
+
+preShow($_SERVER['REQUEST_METHOD']);
 top_module("My Cart", true);
+$numberError = "";
+$expError = "";
+$cvvError = "";
+
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    if (isset($_POST["cardNumber"])) {
+        $numberError = validate_cardNumber($_POST["cardNumber"]);
+    }
+    if (isset($_POST["expDate"])) {
+        $expError = validate_card_expDate($_POST["expDate"]);
+    }
+    if (isset($_POST["cvv"])) {
+        $cvvError = validate_cvvNumber($_POST["cvv"]);
+    }
+}
+
 ?>
 
 <main>
@@ -20,43 +39,60 @@ top_module("My Cart", true);
             </div>
             <div class="col-sm col-md-12 col-lg-4" style="padding: 1rem;">
                 <div class="order-container">
-                    <h5>Total Cost: $<span id="totalCost"></span></h5>
+                    <h5>Total Cost: $<span id="totalCost">0</span></h5>
+                    <div id="checkoutBtn">
+                        <button type="button" class="btn btn-custom" style="margin-top: 2rem;" <?php
+                                                                                                if (isset($_SESSION["user_name"])) {
+                                                                                                    echo 'data-toggle="modal" data-target="#exampleModal"';
+                                                                                                } else {
+                                                                                                    echo 'onclick="redirect()"';
+                                                                                                }
+                                                                                                ?>>
+                            Proceed to checkout
+                        </button>
+                    </div>
 
-                    <button id="checkoutBtn" type="button" class="btn btn-custom" style="margin-top: 2rem;" <?php
-                                                                                                            if (isset($_SESSION["user_name"])) {
-                                                                                                                echo 'data-toggle="modal" data-target="#exampleModal"';
-                                                                                                            } else {
-                                                                                                                echo 'onclick="redirect()"';
-                                                                                                            }
-                                                                                                            ?>>
-                        Proceed to checkout
-                    </button>
 
                     <!-- Modal -->
                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
+                        <div id="dialog" class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Checkout</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <div class="modal-body">
-                                    <form id="checkoutForm" action="./processing/checkout.pro.php" method="post">
-                                        <div class="form-group">
+                                <div class="modal-body" id="modalBody">
+                                    <form id="checkoutForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                                        <div class="form-group" style="text-align:left;">
                                             <label for="cardNumber" class="small"><b>CardNumber</b></label>
                                             <input type="text" id="cardNumber" class="form-control" placeholder="Enter your card number" name="cardNumber">
+
+                                            <span class="small" style="color: red;">
+                                                <?php echo $numberError; ?>
+                                            </span>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group" style="text-align:left;">
                                             <label for="expDate" class="small"><b>Expired Date</b></label>
-                                            <input type="month" class="form-control" id="expDate" name="expMonth">
+                                            <input type="month" class="form-control" id="expDate" name="expDate" onClick="updateCurrentTime()">
+
+                                            <span class="small" style="color: red;">
+                                                <?php echo $expError; ?>
+                                            </span>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group" style="text-align:left;">
                                             <label for="cvvNumber" class="small"><b>CVV Number</b></label>
                                             <input type="text" id="cvvNumber" class="form-control" placeholder="Enter your cvv number" name="cvv">
+
+                                            <span class="small" style="color: red;">
+                                                <?php echo $cvvError; ?>
+                                            </span>
                                         </div>
                                     </form>
+                                    <div>
+                                        <div id="checkoutLoader" class="loader" style="display:none;"></div>
+                                    </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -72,7 +108,30 @@ top_module("My Cart", true);
     </div>
 </main>
 
+
+
 <?php
 require "./scripts/cart.script.php";
+// if ($_SERVER['REQUEST_METHOD'] == "POST") {
+//     echo '<script>document.getElementById("checkoutBtn").click();</script>';
+// }
 end_module(True); // Enable Footer
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    echo '<script>
+            $("#exampleModal").modal();
+        </script>';
+
+    if ($numberError == "" && $expError == "" && $cvvError == "") {
+        echo 'Successfully';
+        echo  '<script>
+            
+            let modalBody = document.getElementById("modalBody");
+            if (modalBody) {
+                modalBody.innerHTML = "Checkout Successfully";
+            }
+            localStorage.clear();
+        </script>';
+    }
+}
+
 ?>
