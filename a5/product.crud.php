@@ -90,7 +90,7 @@ top_module("Amazorn", true);
         <button onclick="location.href='../system'" class="btn btn-danger ml-1" type="submit">Back</button>
     </div>
     <?php 
-        paging_module($pageNumber, $pageSize, $_SESSION['numberOfResults'], 'products/process');
+        paging_module($pageNumber, $pageSize, $_SESSION['numberOfResults'], 'products/process?');
     ?>
 
 </div>

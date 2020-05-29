@@ -83,7 +83,7 @@ top_module("Amazorn", true);
     </div>
 
     <?php
-    paging_module($pageNumber, $pageSize, $_SESSION['numberOfResults'], 'categories/process');
+    paging_module($pageNumber, $pageSize, $_SESSION['numberOfResults'], 'categories/process?');
     ?>
 </div>
 

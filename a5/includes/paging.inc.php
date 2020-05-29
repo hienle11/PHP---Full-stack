@@ -9,7 +9,7 @@
 
         if ($pageNumber > 1) {
             $prevPage = $pageNumber -1 ;
-            echo "<a href='{$pageUrl}?page={$prevPage}&size={$pageSize}'>&laquo;</a>";
+            echo "<a href='{$pageUrl}page={$prevPage}&size={$pageSize}'>&laquo;</a>";
         }
 
 
@@ -19,7 +19,7 @@
                 if ($i == $pageNumber) { // if it is the current page, disable href tag and add active class
                     echo "<a href='javascript::void()' class='active'>{$i}</a>";
                 } else {
-                    echo "<a href='{$pageUrl}?page={$i}&size={$pageSize}'>{$i}</a>";
+                    echo "<a href='{$pageUrl}page={$i}&size={$pageSize}'>{$i}</a>";
                 }
             } 
         }
@@ -27,7 +27,7 @@
 
         if ($pageNumber < $totalPages) {
             $nextPage = $pageNumber + 1;
-            echo "<a href='{$pageUrl}?page={$nextPage}&size={$pageSize}'>&raquo;</a>";
+            echo "<a href='{$pageUrl}page={$nextPage}&size={$pageSize}'>&raquo;</a>";
         }
 
         echo "</div>";
