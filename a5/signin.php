@@ -55,5 +55,5 @@ $userEmail = $_GET['email'];
 </main>
 
 <?php
-end_module();
+end_module(); 
 ?>
