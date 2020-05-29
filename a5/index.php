@@ -36,41 +36,41 @@ top_module("Amazorn", true);
             <div class="col-sm d-flex justify-content-center px-lg-2">
                 <div class="card" style="width: 22rem; padding: 1rem">
                     <h5 class="card-title">Macbook Pro</h5>
-                    <img src="images/category.jpg" class="card-img-top" alt="...">
+                    <a href="category?searchKey=macbook"><img src="images/mac-category.jpg" class="card-img-top" alt="..."></a>
                     <div class="card-body">
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="card-link">Shop now</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm d-flex justify-content-center px-lg-2">
-                <div class="card" style="width: 22rem; padding: 1rem">
-                    <h5 class="card-title">Macbook Air</h5>
-                    <img src="images/category.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="card-link">Shop now</a>
+                        <a href="category?searchKey=macbook" class="card-link">Shop now</a>
                     </div>
                 </div>
             </div>
             <div class="col-sm d-flex justify-content-center px-lg-2">
                 <div class="card" style="width: 22rem; padding: 1rem">
                     <h5 class="card-title">iMac</h5>
-                    <img src="images/category.jpg" class="card-img-top" alt="...">
+                    <a href="category?searchKey=imac"><img src="images/imac-category.jpg" class="card-img-top" alt="..."></a>
                     <div class="card-body">
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="card-link">Shop now</a>
+                        <a href="category?searchKey=imac" class="card-link">Shop now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm d-flex justify-content-center px-lg-2">
+                <div class="card" style="width: 22rem; padding: 1rem">
+                    <h5 class="card-title">iPad</h5>
+                    <a href="category?searchKey=ipad"><img src="images/ipad-category.jpg" class="card-img-top" alt="..."></a>
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="category?searchKey=ipad" class="card-link">Shop now</a>
                     </div>
                 </div>
             </div>
 
             <div class="col-sm d-flex justify-content-center px-lg-2">
                 <div class="card" style="width: 22rem; padding: 1rem">
-                    <h5 class="card-title">Accessories</h5>
-                    <img src="images/category.jpg" class="card-img-top" alt="...">
+                    <h5 class="card-title">iPhone</h5>
+                    <a href="category?searchKey=iphone"><img src="images/iphone-category.jpg" class="card-img-top" alt="..."></a>
                     <div class="card-body">
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="card-link">Shop now</a>
+                        <a href="category?searchKey=iphone" class="card-link">Shop now</a>
                     </div>
                 </div>
             </div>

@@ -22,24 +22,25 @@ OUTPUT;
     $nav = <<<"OUTPUT"
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #111 !important;">
-        <a class="navbar-brand ml-4 mr-5" href="./index.php">Amazorn</a>
+        <a class="navbar-brand ml-4 mr-5" href="./home">Amazorn</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse flex-grow-1 d-flex justify-content-around" id="navbarSupportedContent">
-            <form class="form-inline my-2 my-lg-0 ml-5 mr-5" style="width: 60%">
+            <form action='category' method='GET' class="form-inline my-2 my-lg-0 ml-5 mr-5" style="width: 60%">
                 <div class="input-group" style="width: 100%">
                     <div class="input-group-prepend">
-                        <button class="btn  dropdown-toggle" style="background-color: #F8F8F8" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All</button>
+                        <button class="btn  dropdown-toggle" style="background-color: #F8F8F8" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filter</button>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">All Departments</a>
-                            <a class="dropdown-item" href="#">Arts & Crafts</a>
-                            <a class="dropdown-item" href="#">Automotive</a>
-                            <a class="dropdown-item" href="#">Books</a>
+                            <a class="dropdown-item" href="category?searchKey="">All</a>
+                            <a class="dropdown-item" href="category?searchKey=macbook">MacBook</a>
+                            <a class="dropdown-item" href="category?searchKey=imac">iMac</a>
+                            <a class="dropdown-item" href="category?searchKey=ipad">iPad</a>
+                            <a class="dropdown-item" href="category?searchKey=iphone">iPhone</a>
                         </div>
                     </div>
-                    <input class="form-control " type="search" placeholder="Search" aria-label="Search">
+                    <input class="form-control" name='searchKey' type="search" placeholder="Search" aria-label="Search">
                     <div class="input-group-append">
                         <button class="btn" style="background-color: #F0C14B "  type="button" id="button-addon2">Search</button>
                     </div>
@@ -82,7 +83,7 @@ OUTPUT;
     $rest = <<<"OUTPUT"
                 </li>
                 <li class="nav-item ml-5">
-                    <a class="nav-link" href="cart.php">Cart</a>
+                    <a class="nav-link" href="cart">Cart</a>
 
                 </li>
             </ul>

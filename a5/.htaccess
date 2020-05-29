@@ -31,5 +31,10 @@ RewriteRule ^system$ setting.php [NC,L]
 RewriteRule ^product$ product.php [NC,L]
 RewriteRule ^category$ category.php [NC,L]
 
+Redirect /a5/system/category /a5/category
+Redirect /a5/system/sign-in /a5/sign-in
+Redirect /a5/system/home /a5/home
+Redirect /a5/system/cart /a5/cart
+
 php_flag display_errors 1
 
