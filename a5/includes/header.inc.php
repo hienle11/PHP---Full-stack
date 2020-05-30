@@ -26,8 +26,8 @@ function top_module($pageTitle, $isNav)
         .popup .popuptext {
             visibility: hidden;
             width: 160px;
-            background-color: #fff;
-            color: #111;
+            background-color: #111;
+            color: #fff;
             text-align: center;
             border-radius: 6px;
             padding: 8px 0;
@@ -47,7 +47,7 @@ function top_module($pageTitle, $isNav)
             margin-right: -5px;
             border-width: 5px;
             border-style: solid;
-            border-color: transparent transparent #fff transparent;
+            border-color: transparent transparent #111 transparent;
         }
 
         /* Toggle this class when clicking on the popup container (hide and show the popup) */

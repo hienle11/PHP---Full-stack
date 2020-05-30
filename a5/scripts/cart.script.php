@@ -1,6 +1,7 @@
 <script>
     let productList = document.getElementById("productList");
     let totalCost = document.getElementById("totalCost");
+    let totalCostGST = document.getElementById("totalCostGST");
     let addedProducts = JSON.parse(localStorage.getItem('products'));
     let cost = 0;
     let dynamicList = ``;
@@ -14,7 +15,7 @@
                                     <img src="${product.uri}" class="img-fluid img-custom" alt="Responsive image">
                                 </div>
                                 <div class="d-flex align-items-top">
-                                    <h5 style="margin-top: 1rem;">${product.name}</h5>
+                                    <a style="text-decoration:none; color: black;" href="product?id=${product.id}"><h5 style="margin-top: 1rem;">${product.name}</h5></a>
                                 </div>
                                 <div class="d-flex flex-column  ml-auto" style="margin-right: 2rem; margin-top: 1rem;">
                                     <strong class="mb-3"> Price: $${product.price}</strong>
@@ -29,6 +30,7 @@
         }
         productList.innerHTML = dynamicList;
         totalCost.innerHTML = cost;
+        totalCostGST.innerHTML = (cost *12/11).toFixed(2);
     } else {
         productList.innerHTML = 'Your Amazorn cart is empty';
     }
@@ -146,5 +148,4 @@
         localStorage.setItem('products', JSON.stringify(products));
         location.reload();
     }
-
 </script>

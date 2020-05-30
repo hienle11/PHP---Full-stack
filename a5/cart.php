@@ -46,6 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             <div class="col-sm col-md-12 col-lg-4" style="padding: 1rem;">
                 <div class="order-container">
                     <h5>Total Cost: $<span id="totalCost">0</span></h5>
+                    <h5>Total Cost (included GST): $<span id="totalCostGST">0</span> </h5>
                     <div id="checkoutBtn">
                         <button type="button" class="btn btn-custom" style="margin-top: 2rem;" <?php
                                                                                                 if (isset($_SESSION["user_name"])) {
@@ -71,8 +72,16 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                 <div class="modal-body" id="modalBody">
                                     <form id="checkoutForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                                         <div class="form-group" style="text-align:left;">
+                                            <label for="name" class="small"><b>Full Name</b></label>
+                                            <input type="text" id="name" class="form-control" placeholder="Enter your name" name="name">
+                                        </div>
+                                        <div class="form-group" style="text-align:left;">
+                                            <label for="phoneNumber" class="small"><b>Phone Number</b></label>
+                                            <input type="tel" id="phoneNumber" class="form-control" placeholder="Enter your address" name="phoneNumber">
+                                        </div>
+                                        <div class="form-group" style="text-align:left;">
                                             <label for="address" class="small"><b>Address</b></label>
-                                            <input type="text" id="address" class="form-control" placeholder="Enter your address" name="address">
+                                            <input type="text" id="address" class="form-control" placeholder="Enter your phone number" name="address">
                                         </div>
                                         <div class="form-group" style="text-align:left;">
                                             <label for="cardNumber" class="small"><b>Card Number</b></label>

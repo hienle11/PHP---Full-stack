@@ -9,7 +9,7 @@ validateAuthorization();
 $_SESSION['crud']['update'] = isset($_SESSION['crud']['update']) ? $_SESSION['crud']['update'] : false;
 
 // display title "UPDATE USER" if it is update action, otherwise display "CREATE USER"
-echo ($_SESSION['crud']['update'] ?"<h1>UPDATE USER</h1>" : "<h1>CREATE USER</h1>");
+echo ($_SESSION['crud']['update'] ? "<h1>UPDATE USER</h1>" : "<h1>CREATE USER</h1>");
 
 if (isset($_GET['id'])) { // if index is provided, it is an update action
     header("Location: ../users/process?id={$_GET['id']}&return=result"); // get the record user want to update 
@@ -21,28 +21,29 @@ if (isset($_GET['id'])) { // if index is provided, it is an update action
     if ($_GET['result'] == 'fail') {
         echo "ERROR!<br>";
     }
-}   
+}
 top_module("Amazorn", true);
 ?>
 <main>
     <div class="container-fluid">
         <?php
-            // display messages after record is created or updated
-            if (isset($_GET['process'])) {
-                if ($_GET['process'] == 'success') {
-                    echo ($_SESSION['crud']['update'] ? "User is updated successfully" :"New user is created successfully");
-                } else if ($_GET['process'] == 'fail') {
-                    echo "Process has failed! <br> It could be due to following reasons: <br>";
-                    echo " *User name must be unique <br>";
-                    echo " *User name can only contain alphabetical letters, white spaces and digits ";
-                }
+        // display messages after record is created or updated
+        if (isset($_GET['process'])) {
+            if ($_GET['process'] == 'success') {
+                echo ($_SESSION['crud']['update'] ? "User is updated successfully" : "New user is created successfully");
+            } else if ($_GET['process'] == 'fail') {
+                echo "Process has failed! <br> It could be due to following reasons: <br>";
+                echo " *User name must be unique <br>";
+                echo " *User name can only contain alphabetical letters, white spaces and digits<br>";
+                echo " *All fields must be entered";
             }
+        }
 
         ?>
         <table class="table table-bordered" style="background-color: #fff; margin-top: 2rem;">
-            <form method="POST", action="../users/process">
-            <tbody>
-                <?php 
+            <form method="POST" , action="../users/process">
+                <tbody>
+                    <?php
                     if ($_SESSION['crud']['update']) {   // if it is update action, add id field 
                         echo <<<ID_ROW
                             <tr>
@@ -51,32 +52,29 @@ top_module("Amazorn", true);
                             </tr>
                         ID_ROW;
                     }
-                ?>
-                
-                <tr>
-                    <th scope="row">Name</th>                                                  
-                    <td><input type="text" name="user_name" class="form-control" placeholder="User Name"
-                    value = "<?php echo ($_SESSION['crud']['update'] || isset($_SESSION['crud']['id'])? $_SESSION['crud']['user_name']: "");?>"></td>
-                </tr>
+                    ?>
 
-                <tr>
-                    <th scope="row">Password</th>                                                  
-                    <td><input type="password" name="user_password" class="form-control" placeholder="Password"
-                    value = "<?php echo ($_SESSION['crud']['update'] || isset($_SESSION['crud']['id'])? $_SESSION['crud']['user_password']: "");?>"></td>
-                </tr>
-               
-                <tr>
-                    <th scope="row">Email</th>                                                  
-                    <td><input type="email" name="user_email" class="form-control" placeholder="User Email"
-                    value = "<?php echo ($_SESSION['crud']['update'] || isset($_SESSION['crud']['id'])? $_SESSION['crud']['user_email']: "");?>"></td>
-                </tr>
+                    <tr>
+                        <th scope="row">Name</th>
+                        <td><input type="text" name="user_name" class="form-control" placeholder="User Name" value="<?php echo ($_SESSION['crud']['update'] || isset($_SESSION['crud']['id']) ? $_SESSION['crud']['user_name'] : ""); ?>"></td>
+                    </tr>
 
-                <tr>
-                    <th scope="row"></th>
+                    <tr>
+                        <th scope="row">Password</th>
+                        <td><input type="password" name="user_password" class="form-control" placeholder="Password" value="<?php echo ($_SESSION['crud']['update'] || isset($_SESSION['crud']['id']) ? $_SESSION['crud']['user_password'] : ""); ?>"></td>
+                    </tr>
 
-                    <td>
-                        <ul class="list-button d-flex">
-                            <?php 
+                    <tr>
+                        <th scope="row">Email</th>
+                        <td><input type="email" name="user_email" class="form-control" placeholder="User Email" value="<?php echo ($_SESSION['crud']['update'] || isset($_SESSION['crud']['id']) ? $_SESSION['crud']['user_email'] : ""); ?>"></td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row"></th>
+
+                        <td>
+                            <ul class="list-button d-flex">
+                                <?php
                                 if ($_SESSION['crud']['update']) {   // if it is update action display update button
                                     echo <<<UPDATE_BUTTON
                                         <li class="btn-custom"><button type="submit" name="action" value="Update" class="btn btn-warning">Update</button></li>
@@ -86,13 +84,13 @@ top_module("Amazorn", true);
                                         <li class="btn-custom"><button type="submit" name="action" value="Create" class="btn btn-success">Create</button></li>
                                     CREATE_BUTTON;
                                 }
-                            ?>    
-                            <li onclick="location.href='../users'" class="btn-custom"><button type="button" class="btn btn-danger text-nowrap">Back  </button></li>
-                        </ul>
-                    </td>
+                                ?>
+                                <li onclick="location.href='../users'" class="btn-custom"><button type="button" class="btn btn-danger text-nowrap">Back </button></li>
+                            </ul>
+                        </td>
 
-                </tr>
-            </tbody>
+                    </tr>
+                </tbody>
             </form>
         </table>
     </div>

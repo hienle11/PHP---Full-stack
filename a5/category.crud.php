@@ -6,7 +6,7 @@ include "./includes/tools.php"; // for debug only
 require "./includes/authorization.php";
 require "./styles/index.css.php"; //include CSS Style Sheet
 require "./styles/signin.css.php"; //include CSS Style Sheet
-require "./styles/crud.css.php"; //include CSS Style Sheet
+
 validateAuthorization();
 $pageNumber = (isset($_GET['page']) ? (int) $_GET['page'] : 1);
 $pageSize = (isset($_GET['size']) ? (int) $_GET['size'] : 7);
@@ -14,7 +14,7 @@ if (!isset($_GET['result'])) {
     header("Location: ../system/categories/process?page={$pageNumber}&size={$pageSize}");
 } 
 top_module("Amazorn", true);
-
+require "./styles/crud.css.php"; //include CSS Style Sheet
 ?>
 
 
