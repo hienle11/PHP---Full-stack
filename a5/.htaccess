@@ -28,6 +28,7 @@ RewriteRule ^cart$ cart.php [NC,L]
 RewriteRule ^sign-in$ signin.php [NC,L]
 RewriteRule ^sign-out$ includes/signout.inc.php [NC,L]
 RewriteRule ^sign-up$ signup.php [NC,L]
+
 RewriteRule ^system$ setting.php [NC,L]
 RewriteRule ^product$ product.php [NC,L]
 RewriteRule ^category$ category.php [NC,L]
