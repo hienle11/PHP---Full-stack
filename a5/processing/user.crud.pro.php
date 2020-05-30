@@ -80,6 +80,7 @@
         $error = validate_userName($_POST['user_name']); // validate the user name
         if ($error == "") {               // if the form is valid, proceed
             try {
+                $_POST['user_password'] =password_hash($_POST['user_password'], PASSWORD_BCRYPT);
                 ($action == 'Create') ? service_create($table, $_POST) : service_update($table, $_POST);
                 header("Location: ../$table/$action?process=success");
             } catch(RuntimeException $exception) {

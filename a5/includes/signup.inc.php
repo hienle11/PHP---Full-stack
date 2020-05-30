@@ -77,7 +77,7 @@ if (isset($_POST['submit'])) {
                     header("Location: ../signup.php?error=sqlerror");
                     exit;
                 } else {
-                    $hashed_password = password_hash($userPassword, PASSWORD_BCRYPT);\
+                    $hashed_password = password_hash($userPassword, PASSWORD_BCRYPT);
                     // Bind the statement
                     mysqli_stmt_bind_param($stmt, "sss", $userName, $userEmail, $hashed_password);
                     // Execute the prepared statement

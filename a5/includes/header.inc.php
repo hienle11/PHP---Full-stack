@@ -42,7 +42,7 @@ OUTPUT;
                     </div>
                     <input class="form-control" name='searchKey' type="search" placeholder="Search" aria-label="Search">
                     <div class="input-group-append">
-                        <button class="btn" style="background-color: #F0C14B "  type="button" id="button-addon2">Search</button>
+                        <button class="btn" style="background-color: #F0C14B "  type="submit" id="button-addon2">Search</button>
                     </div>
                 </div>
                 <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
