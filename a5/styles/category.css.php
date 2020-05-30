@@ -6,7 +6,11 @@
 
     .container {
         text-align: center;
+        min-height: 40rem;
     }
+
+
+
 
     .card-img-top {
         cursor: pointer;
