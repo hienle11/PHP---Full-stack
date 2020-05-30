@@ -8,8 +8,7 @@ require "./styles/edit.css.php"; //include CSS Style Sheet
 validateAuthorization();
 $_SESSION['crud']['update'] = isset($_SESSION['crud']['update']) ? $_SESSION['crud']['update'] : false;
 
-// display title "UPDATE CATEGORY" if it is update action, otherwise display "CREATE CATEGORY"
-echo ($_SESSION['crud']['update'] ?"<h1>UPDATE CATEGORY</h1>" : "<h1>CREATE CATEGORY</h1>");
+
 
 if (isset($_GET['id'])) { // if index is provided, it is an update action
     header("Location: ../categories/process?id={$_GET['id']}&return=result"); // get the record user want to update 
@@ -27,6 +26,8 @@ top_module("Amazorn", true);
 <main>
     <div class="container-fluid">
         <?php
+            // display title "UPDATE CATEGORY" if it is update action, otherwise display "CREATE CATEGORY"
+            echo ($_SESSION['crud']['update'] ? "<h1>UPDATE CATEGORY</h1>" : "<h1>CREATE CATEGORY</h1>");
             // display messages after record is created or updated
             if (isset($_GET['process'])) {
                 if ($_GET['process'] == 'success') {
