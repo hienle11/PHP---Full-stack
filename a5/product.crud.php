@@ -7,6 +7,15 @@ require "./styles/index.css.php"; //include CSS Style Sheet
 require "./styles/signin.css.php"; //include CSS Style Sheet
 require "./styles/crud.css.php"; //include CSS Style Sheet
 session_start();
+$pageNumber = (isset($_GET['page']) ? (int)$_GET['page'] : 1);
+$pageSize = (isset($_GET['size']) ? (int)$_GET['size'] : 7);
+if (!isset($_GET['result'])) {
+    header("Location: ../system/products/process?page={$pageNumber}&size={$pageSize}");
+} else if ($_GET['result'] == 'success'){
+    echo "<h5>Found: ".$_SESSION['crud']['numberOfResults'] . " records</h5>";
+} else {
+    echo "None records have been found";
+}
 top_module("Amazorn", true);
 ?>
 
@@ -14,17 +23,6 @@ top_module("Amazorn", true);
 
 <div class="container-fluid">
     <h1>PRODUCT</h1>
-    <?php
-        $pageNumber = (isset($_GET['page']) ? (int)$_GET['page'] : 1);
-        $pageSize = (isset($_GET['size']) ? (int)$_GET['size'] : 7);
-        if (!isset($_GET['result'])) {
-            header("Location: ../system/products/process?page={$pageNumber}&size={$pageSize}");
-        } else if ($_GET['result'] == 'success'){
-            echo "<h5>Found: ".$_SESSION['crud']['numberOfResults'] . " records</h5>";
-        } else {
-            echo "None records have been found";
-        }
-    ?>
     <div class="d-flex justify-content-between">
         <form method='GET' action='products/process' class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" name='searchKey' value='<?php echo $_SESSION['crud']['searchKey']?>' placeholder="Search" aria-label="Search">

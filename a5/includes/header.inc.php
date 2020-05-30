@@ -58,8 +58,7 @@ OUTPUT;
                 {$_SESSION['user_name']}
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <a class="dropdown-item" href="system">Account Settings</a>
-                <a class="dropdown-item" href="includes/signout.inc.php">Edit Website</a>
+                <a class="dropdown-item" href="system">Edit System</a>
                 <a class="dropdown-item" href="includes/signout.inc.php">Sign Out</a>
             </div>
         
@@ -72,7 +71,6 @@ OUTPUT;
                 {$_SESSION['user_name']}
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <a class="dropdown-item" href="system">Account Settings</a>
                 <a class="dropdown-item" href="includes/signout.inc.php">Sign Out</a>
             </div>
         OUTPUT;
