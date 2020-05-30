@@ -7,7 +7,7 @@ function end_module($is_footer = False)
     <footer>
         <div>
             Phone: +84 123456789 <br>
-            Contact Email: cinemax@gmail.com <br>
+            Contact Email: amazorn@gmail.com <br>
             Address: 130 Tran Nguyen Han, Nha Trang, Khanh Hoa, Vietnam <br>
             <a href="https://github.com/s3695516/wp.git" style="color: yellow" target="_blank">Git Hub Repo Link - Click Here
                 </Cick> </a>

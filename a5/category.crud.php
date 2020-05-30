@@ -3,20 +3,18 @@ include "./includes/header.inc.php";
 include "./includes/footer.inc.php";
 include "./includes/paging.inc.php";
 include "./includes/tools.php"; // for debug only
+require "./includes/authorization.php";
 require "./styles/index.css.php"; //include CSS Style Sheet
 require "./styles/signin.css.php"; //include CSS Style Sheet
 require "./styles/crud.css.php"; //include CSS Style Sheet
-session_start();
+validateAuthorization();
 $pageNumber = (isset($_GET['page']) ? (int) $_GET['page'] : 1);
 $pageSize = (isset($_GET['size']) ? (int) $_GET['size'] : 7);
 if (!isset($_GET['result'])) {
     header("Location: ../system/categories/process?page={$pageNumber}&size={$pageSize}");
-} else if ($_GET['result'] == 'success') {
-    echo "<h5>Found: " . $_SESSION['crud']['numberOfResults'] . " records</h5>";
-} else {
-    echo "None records have been found";
-}
+} 
 top_module("Amazorn", true);
+
 ?>
 
 
@@ -32,6 +30,11 @@ top_module("Amazorn", true);
     </div>
 
     <?php
+    if ($_GET['result'] == 'success') {
+        echo "<h5>Found: " . $_SESSION['crud']['numberOfResults'] . " records</h5>";
+    } else {
+        echo "None records have been found";
+    }
     if (isset($_GET['delete'])) {
         echo ($_GET['delete'] == 'success') ? 'Record is deleted successfully!' : 'Fail to delete the selected record! <br> This category might be used by some products';
     }

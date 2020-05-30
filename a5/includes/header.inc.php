@@ -22,22 +22,22 @@ OUTPUT;
     $nav = <<<"OUTPUT"
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #111 !important;">
-        <a class="navbar-brand ml-4 mr-5" href="./home">Amazorn</a>
+        <a class="navbar-brand ml-4 mr-5" href="/home">Amazorn</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse flex-grow-1 d-flex justify-content-around" id="navbarSupportedContent">
-            <form action='category' method='GET' class="form-inline my-2 my-lg-0 ml-5 mr-5" style="width: 60%">
+        <div class="collapse navbar-collapse justify-content-around" id="navbarSupportedContent">
+            <form action='category' method='GET' class="form-inline my-2 my-lg-0" style="width: 80%">
                 <div class="input-group" style="width: 100%">
                     <div class="input-group-prepend">
                         <button class="btn  dropdown-toggle" style="background-color: #F8F8F8" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filter</button>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="category?searchKey="">All</a>
-                            <a class="dropdown-item" href="category?searchKey=macbook">MacBook</a>
-                            <a class="dropdown-item" href="category?searchKey=imac">iMac</a>
-                            <a class="dropdown-item" href="category?searchKey=ipad">iPad</a>
-                            <a class="dropdown-item" href="category?searchKey=iphone">iPhone</a>
+                            <a class="dropdown-item" href="/category?searchKey="">All</a>
+                            <a class="dropdown-item" href="/category?searchKey=macbook">MacBook</a>
+                            <a class="dropdown-item" href="/category?searchKey=imac">iMac</a>
+                            <a class="dropdown-item" href="/category?searchKey=ipad">iPad</a>
+                            <a class="dropdown-item" href="/category?searchKey=iphone">iPhone</a>
                         </div>
                     </div>
                     <input class="form-control" name='searchKey' type="search" placeholder="Search" aria-label="Search">
@@ -49,7 +49,7 @@ OUTPUT;
             </form>
 
             <ul class="navbar-nav flex-grow-1">
-                <li class="nav-item ml-5">
+                <li class="nav-item ml-5" >
 OUTPUT;
     if (isset($_SESSION['user_name']) && isset($_SESSION['is_admin'])) {
         $signin = <<<"OUTPUT"
@@ -58,8 +58,8 @@ OUTPUT;
                 {$_SESSION['user_name']}
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <a class="dropdown-item" href="system">Edit System</a>
-                <a class="dropdown-item" href="includes/signout.inc.php">Sign Out</a>
+                <a class="dropdown-item" href="/system">Edit System</a>
+                <a class="dropdown-item" href="/sign-out">Sign Out</a>
             </div>
         
         
@@ -71,17 +71,17 @@ OUTPUT;
                 {$_SESSION['user_name']}
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <a class="dropdown-item" href="includes/signout.inc.php">Sign Out</a>
+                <a class="dropdown-item" href="/sign-out">Sign Out</a>
             </div>
         OUTPUT;
     } else {
-        $signin = "<a class='nav-link' href='sign-in'>Sign in<span class='sr-only'>(current)</span></a>";
+        $signin = "<a class='nav-link' href='/sign-in'>Sign in<span class='sr-only'>(current)</span></a>";
     }
 
     $rest = <<<"OUTPUT"
                 </li>
                 <li class="nav-item ml-5">
-                    <a class="nav-link" href="cart">Cart</a>
+                    <a class="nav-link" href="/cart">Cart</a>
 
                 </li>
             </ul>

@@ -3,6 +3,10 @@
         background-color: #EAEDED !important;
     }
 
+    h5 {
+        font-size: 3rem;
+        margin-left: 2rem;
+    }
     ul {
         list-style-type: none;
     }
@@ -59,41 +63,22 @@
         }
     }
 
-    [type="number"]::-webkit-inner-spin-button,
-    [type="number"]::-webkit-outer-spin-button {
-        -webkit-appearance: none;
-        height: auto;
+    @media (max-width: 1376px) {
+        html {
+            font-size: 70%;
+        }
     }
 
-    .stepper {
-        border: 1px solid #eee;
-        display: inline-block;
-        overflow: visible;
-        height: 2.1em;
-        background: #fff;
-        padding: 1px;
+    @media (max-width: 600px) {
+        h5 {
+            margin: 0rem 0.5rem !important;
+        }
+        html {
+            font-size: 50%;
+        }
+        .container-fluid{
+            height: 40rem;
+        }
     }
 
-    .stepper input {
-        width: 3em;
-        height: 100%;
-        text-align: center;
-        border: 0;
-        background: transparent;
-        color: #000;
-    }
-
-    .stepper button {
-        width: 1.4em;
-        font-weight: 300;
-        height: 100%;
-        line-height: 0.1em;
-        font-size: 1.4em;
-        padding: 0.2em !important;
-        background: #eee;
-        color: #333;
-        border: none;
-    }
-
-    
 </style>

@@ -14,15 +14,15 @@ if (isset($_POST['submit'])) {
     # Validate the data sent by the form
     if (empty($userEmail)) {
         // If user email is empty
-        header("Location: ../signin.php?error=emptyemail&email=" . $userEmail);
+        header("Location: ../sign-in?error=emptyemail&email=" . $userEmail);
         exit;
     } elseif (!filter_var($userEmail, FILTER_VALIDATE_EMAIL)) {
         // If the email is not in the right format
-        header("Location: ../signin.php?error=invalidemail");
+        header("Location: ../sign-in?error=invalidemail");
         exit;
     } elseif (empty($userPassword)) {
         // If password is empty
-        header("Location: ../signin.php?error=emptypassword&email=" . $userEmail);
+        header("Location: ../sign-in?error=emptypassword&email=" . $userEmail);
         exit;
     } else {
         # Create template
@@ -33,7 +33,7 @@ if (isset($_POST['submit'])) {
         # Check if preparing a SQL statement is success
         if (!mysqli_stmt_prepare($stmt, $sql)) {
             # If not, redirect to the sign up page
-            header("Location: ../signin.php?error=sqlerror");
+            header("Location: ../sign-in?error=sqlerror");
             exit;
         } else {
             // Bind the statement
@@ -76,14 +76,14 @@ if (isset($_POST['submit'])) {
                         $_SESSION['is_admin'] = $row['user_id'];
                     }
 
-                    header("Location: ../index.php?signin=success");
+                    header("Location: ../home?signin=success");
                     exit;
                 } else {
-                    header("Location: ../signin.php?error=wrongpassword&email=" . $userEmail);
+                    header("Location: ../sign-in?error=wrongpassword&email=" . $userEmail);
                     exit;
                 }
             } else {
-                header("Location: ../signin.php?error=nouser");
+                header("Location: ../sign-in?error=nouser");
                 exit;
             }
         }
@@ -94,6 +94,6 @@ if (isset($_POST['submit'])) {
     // Close the database connection
     // mysqli_close($conn);
 } else {
-    header("Location: ../signin.php");
+    header("Location: ../sign-in");
     exit;
 }

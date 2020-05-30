@@ -5,9 +5,9 @@ require "./styles/signup.css.php"; //include CSS Style Sheet
 
 top_module("Amazorn Sign-up", false);
 
-$error = $_GET['error'];
-$userName = $_GET['name'];
-$userEmail = $_GET['email'];
+$error = isset($_GET['error']) ? $_GET['error']: "";
+$userName =  isset($_GET['name']) ? $_GET['name']: "";
+$userEmail =  isset($_GET['email']) ? $_GET['email']: "";
 ?>
 
 <main>

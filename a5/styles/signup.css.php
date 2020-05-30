@@ -4,7 +4,7 @@
     }
 
     #signup-section {
-        width: 30%;
+        width: 500px;
         margin: 3rem auto 0 auto;
     }
 
@@ -29,5 +29,11 @@
         border: 1px solid;
         border-radius: 5px;
         font-size: 0.8rem;
+    }
+
+    @media (max-width: 768px) {
+        #signin-section {
+            width: 80%;
+        }
     }
 </style>

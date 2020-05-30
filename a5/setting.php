@@ -3,9 +3,11 @@ include "./includes/header.inc.php";
 include "./includes/footer.inc.php";
 include "./includes/paging.inc.php";
 include "./includes/tools.php"; // for debug only
+require "./includes/authorization.php";
 require "./styles/index.css.php"; //include CSS Style Sheet
 require "./styles/signin.css.php"; //include CSS Style Sheet
 require "./styles/crud.css.php"; //include CSS Style Sheet
+validateAuthorization();
 top_module("Amazorn", true);
 ?>
 
