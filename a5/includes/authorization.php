@@ -3,7 +3,7 @@
     
     function validateAuthorization () {
         if (!(isset($_SESSION['user_name']) && isset($_SESSION['is_admin']))){
-            header("Location: home");
+            header("Location: /home");
         } 
     }
     
