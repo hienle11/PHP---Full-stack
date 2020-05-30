@@ -1,6 +1,6 @@
 <style>
     body {
-        background-color: #EAEDED !important;
+        background-color: #fff !important;
     }
 
     h5 {

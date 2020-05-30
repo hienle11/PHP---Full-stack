@@ -58,6 +58,7 @@
                         qty: 1
                     };
                     products.push(product);
+                    popUp();
                 }
             }
             localStorage.setItem('products', JSON.stringify(products));

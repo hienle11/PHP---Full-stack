@@ -24,7 +24,7 @@ $product['descript'] = str_replace('/', '<br>', $product['descript']);
 ?>
 
 <main>
-    <div class="container-fluid">
+    <div class="container-fluid mt-5">
         <div class="row row-custom">
             <div class="col-sm" style="padding: 1rem;">
                 <div class="img-container">

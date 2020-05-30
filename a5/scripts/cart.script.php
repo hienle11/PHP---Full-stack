@@ -33,27 +33,6 @@
         productList.innerHTML = 'Your Amazorn cart is empty';
     }
 
-    // Add EventListener To Delete Buttons
-    // let deleteProductBtns = document.getElementsByClassName("deleteProductBtn"); // return an array
-    // if (deleteProductBtns) {
-    //     for (i = 0; i < deleteProductBtns.length; i++) {
-    //         console.log(i);
-
-    //         deleteProductBtns[i].addEventListener("click", createHandler(i));
-    //     }
-    // }
-
-    // function createHandler(n) {
-    //     // console.log("HERE", n); DEBUG
-    //     return function deleteProduct() {
-    //         // console.log(n); DEBUG
-    //         let addedProducts = JSON.parse(localStorage.getItem('products'));
-    //         addedProducts.splice(n, 1);
-    //         localStorage.setItem('products', JSON.stringify(addedProducts));
-    //         location.reload();
-    //     };
-    // }
-
     // Add event listener for checkout button
     function redirect() {
         window.location.href = "sign-in";
@@ -168,51 +147,4 @@
         location.reload();
     }
 
-    // let qtyInputs = document.getElementsByClassName("qtyInput");
-    // for (i = 0; i < qtyInputs.length; i++) {
-    //     qtyInputs[i].addEventListener("input", createQtyInputHandler(i, qtyInputs));
-    // }
-    // let qtyInputs = document.getElementsByClassName("qtyInput");
-
-    // for (i = 0; i < qtyInputs.length; i++) {
-    //     qtyInputs[i].addEventListener("input", createQtyInputHandler(i, qtyInputs));
-    // }
-
-
-
-
-
-    // let inc = document.getElementsByClassName("stepper");
-    // for (i = 0; i < inc.length; i++) {
-    //     var incI = inc[i].querySelector("input"),
-    //         id = incI.getAttribute("id"),
-    //         min = incI.getAttribute("min"),
-    //         max = incI.getAttribute("max"),
-    //         step = incI.getAttribute("step");
-    //     document
-    //         .getElementById(id)
-    //         .previousElementSibling.setAttribute(
-    //             "onclick",
-    //             "stepperInput('" + id + "', -" + step + ", " + min + ")"
-    //         );
-    //     document
-    //         .getElementById(id)
-    //         .nextElementSibling.setAttribute(
-    //             "onclick",
-    //             "stepperInput('" + id + "', " + step + ", " + max + ")"
-    //         );
-    // }
-
-    // function stepperInput(id, s, m) {
-    //     var el = document.getElementById(id);
-    //     if (s > 0) {
-    //         if (parseInt(el.value) < m) {
-    //             el.value = parseInt(el.value) + s;
-    //         }
-    //     } else {
-    //         if (parseInt(el.value) > m) {
-    //             el.value = parseInt(el.value) + s;
-    //         }
-    //     }
-    // }
 </script>

@@ -14,14 +14,77 @@ function top_module($pageTitle, $isNav)
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    
+    <style>
+        /* Popup container */
+        .popup {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        /* The actual popup (appears on top) */
+        .popup .popuptext {
+            visibility: hidden;
+            width: 160px;
+            background-color: #fff;
+            color: #111;
+            text-align: center;
+            border-radius: 6px;
+            padding: 8px 0;
+            position: absolute;
+            z-index: 1;
+            top: 125%;
+            left: 50%;
+            margin-left: -80px;
+        }
+
+        /* Popup arrow */
+        .popup .popuptext::after {
+            content: "";
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            margin-right: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent transparent #fff transparent;
+        }
+
+        /* Toggle this class when clicking on the popup container (hide and show the popup) */
+        .popup .show {
+            visibility: visible;
+            -webkit-animation: fadeIn 1s;
+            animation: fadeIn 1s
+        }
+
+        /* Add animation (fade in the popup) */
+        @-webkit-keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
     <title>$pageTitle</title>
 </head>
 OUTPUT;
 
     $nav = <<<"OUTPUT"
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #111 !important;">
+    <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #111 !important;">
         <a class="navbar-brand ml-4 mr-5" href="/home">Amazorn</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -83,20 +146,16 @@ OUTPUT;
                 <li class="nav-item ml-5">
                     <a class="nav-link" href="/cart">Cart</a>
                     <div class="popup">
-                        <span class="popuptext" id="myPopup">Item Added</span>
+                        <span class="popuptext" id="myPopup">Product Added</span>
                     </div>
                 </li>
             </ul>
         </div>
     </nav>
 
-    <div class="sub-nav">
-        <div class="nav-left">
-        </div>
-        <div class="nav-right">
-        </div>
-    </div>
+  
 OUTPUT;
 
     echo $isNav ? ($html . $nav . $signin . $rest) : $html;
 }
+  
