@@ -2,11 +2,11 @@
     let addToCardButton = document.getElementById("addCardButton");
 
     if (addToCardButton) {
-        addToCardButton.addEventListener("click", addObjectToLocalStorage);
+        addToCardButton.addEventListener("click", addProductToLocalStorage);
     }
 
-    function addObjectToLocalStorage() {
-        let myStorage = window.localStorage;
+    function addProductToLocalStorage() {
+        // Get name, price, image uri in form of HTMLElement of the product
         let product_name = document.getElementById("product_name");
         let product_price = document.getElementById("product_price");
         let product_image = document.getElementById("product_image");
@@ -16,7 +16,7 @@
             let price = product_price.innerHTML;
             let uri = product_image.src;
             uri = "images" + uri.split("images")[1];
-            console.log("Saved to local storage", name, price);
+            console.log("Saved to local storage", name, price); // DEBUG
             let products = JSON.parse(localStorage.getItem('products'));
             let product = {
                 name: name,
@@ -28,7 +28,7 @@
                 products = [];
             }
             products.push(product);
-            localStorage.setItem('products', JSON.stringify(products));
+            localStorage.setItem('products', JSON.stringify(products));          
         }
     }
 </script>

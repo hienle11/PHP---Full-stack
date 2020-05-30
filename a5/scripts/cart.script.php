@@ -4,8 +4,8 @@
     let addedProducts = JSON.parse(localStorage.getItem('products'));
     let cost = 0;
     let dynamicList = ``;
-    if (productList && totalCost && addedProducts !== null) {
-        // console.log(addedProducts); DEBUG
+    if (productList && totalCost && addedProducts !== null && addedProducts.length > 0) {
+        console.log(addedProducts); // DEBUG
         for (i = 0; i < addedProducts.length; i++) {
             let product = addedProducts[i];
             // console.log(product.name, product.price, product.uri); DEBUG
@@ -17,7 +17,7 @@
                                     <h5 style="margin-top: 1.9rem;">${product.name}</h5>
                                 </div>
                                 <div class="d-flex flex-column  justify-content-center ml-auto" style="margin-right: 2rem;">
-                                    <strong> Price: ${product.price}</strong>
+                                    <strong> Price: $${product.price}</strong>
                                     <button class="deleteProductBtn btn btn-danger">Delete</button>
                                 </div>
                             </li>`;
@@ -88,7 +88,7 @@
 
     let checkoutBtn = document.getElementById("checkoutBtn");
     if (checkoutBtn) {
-        if (addedProducts === null) {
+        if (addedProducts === null || addedProducts.length == 0) {
             checkoutBtn.innerHTML = '';
         }
     }

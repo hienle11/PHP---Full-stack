@@ -6,7 +6,7 @@ require "./includes/data-validation.inc.php"; // include validation functions
 require "./styles/index.css.php"; //include CSS Style Sheet
 require "./styles/cart.css.php"; //include CSS Style Sheet
 
-preShow($_SERVER['REQUEST_METHOD']);
+// preShow($_SERVER['REQUEST_METHOD']); // DEBUT
 top_module("My Cart", true);
 $numberError = "";
 $expError = "";
@@ -112,9 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 <?php
 require "./scripts/cart.script.php";
-// if ($_SERVER['REQUEST_METHOD'] == "POST") {
-//     echo '<script>document.getElementById("checkoutBtn").click();</script>';
-// }
+
 end_module(True); // Enable Footer
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     echo '<script>
