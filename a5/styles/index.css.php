@@ -84,7 +84,7 @@
             font-size: 50%;
         }
         .best-seller-section{
-            margin-top: 53rem;
+            margin-top: 60rem;
         }
         .row {
             display: grid !important;
@@ -94,7 +94,7 @@
             padding:0.5rem !important;
         }
         .container-fluid {
-            height: 152rem;
+            height: 160rem;
         }
     }
 
