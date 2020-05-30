@@ -30,7 +30,6 @@ try {
 
 ?>
 
-
 <main>
     <div class="container mt-5" style="max-width: 1379px;">
         <?php
@@ -69,6 +68,7 @@ try {
 
 
         for ($i = 0; $i < $pageSize; $i++) {
+            $isClose = false;
             if (isset($filterResults['c' . $i])) {
                 echo $i % 3 == 0  ?  "<div class='row margin-center'>" : "";
                 $filterResults['c' . $i]['descript'] = str_replace('/', '<br>', $filterResults['c' . $i]['descript']);
@@ -85,7 +85,51 @@ try {
                         </div>
                     PRODUCT;
 
-                echo $i % 3 == 2 ?  "</div>" : "";
+                if ($i % 3 == 2) {
+                    echo "</div>";
+                    $isClose = true;
+                }
+            } elseif (!$isClose) {
+                if ($i % 3 == 1) {
+                    echo <<< PRODUCT
+                        <div class="col-sm col-custom">
+                            <div class="card margin-center card-custom">
+                                <a></a>
+                                <div class="card-body">
+                                    <h5 class="card-title"></h5>
+                                    <p class="card-text"></p>
+                                    <h5></h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm col-custom">
+                            <div class="card margin-center card-custom">
+                                <a></a>
+                                <div class="card-body">
+                                    <h5 class="card-title"></h5>
+                                    <p class="card-text"></p>
+                                    <h5></h5>
+                                </div>
+                            </div>
+                        </div>
+                    PRODUCT;
+                } elseif ($i % 3 == 2) {
+                    echo <<< PRODUCT
+                        <div class="col-sm col-custom">
+                            <div class="card margin-center card-custom">
+                                <a></a>
+                                <div class="card-body">
+                                    <h5 class="card-title"></h5>
+                                    <p class="card-text"></p>
+                                    <h5></h5>
+                                </div>
+                            </div>
+                        </div>
+                        PRODUCT;
+                }
+                echo "</div>";
+                $isClose = true;
+                break;
             }
         }
         $pageURL = "category?searchKey={$_GET['searchKey']}&";
