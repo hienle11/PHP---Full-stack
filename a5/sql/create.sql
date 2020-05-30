@@ -34,19 +34,3 @@ CREATE TABLE Products (
     CONSTRAINT CHK_Products_Quantity CHECK (quantity >= 0),
     CONSTRAINT FK_Products_Categories FOREIGN KEY (category_id) REFERENCES Categories(category_id)
 );
-
-CREATE TABLE Carts (
-	cart_id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    total_cost REAL NOT NULL,
-    user_id INTEGER NOT NULL UNIQUE,
-    CONSTRAINT FK_Carts_Users FOREIGN KEY (user_id) REFERENCES Users(user_id)
-);
-
-CREATE TABLE CartsProducts (
-	id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    cart_id INTEGER NOT NULL,
-    product_id INTEGER NOT NULL,
-	CONSTRAINT FK_CartsProducts_Carts FOREIGN KEY (cart_id) REFERENCES Carts(cart_id),
-    CONSTRAINT FK_CartsProducts_Products FOREIGN KEY (product_id) REFERENCES Products(product_id)
-);
-
