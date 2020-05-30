@@ -49,4 +49,22 @@
         text-align: center;
         padding: 2rem 0;
     }
+
+    @media (max-width: 1376px) {
+        html {
+            font-size: 70%;
+        }
+    }
+
+    @media (max-width: 600px) {
+        html {
+            font-size: 50%;
+        }
+        .col-custom:nth-child(2), .col-custom:nth-child(3) {
+        border: 1px solid Lavender;
+        }
+    }
+
+    
+
 </style>

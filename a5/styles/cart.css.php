@@ -3,6 +3,10 @@
         background-color: #EAEDED !important;
     }
 
+    h5 {
+        font-size: 3rem;
+        margin-left: 2rem;
+    }
     ul {
         list-style-type: none;
     }
@@ -58,4 +62,23 @@
             transform: rotate(360deg);
         }
     }
+
+    @media (max-width: 1376px) {
+        html {
+            font-size: 70%;
+        }
+    }
+
+    @media (max-width: 600px) {
+        h5 {
+            margin: 0rem 0.5rem !important;
+        }
+        html {
+            font-size: 50%;
+        }
+        .container-fluid{
+            height: 40rem;
+        }
+    }
+
 </style>

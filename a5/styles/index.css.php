@@ -9,6 +9,7 @@
     }
 
     .container-fluid {
+        min-height: 40rem;
         padding-left: 0 !important;
         padding-right: 0 !important;
         max-width: 1500px;
@@ -55,8 +56,6 @@
         cursor: pointer;
     }
 
-
-
     footer {
         margin-top: 10rem;
         color: #fff;
@@ -64,4 +63,39 @@
         text-align: center;
         padding: 2rem 0;
     }
+
+    th, td {
+        font-size: 1rem;
+    }
+    @media (max-width: 1376px) {
+        html {
+            font-size: 70%;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .best-seller-section{
+            margin-top: 15rem;
+        }
+    }
+
+    @media (max-width: 600px) {
+        html {
+            font-size: 50%;
+        }
+        .best-seller-section{
+            margin-top: 53rem;
+        }
+        .row {
+            display: grid !important;
+            grid-template-columns: 50% 50% !important;
+        }
+        .col-sm {
+            padding:0.5rem !important;
+        }
+        .container-fluid {
+            height: 152rem;
+        }
+    }
+
 </style>

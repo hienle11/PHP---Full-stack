@@ -33,5 +33,5 @@ RewriteRule ^system$ setting.php [NC,L]
 RewriteRule ^product$ product.php [NC,L]
 RewriteRule ^category$ category.php [NC,L]
 
-php_flag display_errors 1
+#php_flag display_errors 1
 

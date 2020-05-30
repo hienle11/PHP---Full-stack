@@ -56,6 +56,9 @@ top_module("Amazorn Sign-in", True);
                     <img src="./images/iphone.jpg" class="img-fluid" alt="Responsive image">
                     <h1>iPhone 11</h1>
                 HEADER; break;
+                
+                default:
+                    echo "<h5>No products have been found with the given search key. Please try again!</h5>";
             } 
            
 

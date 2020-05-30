@@ -84,20 +84,21 @@ top_module("Amazorn", true);
                 <div class="row row-custom">
                     <div class="col d-flex justify-content-center col-custom">
                         <div class="card card-custom">
-                            <img src="images/Thumbnails/Thumnail-iPhone.jpg" class="card-img-top" alt="...">
-                            <h5 class="card-title">iPhone 11</h5>
+                            <a href="product?id=44"><img src="images/iPhone11-ProMax.jpg" class="card-img-top" alt="..."></a>
+                            <h5 class="card-title">iPhone 11 Pro Max (256GB)</h5>
+                            <h5>$1500</h5>
                             <div class="card-body">
-                                <p class="card-text">iPhone 11, iPhone 11 Pro and Pro Max.
-                                    They are available for your experience at Amazorn</p>
+                                <p class="card-text">Over 1000 iPhone 11 Pro Max (256GB) have been sold in this month. Don't hesitate to get one!</p>
                             </div>
                         </div>
                     </div>
                     <div class="col d-flex justify-content-center col-custom">
                         <div class="card card-custom">
-                            <img src="images/Thumbnails/Thumnail-iPad.jpg" class="card-img-top" alt="...">
-                            <h5 class="card-title">iPad Pro</h5>
+                        <a href="product?id=44"><img src="images/iPhone11-Pro.jpg" class="card-img-top" alt="..."></a>
+                            <h5 class="card-title">iPhone 11 Pro (256GB)</h5>
+                            <h5>$1350</h5>
                             <div class="card-body">
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <p class="card-text">Over 2500 iPhone 11 Pro (256GB) have been sold in two weeks. It is rated the best smart phone of 2019.</p>
                             </div>
                         </div>
                     </div>
@@ -105,19 +106,21 @@ top_module("Amazorn", true);
                 <div class="row row-custom">
                     <div class="col d-flex justify-content-center col-custom">
                         <div class="card card-custom">
-                            <img src="images/Thumbnails/Thumnail-AppleWatch.jpg" class="card-img-top" alt="...">
-                            <h5 class="card-title">Apple Watch</h5>
+                        <a href="product?id=2"><img src="images/MacBookPro-2019-SpaceGray.jpg" class="card-img-top" alt="..."></a>
+                            <h5 class="card-title">MacBook Pro 2019 13-inch</h5>
+                            <h5>$1500</h5>
                             <div class="card-body">
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <p class="card-text">Best product with affordable price for workstation. Thrive your career with the best laptop of the century. </p>
                             </div>
                         </div>
                     </div>
                     <div class="col d-flex justify-content-center col-custom">
                         <div class="card card-custom">
-                            <img src="images/Thumbnails/Thumnail-Airpods2.jpg" class="card-img-top" alt="...">
-                            <h5 class="card-title">AirPods 2</h5>
+                        <a href="category?searchKey=MacBook Pro 2019 16-inch"><img src="images/MacBookPro-2019-Silver.jpg" class="card-img-top" alt="..."></a>
+                            <h5 class="card-title">MacBook Pro 2019 16-inch</h5>
+                            <h5>$2600 - $2900</h5>
                             <div class="card-body">
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <p class="card-text">Over 250 MacBook Pro 2019 16-inch have been sold with in a month. It is considered as a perfect laptop for graphic designers. </p>
                             </div>
                         </div>
                     </div>

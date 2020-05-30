@@ -9,17 +9,13 @@ require "./styles/index.css.php"; //include CSS Style Sheet
 require "./styles/signin.css.php"; //include CSS Style Sheet
 require "./styles/crud.css.php"; //include CSS Style Sheet
 validateAuthorization();
-session_start();
 $pageNumber = (isset($_GET['page']) ? (int)$_GET['page'] : 1);
 $pageSize = (isset($_GET['size']) ? (int)$_GET['size'] : 7);
 if (!isset($_GET['result'])) {
     header("Location: ../system/users/process?page={$pageNumber}&size={$pageSize}");
-} else if ($_GET['result'] == 'success'){
-    echo "<h5>Found: ".$_SESSION['crud']['numberOfResults'] . " records</h5>";
-} else {
-    echo "None records have been found";
 }
 top_module("Amazorn", true);
+
 ?>
 
 
@@ -36,6 +32,11 @@ top_module("Amazorn", true);
 
     
     <?php 
+        if ($_GET['result'] == 'success'){
+            echo "<h5>Found: ".$_SESSION['crud']['numberOfResults'] . " records</h5>";
+        } else {
+            echo "None records have been found";
+        }
         if (isset($_GET['delete'])) {
             echo ($_GET['delete'] == 'success') ? 'Record is deleted successfully!' : 'Fail to delete the selected record! <br> *An admin cannot be deleted';
         }
@@ -70,7 +71,7 @@ top_module("Amazorn", true);
                             <td>{$_SESSION['crud']['c'.$i]['user_name']}</td>
                             <td>{$_SESSION['crud']['c'.$i]['user_email']}</td>
                             <td>$role </td>
-                            <td>
+                            <td style="min-width:18rem;">
                                 <ul class="list-button d-flex">
                                     $toggleRoleButton
                                     <li class="btn-custom"><button onclick="location.href='users/update?id={$_SESSION['crud']['c'.$i]['user_id']}'" type="button" class="btn btn-warning">Edit User</button></li>

@@ -8,17 +8,13 @@ require "./styles/index.css.php"; //include CSS Style Sheet
 require "./styles/signin.css.php"; //include CSS Style Sheet
 require "./styles/crud.css.php"; //include CSS Style Sheet
 validateAuthorization();
-session_start();
 $pageNumber = (isset($_GET['page']) ? (int)$_GET['page'] : 1);
 $pageSize = (isset($_GET['size']) ? (int)$_GET['size'] : 7);
 if (!isset($_GET['result'])) {
     header("Location: ../system/products/process?page={$pageNumber}&size={$pageSize}");
-} else if ($_GET['result'] == 'success'){
-    echo "<h5>Found: ".$_SESSION['crud']['numberOfResults'] . " records</h5>";
-} else {
-    echo "None records have been found";
 }
 top_module("Amazorn", true);
+
 ?>
 
 
@@ -35,6 +31,11 @@ top_module("Amazorn", true);
 
     
     <?php 
+        if ($_GET['result'] == 'success'){
+            echo "<h5>Found: ".$_SESSION['crud']['numberOfResults'] . " records</h5>";
+        } else {
+            echo "None records have been found";
+        }
         if (isset($_GET['delete'])) {
             echo ($_GET['delete'] == 'success') ? 'Record is deleted successfully!' : 'Fail to delete the selected record!';
         }
@@ -60,13 +61,13 @@ top_module("Amazorn", true);
                         <input type=hidden name="searchKey" value={$_SESSION['crud']['searchKey']}>
                         <input type=hidden name="id" value={$_SESSION['crud']['c'.$i]['product_id']}>
                         <tr>
-                            <td>{$_SESSION['crud']['c'.$i]['product_id']}</td>
+                            <th scope="row">{$_SESSION['crud']['c'.$i]['product_id']}</td>
                             <td>{$_SESSION['crud']['c'.$i]['product_name']}</td>
                             <td>{$_SESSION['crud']['c'.$i]['descript']}</td>
                             <td>{$_SESSION['crud']['c'.$i]['price']}</td>
                             <td>{$_SESSION['crud']['c'.$i]['quantity']}</td>
                             <td>{$_SESSION['crud']['c'.$i]['category_id']}</td>
-                            <td>
+                            <td style="min-width:10rem;">
                                 <ul class="list-button d-flex">
                                     <li class="btn-custom"><button onclick="location.href='products/update?id={$_SESSION['crud']['c'.$i]['product_id']}'" type="button" class="btn btn-warning">Edit</button></li>
                                     <li class="btn-custom"><button name='action' value='Delete' type="submit" class="btn btn-danger">Delete</button></li>

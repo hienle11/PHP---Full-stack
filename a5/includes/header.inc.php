@@ -27,8 +27,8 @@ OUTPUT;
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse flex-grow-1 d-flex justify-content-around" id="navbarSupportedContent">
-            <form action='category' method='GET' class="form-inline my-2 my-lg-0 ml-5 mr-5" style="width: 60%">
+        <div class="collapse navbar-collapse justify-content-around" id="navbarSupportedContent">
+            <form action='category' method='GET' class="form-inline my-2 my-lg-0" style="width: 80%">
                 <div class="input-group" style="width: 100%">
                     <div class="input-group-prepend">
                         <button class="btn  dropdown-toggle" style="background-color: #F8F8F8" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filter</button>
@@ -49,7 +49,7 @@ OUTPUT;
             </form>
 
             <ul class="navbar-nav flex-grow-1">
-                <li class="nav-item ml-5">
+                <li class="nav-item ml-5" >
 OUTPUT;
     if (isset($_SESSION['user_name']) && isset($_SESSION['is_admin'])) {
         $signin = <<<"OUTPUT"

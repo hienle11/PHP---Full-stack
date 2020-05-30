@@ -6,7 +6,6 @@ require "./includes/authorization.php";
 require "./styles/index.css.php"; //include CSS Style Sheet
 require "./styles/edit.css.php"; //include CSS Style Sheet
 validateAuthorization();
-session_start();
 $_SESSION['crud']['update'] = isset($_SESSION['crud']['update']) ? $_SESSION['crud']['update'] : false;
 
 // display title "UPDATE CATEGORY" if it is update action, otherwise display "CREATE CATEGORY"

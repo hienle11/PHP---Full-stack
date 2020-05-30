@@ -4,7 +4,7 @@
     }
 
     #signin-section {
-        width: 30%;
+        width: 500px;
         margin: 3rem auto 0 auto;
     }
 
@@ -82,5 +82,11 @@
         padding: 0 8px 0 7px;
         color: #767676;
         background-color: #fff;
+    }
+
+    @media (max-width: 768px) {
+        #signin-section {
+            width: 80%;
+        }
     }
 </style>
