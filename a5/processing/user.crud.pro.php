@@ -38,8 +38,8 @@
     //////////////////////////////////////////////////////////
     function getUserById($table) {
         try{
-            $_SESSION = service_findById($table, $_GET['id']);
-            $_SESSION['update'] = true;
+            $_SESSION['crud'] = service_findById($table, $_GET['id']);
+            $_SESSION['crud']['update'] = true;
           
             header("Location: ../${table}/update?{$_GET['return']}=success");
         } catch (RuntimeException $exception) {
@@ -51,7 +51,7 @@
         try {
             $pageNumber = (isset($_POST['page']) ? (int)$_POST['page']: $pageNumber); // get page from navigation "go" button if exists
             $searchKey = (isset($_GET['searchKey']) ? $_GET['searchKey'] : ""); // get searchKey if exists
-            $_SESSION = service_populateData($table, $pageNumber, $pageSize, $searchKey);   
+            $_SESSION['crud'] = service_populateData($table, $pageNumber, $pageSize, $searchKey);   
             header("Location: ../$table?page={$pageNumber}&size={$pageSize}&result=success");
         } catch (RuntimeException $exception) {
             header("Location: ../$table?page={$pageNumber['page']}&size={$pageSize}&result=fail");
@@ -61,10 +61,10 @@
     function deleteUserById($table, $pageNumber, $pageSize) {
         try {
             service_deleteById($table, $_POST['id']); // delete the record by id
-            $_SESSION = service_populateData($table, $pageNumber, $pageSize, $_SESSION['searchKey']); // update data after deleting
+            $_SESSION['crud'] = service_populateData($table, $pageNumber, $pageSize, $_SESSION['crud']['searchKey']); // update data after deleting
             header("Location: ../${table}?result=success&delete=success&page=$pageNumber");
         }catch (RuntimeException $exception) {
-            $_SESSION = service_populateData($table, $pageNumber, $pageSize, $_SESSION['searchKey']); // populate the page again in case delete process is failed
+            $_SESSION['crud'] = service_populateData($table, $pageNumber, $pageSize, $_SESSION['crud']['searchKey']); // populate the page again in case delete process is failed
             header("Location: ../${table}?result=success&delete=fail&page=$pageNumber");
         }
     }
@@ -73,9 +73,9 @@
         $action = $_POST['action'];
         unset($_POST['action']);
 
-        $_SESSION = $_POST;
-        $_SESSION['id'] = isset($_POST['user_id']) ? $_POST['user_id'] : -1;
-        $_SESSION['update'] = ($action == 'Update') ? true: false;
+        $_SESSION['crud'] = $_POST;
+        $_SESSION['crud']['id'] = isset($_POST['user_id']) ? $_POST['user_id'] : -1;
+        $_SESSION['crud']['update'] = ($action == 'Update') ? true: false;
 
         $error = validate_userName($_POST['user_name']); // validate the user name
         if ($error == "") {               // if the form is valid, proceed
@@ -83,11 +83,11 @@
                 ($action == 'Create') ? service_create($table, $_POST) : service_update($table, $_POST);
                 header("Location: ../$table/$action?process=success");
             } catch(RuntimeException $exception) {
-                $_SESSION['id'] = -1;
+                $_SESSION['crud']['id'] = -1;
                 header("Location: ../$table/$action?process=fail");
             }          
         } else {    // if the form is not valid output error;
-            $_SESSION['id'] = -1;
+            $_SESSION['crud']['id'] = -1;
             header("Location: ../$table/$action?process=fail");
         }
     }
@@ -95,10 +95,10 @@
     function setAdmin($table, $pageNumber, $pageSize) {
         try {
             service_admin_setAdmin($_POST['id']);  // set the user to admin
-            $_SESSION = service_populateData($table, $pageNumber, $pageSize, $_SESSION['searchKey']); // update data after the process
+            $_SESSION['crud'] = service_populateData($table, $pageNumber, $pageSize, $_SESSION['crud']['searchKey']); // update data after the process
             header("Location: ../${table}?result=success&page=$pageNumber");
         }catch (RuntimeException $exception) {
-            $_SESSION = service_populateData($table, $pageNumber, $pageSize, $_SESSION['searchKey']); // populate the page again in case the process is failed
+            $_SESSION['crud'] = service_populateData($table, $pageNumber, $pageSize, $_SESSION['crud']['searchKey']); // populate the page again in case the process is failed
             header("Location: ../${table}?result=success&page=$pageNumber");
         }    
     }
@@ -106,10 +106,10 @@
     function unsetAdmin($table, $pageNumber, $pageSize) {
         try {
             service_admin_unsetAdmin($_POST['id']);  // set the user to admin
-            $_SESSION = service_populateData($table, $pageNumber, $pageSize, $_SESSION['searchKey']); // update data after the process
+            $_SESSION['crud'] = service_populateData($table, $pageNumber, $pageSize, $_SESSION['crud']['searchKey']); // update data after the process
             header("Location: ../${table}?result=success&page=$pageNumber");
         }catch (RuntimeException $exception) {
-            $_SESSION = service_populateData($table, $pageNumber, $pageSize, $_SESSION['searchKey']); // populate the page again in case the process is failed
+            $_SESSION['crud'] = service_populateData($table, $pageNumber, $pageSize, $_SESSION['crud']['searchKey']); // populate the page again in case the process is failed
             header("Location: ../${table}?result=success&page=$pageNumber");
         }    
     }

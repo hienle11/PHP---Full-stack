@@ -36,5 +36,20 @@ Redirect /a5/system/sign-in /a5/sign-in
 Redirect /a5/system/home /a5/home
 Redirect /a5/system/cart /a5/cart
 
+Redirect /a5/system/users/category /a5/category
+Redirect /a5/system/users/sign-in /a5/sign-in
+Redirect /a5/system/users/home /a5/home
+Redirect /a5/system/users/cart /a5/cart
+
+Redirect /a5/system/categories/category /a5/category
+Redirect /a5/system/categories/sign-in /a5/sign-in
+Redirect /a5/system/categories/home /a5/home
+Redirect /a5/system/categories/cart /a5/cart
+
+Redirect /a5/system/products/category /a5/category
+Redirect /a5/system/products/sign-in /a5/sign-in
+Redirect /a5/system/products/home /a5/home
+Redirect /a5/system/products/cart /a5/cart
+
 php_flag display_errors 1
 

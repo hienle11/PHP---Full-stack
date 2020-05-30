@@ -20,14 +20,14 @@ top_module("Amazorn", true);
         if (!isset($_GET['result'])) {
             header("Location: ../system/products/process?page={$pageNumber}&size={$pageSize}");
         } else if ($_GET['result'] == 'success'){
-            echo "<h5>Found: ".$_SESSION['numberOfResults'] . " records</h5>";
+            echo "<h5>Found: ".$_SESSION['crud']['numberOfResults'] . " records</h5>";
         } else {
             echo "None records have been found";
         }
     ?>
     <div class="d-flex justify-content-between">
         <form method='GET' action='products/process' class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" name='searchKey' value='<?php echo $_SESSION['searchKey']?>' placeholder="Search" aria-label="Search">
+            <input class="form-control mr-sm-2" type="search" name='searchKey' value='<?php echo $_SESSION['crud']['searchKey']?>' placeholder="Search" aria-label="Search">
             <button class="btn form__btn--primary" type="submit">Search</button>
         </form>
         <button onclick="location.href='products/create'" type="button" class="btn btn-success" style="min-width: 10rem;">Create</button>
@@ -54,21 +54,21 @@ top_module("Amazorn", true);
         <tbody>
             <?php
                 for($i = 0; $i < $pageSize; $i++) {
-                    if (isset($_SESSION['c'.$i])) {
+                    if (isset($_SESSION['crud']['c'.$i])) {
                         echo <<<OUTPUT
                         <form method="POST", action="products/process?page=$pageNumber">
-                        <input type=hidden name="searchKey" value={$_SESSION['searchKey']}>
-                        <input type=hidden name="id" value={$_SESSION['c'.$i]['product_id']}>
+                        <input type=hidden name="searchKey" value={$_SESSION['crud']['searchKey']}>
+                        <input type=hidden name="id" value={$_SESSION['crud']['c'.$i]['product_id']}>
                         <tr>
-                            <td>{$_SESSION['c'.$i]['product_id']}</td>
-                            <td>{$_SESSION['c'.$i]['product_name']}</td>
-                            <td>{$_SESSION['c'.$i]['descript']}</td>
-                            <td>{$_SESSION['c'.$i]['price']}</td>
-                            <td>{$_SESSION['c'.$i]['quantity']}</td>
-                            <td>{$_SESSION['c'.$i]['category_id']}</td>
+                            <td>{$_SESSION['crud']['c'.$i]['product_id']}</td>
+                            <td>{$_SESSION['crud']['c'.$i]['product_name']}</td>
+                            <td>{$_SESSION['crud']['c'.$i]['descript']}</td>
+                            <td>{$_SESSION['crud']['c'.$i]['price']}</td>
+                            <td>{$_SESSION['crud']['c'.$i]['quantity']}</td>
+                            <td>{$_SESSION['crud']['c'.$i]['category_id']}</td>
                             <td>
                                 <ul class="list-button d-flex">
-                                    <li class="btn-custom"><button onclick="location.href='products/update?id={$_SESSION['c'.$i]['product_id']}'" type="button" class="btn btn-warning">Edit</button></li>
+                                    <li class="btn-custom"><button onclick="location.href='products/update?id={$_SESSION['crud']['c'.$i]['product_id']}'" type="button" class="btn btn-warning">Edit</button></li>
                                     <li class="btn-custom"><button name='action' value='Delete' type="submit" class="btn btn-danger">Delete</button></li>
                                 </ul>
                             </td>
@@ -90,7 +90,7 @@ top_module("Amazorn", true);
         <button onclick="location.href='../system'" class="btn btn-danger ml-1" type="submit">Back</button>
     </div>
     <?php 
-        paging_module($pageNumber, $pageSize, $_SESSION['numberOfResults'], 'products/process?');
+        paging_module($pageNumber, $pageSize, $_SESSION['crud']['numberOfResults'], 'products/process?');
     ?>
 
 </div>
