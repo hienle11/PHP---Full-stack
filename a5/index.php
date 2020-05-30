@@ -38,7 +38,7 @@ top_module("Amazorn", true);
                     <h5 class="card-title">Macbook Pro</h5>
                     <a href="category?searchKey=macbook"><img src="images/mac-category.jpg" class="card-img-top" alt="..."></a>
                     <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p class="card-text">MacBook Pro elevates the notebook to a whole new level of performance and portability. </p>
                         <a href="category?searchKey=macbook" class="card-link">Shop now</a>
                     </div>
                 </div>
@@ -48,7 +48,7 @@ top_module("Amazorn", true);
                     <h5 class="card-title">iMac</h5>
                     <a href="category?searchKey=imac"><img src="images/imac-category.jpg" class="card-img-top" alt="..."></a>
                     <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p class="card-text">The vision behind iMac has never wavered: Transform the desktop experience by fitting powerful, easy-to-use technology into an elegant, all-in-one design.</p>
                         <a href="category?searchKey=imac" class="card-link">Shop now</a>
                     </div>
                 </div>
@@ -58,7 +58,7 @@ top_module("Amazorn", true);
                     <h5 class="card-title">iPad</h5>
                     <a href="category?searchKey=ipad"><img src="images/ipad-category.jpg" class="card-img-top" alt="..."></a>
                     <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p class="card-text">Advanced cameras combined with a large display, fast performance, and highly calibrated sensors have always made iPad uniquely capable.</p>
                         <a href="category?searchKey=ipad" class="card-link">Shop now</a>
                     </div>
                 </div>
@@ -69,7 +69,7 @@ top_module("Amazorn", true);
                     <h5 class="card-title">iPhone</h5>
                     <a href="category?searchKey=iphone"><img src="images/iphone-category.jpg" class="card-img-top" alt="..."></a>
                     <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p class="card-text">A transformative triple‑camera system that adds tons of capability without complexity.</p>
                         <a href="category?searchKey=iphone" class="card-link">Shop now</a>
                     </div>
                 </div>
