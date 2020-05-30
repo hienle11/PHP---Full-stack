@@ -64,9 +64,11 @@
         padding: 2rem 0;
     }
 
-    th, td {
+    th,
+    td {
         font-size: 1rem;
     }
+
     @media (max-width: 1376px) {
         html {
             font-size: 70%;
@@ -74,7 +76,7 @@
     }
 
     @media (max-width: 768px) {
-        .best-seller-section{
+        .best-seller-section {
             margin-top: 15rem;
         }
     }
@@ -83,19 +85,38 @@
         html {
             font-size: 50%;
         }
-        .best-seller-section{
+
+        .best-seller-section {
             margin-top: 60rem;
         }
+
         .row {
             display: grid !important;
             grid-template-columns: 50% 50% !important;
         }
+
         .col-sm {
-            padding:0.5rem !important;
+            padding: 0.5rem !important;
         }
+
         .container-fluid {
             height: 160rem;
         }
     }
 
+    .pagination {
+        display: inline-block;
+    }
+
+    .pagination a {
+        color: black;
+        float: left;
+        padding: 8px 16px;
+        text-decoration: none;
+        font-weight: 200;
+    }
+
+    .pagination a.active {
+        font-weight: 600;
+    }
 </style>

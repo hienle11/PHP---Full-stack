@@ -11,7 +11,7 @@
     .card-img-top {
         cursor: pointer;
     }
-    
+
     .margin-center {
         margin: 0 auto !important;
     }
@@ -21,7 +21,7 @@
         padding: 3rem 4rem;
         border: 1px solid Lavender;
         border-left: none;
-        
+
     }
 
     .col-custom:first-child {
@@ -60,11 +60,28 @@
         html {
             font-size: 50%;
         }
-        .col-custom:nth-child(2), .col-custom:nth-child(3) {
-        border: 1px solid Lavender;
+
+        .col-custom:nth-child(2),
+        .col-custom:nth-child(3) {
+            border: 1px solid Lavender;
         }
     }
 
-    
+    .pagination {
+        display: flex;
+        justify-content: center;
+        margin-top:3rem;
+    }
 
+    .pagination a {
+        color: black;
+        float: left;
+        padding: 8px 16px;
+        text-decoration: none;
+        font-weight: 200;
+    }
+
+    .pagination a.active {
+        font-weight: 600;
+    }
 </style>

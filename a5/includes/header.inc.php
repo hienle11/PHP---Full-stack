@@ -91,7 +91,7 @@ OUTPUT;
         </button>
 
         <div class="collapse navbar-collapse justify-content-around" id="navbarSupportedContent">
-            <form action='category' method='GET' class="form-inline my-2 my-lg-0" style="width: 80%">
+            <form action='/category' method='GET' class="form-inline my-2 my-lg-0" style="width: 80%">
                 <div class="input-group" style="width: 100%">
                     <div class="input-group-prepend">
                         <button class="btn  dropdown-toggle" style="background-color: #F8F8F8" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filter</button>
@@ -130,7 +130,7 @@ OUTPUT;
     } elseif (isset($_SESSION['user_name'])) {
         $signin = <<<"OUTPUT"
         <div class="dropdown">
-            <a class="nav-link" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link active" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {$_SESSION['user_name']}
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
