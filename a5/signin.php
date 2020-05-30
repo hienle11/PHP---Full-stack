@@ -58,7 +58,7 @@ if (isset($_GET['email'])) {
         <div class="divider">
             <h6>New to Amazorn?</h6>
         </div>
-        <button type="submit" class="btn btn-sm form__btn--secondary btn-block"><a href="sign-up">Create your Amazorn account?</a></button>
+        <button onclick="location.href='sign-up'" type="button" class="btn btn-sm form__btn--secondary btn-block">Create your Amazorn account?</button>
     </section>
 </main>
 

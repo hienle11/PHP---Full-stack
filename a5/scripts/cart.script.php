@@ -52,7 +52,7 @@
 
     // Add event listener for checkout button
     function redirect() {
-        window.location.href = "signin.php";
+        window.location.href = "sign-in";
     }
 
     // Submit form

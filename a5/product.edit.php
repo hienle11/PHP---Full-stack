@@ -2,8 +2,10 @@
 include "./includes/header.inc.php";
 include "./includes/footer.inc.php";
 include "./includes/tools.php"; // for debug only
+require "./includes/authorization.php";
 require "./styles/index.css.php"; //include CSS Style Sheet
 require "./styles/edit.css.php"; //include CSS Style Sheet
+validateAuthorization();
 session_start();
 $_SESSION['crud']['update'] = isset($_SESSION['crud']['update']) ? $_SESSION['crud']['update'] : false;
 

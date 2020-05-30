@@ -26,30 +26,11 @@ RewriteRule ^system/users/process$ processing/user.crud.pro.php [NC,L]
 RewriteRule ^home$ index.php [NC,L]
 RewriteRule ^cart$ cart.php [NC,L]
 RewriteRule ^sign-in$ signin.php [NC,L]
+RewriteRule ^sign-out$ includes/signout.inc.php [NC,L]
 RewriteRule ^sign-up$ signup.php [NC,L]
 RewriteRule ^system$ setting.php [NC,L]
 RewriteRule ^product$ product.php [NC,L]
 RewriteRule ^category$ category.php [NC,L]
-
-Redirect /a5/system/category /a5/category
-Redirect /a5/system/sign-in /a5/sign-in
-Redirect /a5/system/home /a5/home
-Redirect /a5/system/cart /a5/cart
-
-Redirect /a5/system/users/category /a5/category
-Redirect /a5/system/users/sign-in /a5/sign-in
-Redirect /a5/system/users/home /a5/home
-Redirect /a5/system/users/cart /a5/cart
-
-Redirect /a5/system/categories/category /a5/category
-Redirect /a5/system/categories/sign-in /a5/sign-in
-Redirect /a5/system/categories/home /a5/home
-Redirect /a5/system/categories/cart /a5/cart
-
-Redirect /a5/system/products/category /a5/category
-Redirect /a5/system/products/sign-in /a5/sign-in
-Redirect /a5/system/products/home /a5/home
-Redirect /a5/system/products/cart /a5/cart
 
 php_flag display_errors 1
 

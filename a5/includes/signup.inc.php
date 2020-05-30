@@ -13,27 +13,27 @@ if (isset($_POST['submit'])) {
     # Validate the data sent by the form
     if (empty($userName)) {
         // If user name is empty
-        header("Location: ../signup.php?error=emptyname&name=" . $userName . "&email=" . $userEmail);
+        header("Location: ../sign-up?error=emptyname&name=" . $userName . "&email=" . $userEmail);
         exit;
     } elseif(empty($userEmail)) {
         // If user email is empty
-        header("Location: ../signup.php?error=emptyemail&name=" . $userName . "&email=" . $userEmail);
+        header("Location: ../sign-up?error=emptyemail&name=" . $userName . "&email=" . $userEmail);
         exit;
     } elseif(empty($userPassword)) {
         // If password is empty
-        header("Location: ../signup.php?error=emptypassword&name=" . $userName . "&email=" . $userEmail);
+        header("Location: ../sign-up?error=emptypassword&name=" . $userName . "&email=" . $userEmail);
         exit;
     } elseif (!preg_match("/^[a-zA-Z ]+[0-9]*$/", $userName)) {
         // Name should start with alphabets
-        header("Location: ../signup.php?error=invalidusername&email=" . $userEmail);
+        header("Location: ../sign-up?error=invalidusername&email=" . $userEmail);
         exit;
     } elseif (!filter_var($userEmail, FILTER_VALIDATE_EMAIL)) {
         // If the email is not in the right format
-        header("Location: ../signup.php?error=invalidemail&name=" . $userName);
+        header("Location: ../sign-up?error=invalidemail&name=" . $userName);
         exit;
     } elseif (strlen($userPassword) < 6) {
         // If password length is less than 6
-        header("Location: ../signup.php?error=invalidpassword&name=" . $userName . "&email=" . $userEmail);
+        header("Location: ../sign-up?error=invalidpassword&name=" . $userName . "&email=" . $userEmail);
         exit;
     } else {
         # Create template
@@ -44,7 +44,7 @@ if (isset($_POST['submit'])) {
         # Check if preparing a SQL statement is success
         if (!mysqli_stmt_prepare($stmt, $sql)) {
             # If not, redirect to the sign up page
-            header("Location: ../signup.php?error=sqlerror");
+            header("Location: ../sign-up?error=sqlerror");
             exit;
         } else {
             // Bind the statement
@@ -62,7 +62,7 @@ if (isset($_POST['submit'])) {
             # Check if the username has been used 
             if ($rows > 0) {
                 # If yes, redirect to the sign up page
-                header("Location: ../signup.php?error=emailtaken&name=" . $userName);
+                header("Location: ../sign-up?error=emailtaken&name=" . $userName);
                 exit;
             } else {
                 
@@ -74,7 +74,7 @@ if (isset($_POST['submit'])) {
                 # Check if preparing a SQL statement is success
                 if (!mysqli_stmt_prepare($stmt, $sql)) {
                     # If not, redirect to the sign up page
-                    header("Location: ../signup.php?error=sqlerror");
+                    header("Location: ../sign-up?error=sqlerror");
                     exit;
                 } else {
                     $hashed_password = password_hash($userPassword, PASSWORD_BCRYPT);\
@@ -86,7 +86,7 @@ if (isset($_POST['submit'])) {
                     // Store the user information to the current session
                     $_SESSION['user_email'] = $userEmail;
                     $_SESSION['user_name'] = $userName;
-                    header("Location: ../index.php?signup=success");
+                    header("Location: ../home?signup=success");
                     exit;
                 }
             }
@@ -99,6 +99,6 @@ if (isset($_POST['submit'])) {
     // Close the database connection
     // mysqli_close($conn);
 } else {
-    header("Location: ../signup.php");
+    header("Location: ../sign-up");
     exit;
 }

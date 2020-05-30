@@ -4,9 +4,11 @@ include "./includes/footer.inc.php";
 include "./includes/paging.inc.php";
 include "./includes/service.admin.inc.php";
 include "./includes/tools.php"; // for debug only
+require "./includes/authorization.php";
 require "./styles/index.css.php"; //include CSS Style Sheet
 require "./styles/signin.css.php"; //include CSS Style Sheet
 require "./styles/crud.css.php"; //include CSS Style Sheet
+validateAuthorization();
 session_start();
 $pageNumber = (isset($_GET['page']) ? (int)$_GET['page'] : 1);
 $pageSize = (isset($_GET['size']) ? (int)$_GET['size'] : 7);

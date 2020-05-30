@@ -22,7 +22,7 @@ OUTPUT;
     $nav = <<<"OUTPUT"
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #111 !important;">
-        <a class="navbar-brand ml-4 mr-5" href="./home">Amazorn</a>
+        <a class="navbar-brand ml-4 mr-5" href="/home">Amazorn</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -33,16 +33,16 @@ OUTPUT;
                     <div class="input-group-prepend">
                         <button class="btn  dropdown-toggle" style="background-color: #F8F8F8" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filter</button>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="category?searchKey="">All</a>
-                            <a class="dropdown-item" href="category?searchKey=macbook">MacBook</a>
-                            <a class="dropdown-item" href="category?searchKey=imac">iMac</a>
-                            <a class="dropdown-item" href="category?searchKey=ipad">iPad</a>
-                            <a class="dropdown-item" href="category?searchKey=iphone">iPhone</a>
+                            <a class="dropdown-item" href="/category?searchKey="">All</a>
+                            <a class="dropdown-item" href="/category?searchKey=macbook">MacBook</a>
+                            <a class="dropdown-item" href="/category?searchKey=imac">iMac</a>
+                            <a class="dropdown-item" href="/category?searchKey=ipad">iPad</a>
+                            <a class="dropdown-item" href="/category?searchKey=iphone">iPhone</a>
                         </div>
                     </div>
                     <input class="form-control" name='searchKey' type="search" placeholder="Search" aria-label="Search">
                     <div class="input-group-append">
-                        <button class="btn" style="background-color: #F0C14B "  type="button" id="button-addon2">Search</button>
+                        <button class="btn" style="background-color: #F0C14B "  type="submit" id="button-addon2">Search</button>
                     </div>
                 </div>
                 <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
@@ -58,8 +58,8 @@ OUTPUT;
                 {$_SESSION['user_name']}
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <a class="dropdown-item" href="system">Edit System</a>
-                <a class="dropdown-item" href="includes/signout.inc.php">Sign Out</a>
+                <a class="dropdown-item" href="/system">Edit System</a>
+                <a class="dropdown-item" href="/sign-out">Sign Out</a>
             </div>
         
         
@@ -71,17 +71,17 @@ OUTPUT;
                 {$_SESSION['user_name']}
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <a class="dropdown-item" href="includes/signout.inc.php">Sign Out</a>
+                <a class="dropdown-item" href="/sign-out">Sign Out</a>
             </div>
         OUTPUT;
     } else {
-        $signin = "<a class='nav-link' href='sign-in'>Sign in<span class='sr-only'>(current)</span></a>";
+        $signin = "<a class='nav-link' href='/sign-in'>Sign in<span class='sr-only'>(current)</span></a>";
     }
 
     $rest = <<<"OUTPUT"
                 </li>
                 <li class="nav-item ml-5">
-                    <a class="nav-link" href="cart">Cart</a>
+                    <a class="nav-link" href="/cart">Cart</a>
 
                 </li>
             </ul>
