@@ -8,18 +8,18 @@ require "./styles/product.css.php"; //include CSS Style Sheet
 top_module("Amazorn", true);
 ?>
 
-<?php 
+<?php
 
-    if (isset($_GET['id'])) {
-        try {
-            $product = service_findById('products', $_GET['id']);  
-        } catch (RuntimeException $exception) {
-            echo "Product not found";
-        }
-    } else {
-        header("Location: home");
+if (isset($_GET['id'])) {
+    try {
+        $product = service_findById('products', $_GET['id']);
+    } catch (RuntimeException $exception) {
+        echo "Product not found";
     }
-    $product['descript'] = str_replace('/', '<br>', $product['descript']);
+} else {
+    header("Location: home");
+}
+$product['descript'] = str_replace('/', '<br>', $product['descript']);
 
 ?>
 
@@ -32,6 +32,7 @@ top_module("Amazorn", true);
                 </div>
             </div>
             <div class="col-sm col-md-12 col-lg-7" style="padding: 1rem;">
+                <h3 id="product_id" style="display: none;"><?php echo $product['product_id'] ?></h3>
                 <h3 id="product_name" style="margin-bottom: 1rem;"><?php echo $product['product_name'] ?></h3>
                 <p><?php echo $product['descript'] ?></p>
                 <hr>

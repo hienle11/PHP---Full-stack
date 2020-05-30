@@ -22,6 +22,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if (isset($_POST["cvv"])) {
         $cvvError = validate_cvvNumber($_POST["cvv"]);
     }
+    if ($numberError == "" && $expError == "" && $cvvError == "") {
+        echo  '<script>
+            
+           localStorage.clear();
+        </script>';
+    }
 }
 
 ?>
@@ -52,21 +58,24 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                         </button>
                     </div>
 
-
                     <!-- Modal -->
                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div id="dialog" class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalLabel">Checkout</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
-                                    </button>
+                                    </button> -->
                                 </div>
                                 <div class="modal-body" id="modalBody">
                                     <form id="checkoutForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                                         <div class="form-group" style="text-align:left;">
-                                            <label for="cardNumber" class="small"><b>CardNumber</b></label>
+                                            <label for="address" class="small"><b>Address</b></label>
+                                            <input type="text" id="address" class="form-control" placeholder="Enter your address" name="address">
+                                        </div>
+                                        <div class="form-group" style="text-align:left;">
+                                            <label for="cardNumber" class="small"><b>Card Number</b></label>
                                             <input type="text" id="cardNumber" class="form-control" placeholder="Enter your card number" name="cardNumber">
 
                                             <span class="small" style="color: red;">
@@ -82,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                             </span>
                                         </div>
                                         <div class="form-group" style="text-align:left;">
-                                            <label for="cvvNumber" class="small"><b>CVV Number</b></label>
+                                            <label for="cvvNumber" class="small"><b>CVV</b></label>
                                             <input type="text" id="cvvNumber" class="form-control" placeholder="Enter your cvv number" name="cvv">
 
                                             <span class="small" style="color: red;">
@@ -95,8 +104,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary" onclick="sendForm()">Submit</button>
+                                    <button id="btnCloseModal" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button id="btnSubmitModal" type="button" class="btn btn-primary" onclick="sendForm()">Submit</button>
                                 </div>
                             </div>
                         </div>
@@ -123,13 +132,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         echo 'Successfully';
         echo  '<script>
             
+            let btnSubmitModal = document.getElementById("btnSubmitModal");
             let modalBody = document.getElementById("modalBody");
-            if (modalBody) {
+            if (modalBody && btnSubmitModal) {
                 modalBody.innerHTML = "Checkout Successfully";
+                btnSubmitModal.style="display: none;";
             }
-            localStorage.clear();
         </script>';
     }
 }
-
 ?>
