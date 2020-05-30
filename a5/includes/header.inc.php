@@ -54,7 +54,7 @@ OUTPUT;
     if (isset($_SESSION['user_name']) && isset($_SESSION['is_admin'])) {
         $signin = <<<"OUTPUT"
         <div class="dropdown">
-            <a class="nav-link" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link active" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {$_SESSION['user_name']}
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -82,7 +82,9 @@ OUTPUT;
                 </li>
                 <li class="nav-item ml-5">
                     <a class="nav-link" href="/cart">Cart</a>
-
+                    <div class="popup">
+                        <span class="popuptext" id="myPopup">Item Added</span>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -98,4 +100,3 @@ OUTPUT;
 
     echo $isNav ? ($html . $nav . $signin . $rest) : $html;
 }
-?>

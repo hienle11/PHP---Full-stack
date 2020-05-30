@@ -33,7 +33,7 @@
                     qty: 1
                 };
                 products.push(product);
-
+                popUp();
             } else {
                 let isExist = false;
                 // Check whether the product is added to the cart based on product id
@@ -42,6 +42,7 @@
                     if (id == products[i].id) {
                         if (products[i].qty < 10) {
                             products[i].qty += 1;
+                            popUp();
                         }
                         isExist = true;
                         break;
@@ -61,5 +62,10 @@
             }
             localStorage.setItem('products', JSON.stringify(products));
         }
+    }
+
+    function popUp() {
+        var popup = document.getElementById("myPopup");
+        popup.classList.toggle("show");
     }
 </script>

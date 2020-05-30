@@ -7,6 +7,7 @@
         font-size: 3rem;
         margin-left: 2rem;
     }
+
     ul {
         list-style-type: none;
     }
@@ -53,6 +54,42 @@
         animation: spin 2s linear infinite;
     }
 
+    [type="number"]::-webkit-inner-spin-button,
+    [type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        height: auto;
+    }
+
+    .stepper {
+        border: 1px solid #eee;
+        display: inline-block;
+        overflow: visible;
+        height: 2.1em;
+        background: #fff;
+        padding: 1px;
+    }
+
+    .stepper input {
+        width: 3em;
+        height: 100%;
+        text-align: center;
+        border: 0;
+        background: transparent;
+        color: #000;
+    }
+
+    .stepper button {
+        width: 1.4em;
+        font-weight: 300;
+        height: 100%;
+        line-height: 0.1em;
+        font-size: 1.4em;
+        padding: 0.2em !important;
+        background: #eee;
+        color: #333;
+        border: none;
+    }
+
     @keyframes spin {
         0% {
             transform: rotate(0deg);
@@ -73,12 +110,15 @@
         h5 {
             margin: 0rem 0.5rem !important;
         }
+
         html {
             font-size: 50%;
         }
-        .container-fluid{
+
+        .container-fluid {
             height: 40rem;
         }
     }
 
+    
 </style>
