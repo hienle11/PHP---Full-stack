@@ -61,14 +61,15 @@ try {
                     <h1 class="my-4">iPhone 11</h1>
                 HEADER;
                 break;
-        
+
             default:
                 echo "";
         }
 
         if ($filterResults['numberOfResults'] == 0) {
-            echo "<h5>NO PRODUCTS FOUND! PLEASE TRY AGAIN</h5>";
+            echo "<h5>No products have been found with the given search key. Please try again!</h5>";
         }
+
 
 
         for ($i = 0; $i < $pageSize; $i++) {
